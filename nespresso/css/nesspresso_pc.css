@@ -1,0 +1,270 @@
+@charset "UTF-8";
+/* 네스프레소 pc */
+
+@import url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff');
+/* 눈누 Pretendard-Regular */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* 구글폰트 Noto Serif */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+/* 구글폰트 Noto Sans KR */
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /* outline: 1px solid navy; */
+}
+:root {
+    font-family: "Pretendard-Regular", sans-serif;
+}
+section {
+    width: 1440px;
+    margin: 0 auto;
+}
+section .header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    padding: 15px 93px 15px 84px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #211D14;
+}
+
+/* swiper */
+html,body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: #eee;
+    /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+.swiper {
+    width: 100%;
+    height: 667px;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.swiper-slide {
+    width: 100%;
+    height: 667px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper-slide.one {
+    background-image: url(/nespresso/img/machine02.jpg);
+    background-position-y: 70%;
+}
+.swiper-slide.two {
+    background-image: url(/nespresso/img/capsule01.jpg);
+    background-position-y: 70%;
+}
+.swiper-slide.three {
+    background-image: url(/nespresso/img/maplepecan02.jpeg);
+    background-position-y: 85%;
+}
+.swiper-slide.four {
+    background-image: url(/nespresso/img/coffeebean.jpg);
+    background-position-y: 70%;
+}
+.swiper-slide .slideText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 69px 86px;
+}
+.swiper-slide p {
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+}
+.swiper-slide.one p {
+    color: rgba(255, 255, 255, 0.90);
+}
+.swiper-slide p:first-of-type {
+    font-size: 30px;
+    letter-spacing: -1.5px;
+}
+.swiper-slide p:last-of-type {
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+.swiper-slide .slideButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 178px;
+    height: 38px;
+    padding: 4px 31px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin-top: 29px;
+}
+.swiper-slide.one .slideButton {
+    background: rgba(255, 255, 255, 0.50);
+    color: #D9D9D9;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+}
+.swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+ul.mainMenu {
+    display: flex;
+    gap: 10px;
+}
+ul.mainMenu li {
+    color: #fff;
+    list-style-type: none;
+}
+.menuItem {
+    position: relative;
+    cursor: pointer;
+}
+ul.subMenu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+}
+.sec02 {
+    padding: 50px 0;
+}
+.newArrived {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.newHeader {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+.newHeader h2 {
+    color: #361712;
+    text-align: center;
+    font-family: "Noto Serif";
+    font-size: 50px;
+    font-weight: 500;
+}
+.newHeader p {
+    color: rgba(54, 23, 18, 0.58);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+.infinimant, .maplePecan {
+    display: flex;
+    width: 955px;
+    height: 335px;
+    justify-content: space-between;
+    align-items: center;
+}
+.infinimant .capsule {
+    order: 2;
+    position: relative;
+}
+.infinimant .origin.capsuleText,
+.maplePecan .origin.capsuleText {
+    color: #252525;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+.infinimant .hover.capsuleText,
+.maplePecan .hover.capsuleText {
+    color: #722248;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    display: none;
+}
+.maplePecan .hover.capsuleText {
+    color: #A75B38;
+}
+.infinimant .capsuleInfo {
+    order: 1;
+}
+.infinimant .capsuleInfo,
+.maplePecan .capsuleInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    width: 538px;
+    height: 181px;
+    text-align: center;
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+.infinimant .origin.capsuleInfo {
+    color: #702D4D;
+    background-color: rgba(164, 72, 116, 0.30);
+}
+.maplePecan .origin.capsuleInfo {
+    color: #42291D;
+    background-color: rgba(243, 150, 107, 0.30);
+}
+.infinimant .hover.capsuleInfo,
+.maplePecan .hover.capsuleInfo {   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.infinimant .hover.capsuleInfo {
+    color: #FFDB97;
+    background-color: rgba(164, 72, 116, 0.90);
+}
+.hover.capsuleInfo .infoBold {
+    font-weight: 700;
+}
+.maplePecan .hover.capsuleInfo {
+    color: #42291D;
+    background-color: rgba(243, 150, 107, 0.90);
+}
+.infinimant .hover.capsuleInfo,
+.maplePecan .hover.capsuleInfo {
+    opacity: 0;
+}
+.infinimant:hover .hover.capsuleInfo,
+.maplePecan:hover .hover.capsuleInfo {
+    opacity: 1;
+}
+.infinimant:hover .origin.capsuleInfo, 
+.maplePecan:hover .origin.capsuleInfo {
+    opacity: 0;
+}
+.infinimant:hover .hover.capsuleText,
+.maplePecan:hover .hover.capsuleText {
+    display: flex;
+    justify-content: center;
+}
