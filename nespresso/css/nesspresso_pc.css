@@ -64,19 +64,19 @@ body {
     background-size: cover;
 }
 .swiper-slide.one {
-    background-image: url(/nespresso/img/machine02.jpg);
+    background-image: url(/portpolio/nespresso/img/machine02.jpg);
     background-position-y: 70%;
 }
 .swiper-slide.two {
-    background-image: url(/nespresso/img/capsule01.jpg);
+    background-image: url(/portpolio/nespresso/img/capsule01.jpg);
     background-position-y: 70%;
 }
 .swiper-slide.three {
-    background-image: url(/nespresso/img/maplepecan02.jpeg);
+    background-image: url(/portpolio/nespresso/img/maplepecan02.jpeg);
     background-position-y: 85%;
 }
 .swiper-slide.four {
-    background-image: url(/nespresso/img/coffeebean.jpg);
+    background-image: url(/portpolio/nespresso/img/coffeebean.jpg);
     background-position-y: 70%;
 }
 .swiper-slide .slideText {
