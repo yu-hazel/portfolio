@@ -1,3 +1,4 @@
+// 네스프레소 pc script
 // DOMContentLoaded 이벤트를 이용하여 HTML 문서가 모두 로드된 후에 실행될 코드를 작성합니다.
 document.addEventListener('DOMContentLoaded', function () {
     // Swiper 초기화 코드를 작성합니다.
