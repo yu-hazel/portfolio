@@ -18,7 +18,7 @@
     font-family: "Pretendard-Regular", sans-serif;
 }
 section {
-    width: 1440px;
+    width: 100%;
     margin: 0 auto;
 }
 section .header {
@@ -30,25 +30,24 @@ section .header {
     align-items: center;
     background-color: #211D14;
 }
-
 /* swiper */
 html,body {
     position: relative;
-    height: 100%;
+    /* height: 100%; */
 }
-body {
-    background: #eee;
-    /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+/* body {
+    background: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
     padding: 0;
-}
-.swiper {
+} */
+.swiper.main {
     width: 100%;
     height: 667px;
 }
-.swiper-slide {
+.swiper.main .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -57,50 +56,49 @@ body {
     justify-content: flex-end;
     align-items: flex-start;
 }
-.swiper-slide {
+.swiper.main .swiper-slide {
     width: 100%;
     height: 667px;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.swiper-slide.one {
+.swiper.main .swiper-slide.one {
     background-image: url(/portpolio/nespresso/img/machine02.jpg);
     background-position-y: 70%;
 }
-.swiper-slide.two {
+.swiper.main .swiper-slide.two {
     background-image: url(/portpolio/nespresso/img/capsule01.jpg);
     background-position-y: 70%;
 }
-.swiper-slide.three {
+.swiper.main .swiper-slide.three {
     background-image: url(/portpolio/nespresso/img/maplepecan02.jpeg);
     background-position-y: 85%;
 }
-.swiper-slide.four {
+.swiper.main .swiper-slide.four {
     background-image: url(/portpolio/nespresso/img/coffeebean.jpg);
     background-position-y: 70%;
 }
-.swiper-slide .slideText {
+.swiper.main .swiper-slide .slideText {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: 0 0 69px 86px;
 }
-.swiper-slide p {
+.swiper.main .swiper-slide p {
     font-family: "Noto Sans KR";
     font-weight: 500;
-}
-.swiper-slide.one p {
     color: rgba(255, 255, 255, 0.90);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
-.swiper-slide p:first-of-type {
+.swiper.main .swiper-slide p:first-of-type {
     font-size: 30px;
     letter-spacing: -1.5px;
 }
-.swiper-slide p:last-of-type {
+.swiper.main .swiper-slide p:last-of-type {
     font-size: 20px;
     letter-spacing: -1px;
 }
-.swiper-slide .slideButton {
+.swiper.main .swiper-slide .slideButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,25 +112,49 @@ body {
     letter-spacing: -1px;
     margin-top: 29px;
 }
-.swiper-slide.one .slideButton {
+.swiper.main .swiper-slide.one .slideButton,
+.swiper.main .swiper-slide.two .slideButton {
     background: rgba(255, 255, 255, 0.50);
     color: #D9D9D9;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
 }
-.swiper-slide img {
+.swiper.main .swiper-slide.one .slideButton:hover,
+.swiper.main .swiper-slide.two .slideButton:hover {
+    background: rgba(47, 47, 47, 0.50);
+}
+.swiper.main .swiper-slide.three .slideButton {
+    background: rgba(217, 137, 101, 0.50);
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+.swiper.main .swiper-slide.three .slideButton:hover {
+    background: #D88661;
+}
+.swiper.main .swiper-slide.four .slideButton {
+    background: rgba(153, 64, 26, 0.30);
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+.swiper.main .swiper-slide.four .slideButton:hover {
+    background: rgba(153, 64, 26, 0.80);
+}
+.swiper.main .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.swiper-button-next,
-.swiper-button-prev {
+.swiper.main .swiper-button-next,
+.swiper.main .swiper-button-prev {
     color: #fff;
 }
-.swiper-pagination-bullet-active {
+.swiper.main .swiper-pagination-bullet-active {
     background-color: #fff;
 }
-
+/* swiper end */
 ul.mainMenu {
     display: flex;
     gap: 10px;
@@ -140,6 +162,7 @@ ul.mainMenu {
 ul.mainMenu li {
     color: #fff;
     list-style-type: none;
+    cursor: pointer;
 }
 .menuItem {
     position: relative;
@@ -160,19 +183,21 @@ ul.subMenu {
     align-items: center;
 }
 .newHeader {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2px;
 }
-.newHeader h2 {
+.newHeader h2,
+.bestHeader h2 {
     color: #361712;
     text-align: center;
     font-family: "Noto Serif";
     font-size: 50px;
     font-weight: 500;
 }
-.newHeader p {
+.newHeader p,
+.bestHeader p {
     color: rgba(54, 23, 18, 0.58);
     text-align: center;
     font-size: 16px;
@@ -181,13 +206,21 @@ ul.subMenu {
 .infinimant, .maplePecan {
     display: flex;
     width: 955px;
-    height: 335px;
+    height: 350px;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 .infinimant .capsule {
     order: 2;
-    position: relative;
+}
+.capsule {
+    height: 100%;
+    transition: 0.3s ease;
+}
+.infinimant:hover .capsule,
+.maplePecan:hover .capsule {
+    transform: translateY(-20px);
 }
 .infinimant .origin.capsuleText,
 .maplePecan .origin.capsuleText {
@@ -202,7 +235,7 @@ ul.subMenu {
     font-size: 16px;
     font-weight: 400;
     text-align: center;
-    display: none;
+    /* display: none; */
 }
 .maplePecan .hover.capsuleText {
     color: #A75B38;
@@ -222,7 +255,7 @@ ul.subMenu {
     height: 181px;
     text-align: center;
     position: relative;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
 }
 .infinimant .origin.capsuleInfo {
     color: #702D4D;
@@ -247,6 +280,56 @@ ul.subMenu {
 .hover.capsuleInfo .infoBold {
     font-weight: 700;
 }
+.hover.capsuleInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.hover.capsuleInfo > div {
+    display: flex;
+    justify-content: center;
+    /* width: 227px; */
+    gap: 8px;
+    font-size: 14px;
+    position:relative;
+    margin-left: 31px;
+}
+.infinimant .hover.capsuleInfo > div:first-of-type::before {
+    position: absolute;
+    content: "";
+    width: 31px;
+    height: 21px;
+    background-image: url(/portpolio/nespresso/img/size_infinimant.png);
+    left: -40px;
+    top: -3px;
+}
+.maplePecan .hover.capsuleInfo > div:first-of-type::before {
+    position: absolute;
+    content: "";
+    width: 31px;
+    height: 21px;
+    background-image: url(/portpolio/nespresso/img/size_maple.png);
+    left: -40px;
+    top: -3px;
+}
+.infinimant .hover.capsuleInfo > div:last-of-type::before {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 27px;
+    background-image: url(/portpolio/nespresso/img/aroma_infinimant.png);
+    left: -26px;
+    top: -4px;
+}
+.maplePecan .hover.capsuleInfo > div:last-of-type::before {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 27px;
+    background-image: url(/portpolio/nespresso/img/aroma_maple.png);
+    left: -26px;
+    top: -4px;
+}
 .maplePecan .hover.capsuleInfo {
     color: #42291D;
     background-color: rgba(243, 150, 107, 0.90);
@@ -267,4 +350,100 @@ ul.subMenu {
 .maplePecan:hover .hover.capsuleText {
     display: flex;
     justify-content: center;
+}
+.sec03 {
+    padding: 0 170px;
+}
+.sec03 .best {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 67px 0;
+}
+.bestTab {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.bestSlideSet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 87px;
+    padding: 30px 0 0 0;
+}
+.bestTab div {
+    display: flex;
+    padding: 5px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+}
+/* swiper bestItem */
+.swiper.bestItem {
+    width: 1100px;
+    height: 471px;
+}
+.swiper.bestItem .swiper-slide {
+    width: 100%;
+    height: 369px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 8px;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.swiper.bestItem .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper.bestItem .swiper-slide.best02 img,
+.swiper.bestItem .swiper-slide.best03 img, 
+.swiper.bestItem .swiper-slide.best05 img {
+    display: block;
+    width: 90%;
+    height: 100%;
+    object-fit: contain;
+}
+/* swiper bestItem end */
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+.itemInfo button {
+    margin-top: 5px;
+}
+.swiper.bestItem .swiper-slide > p:first-of-type {
+    font-size: 20px;
+    font-weight: 700;
+}
+.swiper.bestItem .swiper-slide:hover {
+    height: 471px;
+    padding-bottom: 20px;
+}
+.swiper.bestItem .swiper-slide:hover .itemInfo {
+    visibility: visible;
+    opacity: 1;
+}
+.swiper-slide.best01 .itemInfo p:first-of-type,
+.swiper-slide.best02 .itemInfo p:first-of-type,
+.swiper-slide.best03 .itemInfo p:first-of-type {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #585858;
+    font-weight: 400;
 }

@@ -2,7 +2,7 @@
 // DOMContentLoaded 이벤트를 이용하여 HTML 문서가 모두 로드된 후에 실행될 코드를 작성합니다.
 document.addEventListener('DOMContentLoaded', function () {
     // Swiper 초기화 코드를 작성합니다.
-    var swiper = new Swiper(".mySwiper", {
+    var swiper = new Swiper(".main", {
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: {
@@ -18,4 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: ".swiper-button-prev",
         },
     });
+
+    var swiper = new Swiper(".bestItem", {
+        slidesPerView: 3.5,
+        spaceBetween: 60,
+        freeMode: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
 });
+});
+
+
