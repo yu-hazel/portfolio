@@ -1,12 +1,14 @@
 @charset "UTF-8";
 /* 네스프레소 pc */
 
-@import url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff');
-/* 눈누 Pretendard-Regular */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/* 구글폰트 Noto Serif */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 /* 구글폰트 Noto Sans KR */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* 구글폰트 Noto Serif */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+/* 눈누 Pretendard */
 
 * {
     margin:0;
@@ -15,7 +17,7 @@
     /* outline: 1px solid navy; */
 }
 :root {
-    font-family: "Pretendard-Regular", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
 }
 section {
     width: 100%;
@@ -33,16 +35,7 @@ section .header {
 /* swiper */
 html,body {
     position: relative;
-    /* height: 100%; */
 }
-/* body {
-    background: #fff;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-} */
 .swiper.main {
     width: 100%;
     height: 667px;
@@ -173,6 +166,7 @@ ul.subMenu {
     position: absolute;
     list-style-type: none;
 }
+
 .sec02 {
     padding: 50px 0;
 }
@@ -249,8 +243,9 @@ ul.subMenu {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
+    line-height: 25px;
     width: 538px;
     height: 181px;
     text-align: center;
@@ -290,7 +285,7 @@ ul.subMenu {
     justify-content: center;
     /* width: 227px; */
     gap: 8px;
-    font-size: 14px;
+    font-size: 20px;
     position:relative;
     margin-left: 31px;
 }
@@ -301,7 +296,7 @@ ul.subMenu {
     height: 21px;
     background-image: url(/portpolio/nespresso/img/size_infinimant.png);
     left: -40px;
-    top: -3px;
+    top: 0px;
 }
 .maplePecan .hover.capsuleInfo > div:first-of-type::before {
     position: absolute;
@@ -310,7 +305,7 @@ ul.subMenu {
     height: 21px;
     background-image: url(/portpolio/nespresso/img/size_maple.png);
     left: -40px;
-    top: -3px;
+    top: 0px;
 }
 .infinimant .hover.capsuleInfo > div:last-of-type::before {
     position: absolute;
@@ -319,7 +314,7 @@ ul.subMenu {
     height: 27px;
     background-image: url(/portpolio/nespresso/img/aroma_infinimant.png);
     left: -26px;
-    top: -4px;
+    top: 0px;
 }
 .maplePecan .hover.capsuleInfo > div:last-of-type::before {
     position: absolute;
@@ -328,7 +323,7 @@ ul.subMenu {
     height: 27px;
     background-image: url(/portpolio/nespresso/img/aroma_maple.png);
     left: -26px;
-    top: -4px;
+    top: 0px;
 }
 .maplePecan .hover.capsuleInfo {
     color: #42291D;
@@ -351,19 +346,54 @@ ul.subMenu {
     display: flex;
     justify-content: center;
 }
+
 .sec03 {
     padding: 0 170px;
+    background-color: #e8e4dc1a;
+    border-top: 1px solid #ccc;
 }
 .sec03 .best {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 67px 0;
+    padding-top: 67px;
+    height: 780px;
 }
-.bestTab {
+.bestSlideSet {
+    width: 100%;
+}
+.bestWrap {
     display: flex;
     justify-content: center;
     gap: 20px;
+    position: relative;
+    width: 100%;
+}
+.bestWrap input[type="radio"] {
+    display: none;
+}
+.bestWrap label {
+    display: flex;
+    width: auto;
+    padding: 5px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+}
+.bestWrap > div > div {
+    /* background: #ccc; */
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.bestWrap input[type="radio"]:checked + label + div {
+    display: block;
+}
+.bestWrap input[type="radio"]:checked + label {
+    background-color: rgba(0, 0, 0, 0.50);
+    color: #fff;
 }
 .bestSlideSet {
     display: flex;
@@ -372,18 +402,11 @@ ul.subMenu {
     gap: 87px;
     padding: 30px 0 0 0;
 }
-.bestTab div {
-    display: flex;
-    padding: 5px 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 35px;
-    border: 1px solid rgba(0, 0, 0, 0.50);
-}
 /* swiper bestItem */
 .swiper.bestItem {
-    width: 1100px;
+    width: 100%;
     height: 481px;
+    margin-top: 28px;
 }
 .swiper.bestItem .swiper-slide {
     width: 100%;
@@ -401,17 +424,13 @@ ul.subMenu {
 }
 .swiper.bestItem .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.swiper.bestItem .swiper-slide.best02 img,
-.swiper.bestItem .swiper-slide.best03 img, 
-.swiper.bestItem .swiper-slide.best05 img {
-    display: block;
-    width: 90%;
-    height: 100%;
+    width: 243px;
+    height: 318px;
     object-fit: contain;
+}
+.swiper.bestItem.coffee .swiper-slide img {
+    width: 243px;
+    height: 227px;
 }
 .itemInfo {
     display: flex;
@@ -427,8 +446,8 @@ ul.subMenu {
     margin-top: 5px;
 }
 .swiper.bestItem .swiper-slide > p:first-of-type {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 600;
 }
 .swiper.bestItem .swiper-slide:hover {
     height: 90%;
@@ -438,13 +457,27 @@ ul.subMenu {
     visibility: visible;
     opacity: 1;
 }
-.swiper-slide.best01 .itemInfo p:first-of-type,
-.swiper-slide.best02 .itemInfo p:first-of-type,
-.swiper-slide.best03 .itemInfo p:first-of-type {
+.swiper-slide .itemInfo p {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+}
+.machine .swiper-slide.best01 .itemInfo p:first-of-type,
+.machine .swiper-slide.best02 .itemInfo p:first-of-type,
+.machine .swiper-slide.best03 .itemInfo p:first-of-type {
     text-decoration: line-through;
     font-size: 14px;
     color: #585858;
     font-weight: 400;
+}
+.swiper.bestItem.coffee .swiper-slide p:first-of-type {
+    font-size: 24px;
+}
+.swiper.bestItem.coffee .swiper-slide p:nth-of-type(2) {
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 8px 0;
 }
 .itemInfo button {
     display: flex;
@@ -460,5 +493,71 @@ ul.subMenu {
     font-weight: 700;
     background: rgba(54, 23, 18, 0.80);
     transition: 0.3s;
+    border: 0;
+    outline: 0;
+}
+.itemInfo button:hover {
+    background: rgba(54, 23, 18, 0.60);
+}
+.swiper.bestItem .swiper-pagination-bullet-active {
+    background-color: #585858;
 }
 /* swiper bestItem end */
+section .sec04 {
+    width: 100%;
+    /* height: 300px; */
+}
+.sec04 .longBanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    color: #fff;
+    width: 100%;
+    height: 300px;
+    background-image: url(/portpolio/nespresso/img/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sec04 .longBanner .bannerText {
+    display: flex;
+    height: 130px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 13px;
+    transition: 0.3s;
+}
+.sec04:hover .bannerText {
+    height: 190px;
+}
+.sec04 .longBanner h2 {
+    font-size: 55px;
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.sec04 .longBanner p {
+    font-size: 35px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 500;
+}
+.sec04 .longBanner a {
+    width: 153px;
+    height: 50px;
+    display: flex;
+    padding: 10px 30px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.80);
+    color: #3C3C3C;
+    font-size: 24px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.sec04 .longBanner a:hover {
+    background: rgba(255, 255, 255, 0.50);
+}

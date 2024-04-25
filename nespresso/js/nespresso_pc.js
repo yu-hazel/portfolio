@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     var swiper = new Swiper(".bestItem", {
-        slidesPerView: 3.5,
+        slidesPerView: 4,
         spaceBetween: 50,
         freeMode: true,
         // 내 css가 먹히기 위해  .. ...
