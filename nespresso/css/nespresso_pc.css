@@ -7,6 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /* 구글폰트 Noto Serif */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Serif+KR&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* 구글폰트 Noto Serif KR */
+
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 /* 눈누 Pretendard */
 
@@ -15,6 +18,9 @@
     padding:0;
     box-sizing: border-box;
     /* outline: 1px solid navy; */
+}
+body {
+    min-width: 1430px;
 }
 :root {
     font-family: 'Pretendard Variable', sans-serif;
@@ -148,25 +154,59 @@ html,body {
     background-color: #fff;
 }
 /* swiper end */
-ul.mainMenu {
+.sec01 .header .menuSet {
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
-ul.mainMenu li {
-    color: #fff;
-    list-style-type: none;
-    cursor: pointer;
-}
-.menuItem {
+/* .menuSet {
     position: relative;
+} */
+.mainMenu {
+    position: relative;
+}
+.menuSet .mainMenu .menuItem,
+.mainMenu {
+    font-size: 20px;
     cursor: pointer;
 }
-ul.subMenu {
+.menuSet .mainMenu .menuItem,
+.menuSet .mainMenu {
+    color: #fff;
+}
+.menuSet .mainMenu {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.menuSet .mainMenu .subMenu {
     display: none;
     position: absolute;
-    list-style-type: none;
+    left: 0;
+    top: 60px;
+    z-index: 10;
 }
-
+.menuSet .mainMenu .subMenu li {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    transition: 0.2s;
+}
+.menuSet .mainMenu .subMenu li:hover {
+    color: rgba(217, 217, 225, 0.8);
+}
+.mainMenu:hover .subMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    padding: 30px 20px 20px 20px;
+    border-radius: 10px;
+    background-color: #211D14;
+}
+.menuSet .mainMenu:hover .menuItem,
+.menuSet .mainMenu:hover {
+    color: rgb(217, 217, 225);
+}
 .sec02 {
     padding: 50px 0;
 }
@@ -560,4 +600,209 @@ section .sec04 {
 }
 .sec04 .longBanner a:hover {
     background: rgba(255, 255, 255, 0.50);
+}
+.sec05 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background: #ccc; */
+    padding: 50px 0;
+}
+.sec05 .choi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+.sec05 .choi .choiHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.sec05 .choi .choiHeader h2 {
+    font-family: 'Noto Serif KR';
+    color: #361712;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.sec05 .choi .choiHeader span {
+    font-family: 'Pretendard Variable';
+    font-weight: 400;
+}
+.sec05 .choi .choiHeader p {
+    color: rgba(54, 23, 18, 0.58);
+    font-size: 20px;
+    font-weight: 500;
+}
+.sec05 .swiper.collabo {
+    width: 1355px;
+    height: 510px;
+}
+.sec05 .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 461px; */
+}
+.sec05 .swiper-slide img {
+    width: 461px;
+    height: 332px;
+}
+.sec05 .monthTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+.sec05 .monthTitle h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+.sec05 .monthTitle p {
+    font-size: 20px;
+    font-weight: 400;
+}
+.sec05 .monthTitle a {
+    text-decoration: none;
+    color: rgba(54, 23, 18, 0.80);
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+}
+.sec05 .monthTitle a::after {
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    content: '';
+    display: block;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+.sec05 .monthTitle a:hover::after {
+    background-color: rgba(54, 23, 18, 0.80);
+}
+.sec06 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 50px;
+    border-top: 1px solid #ccc;
+}
+.sec06 .additionalFrame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 100px;
+}
+.sec06 .additional {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+.fa-regular, .far, .fa-solid {
+    font-size: 70px;
+    color: rgba(54, 23, 18, 0.80);
+}
+.sec06 .additional h3 {
+    color: #361712;
+    font-size: 24px;
+    font-weight: 700;
+}
+.sec06 .additional p {
+    color: #361712;
+    font-size: 16px;
+    font-weight: 500;
+}
+.sec06 .additional a {
+    display: flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.80);
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.sec06 .additional a:hover {
+    background: rgba(0, 0, 0, 0.50);
+}
+footer {
+    width: 100%;
+    height: 40px;
+}
+footer .footerRow {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #faf9f8;
+}
+footer .socialGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+footer .socialGroup .fa-brands {
+    font-size: 20px;
+    cursor: pointer;
+}
+footer .pageTop {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+footer .pageTop .fa-solid {
+    color: #000;
+    font-size: 14px;
+}
+footer .copyright {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+footer .copyright img {
+    object-fit: cover;
+}
+footer .copyright p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6f6f70;
+}
+footer .bottomTab {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 0;
+}
+footer .bottomTab .footerKR {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 60%;
+    list-style-type: none;
+    font-size: 12px;
+    color: #000;
+}
+footer .bottomTab .footerKR a {
+    text-decoration: none;
+    color: #5e2d26;
 }
