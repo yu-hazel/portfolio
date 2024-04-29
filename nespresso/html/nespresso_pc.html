@@ -8,32 +8,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="/portpolio/nespresso/css/nespresso_pc.css">
     <link rel="stylesheet" media="all and (max-width:1429px)" href="/portpolio/nespresso/css/nespresso_tab.css">
+    <link rel="stylesheet" media="all and (max-width:767px)" href="/portpolio/nespresso/css/nespresso_mobile.css">
 </head>
 
 <body>
     <section class="sec01">
         <div class="header">
             <img src="/portpolio/nespresso/img/logo_crop.png" alt="logo">
+            <i class="fa-solid fa-bars hamburger" onclick="toggleMenu()"></i>
             <div class="menuSet">
                 <div class="mainMenu">
-                    <div class="menuItem">COFFEE</div>
-                    <ul class="subMenu">
+                    <div class="menuItem"><a href="#coffee">COFFEE</a></div>
+                    <ul class="subMenu" id="coffee">
                         <li>버츄오</li>
                         <li>오리지널</li>
                         <li>정기 주문</li>
                     </ul>
                 </div>
                 <div class="mainMenu">
-                    <div class="menuItem">MACHINE</div>
-                    <ul class="subMenu">
+                    <div class="menuItem"><a href="#machine">MACHINE</a></div>
+                    <ul class="subMenu" id="machine">
                         <li>버츄오</li>
                         <li>오리지널</li>
                         <li>페이백 신청</li>
                     </ul>
                 </div>
                 <div class="mainMenu">
-                    <div class="menuItem">ACC</div>
-                    <ul class="subMenu">
+                    <div class="menuItem"><a href="#acc">ACC</a></div>
+                    <ul class="subMenu" id="acc">
                         <li>우유 거품기</li>
                         <li>푸드&바이트</li>
                         <li>머신 부속품</li>
@@ -43,6 +45,7 @@
                 <div class="mainMenu">PROMOTION</div>
                 <div class="mainMenu">FOR CLUB</div>
                 <div class="mainMenu">SIGN IN</div>
+                <i class="fa-solid fa-xmark menuClose" onclick="closeMenu()"></i>
             </div>
         </div>
         <div class="mainCarousel">
@@ -93,6 +96,28 @@
             <div class="newHeader">
                 <h2>NEW ARRIVED</h2>
                 <p>봄바람을 타고 온 시즌 한정 커피</p>
+            </div>
+            <div class="new_mobile">
+                <div class="maple_mobile">
+                    <img src="/portpolio/nespresso/img/maple_mo.png" alt="메이플 모바일">
+                    <div class="newInfo">
+                        <h4>메이플 피칸향 커피</h4>
+                        <p>
+                            달콤한 봄에 어울리는 한 모금을 만나 보세요
+                            <span>더 알아보기</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="infinimant_mobile">
+                    <img src="/portpolio/nespresso/img/infinimant_mo.png" alt="인피니망 모바일">
+                    <div class="newInfo">
+                        <h4>인피니망 프뤼테</h4>
+                        <p>
+                            파티세리 명장 피에르 에르메의 라즈베리향 커피
+                            <span>더 알아보기</span>
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="infinimant">
                 <div class="capsule">
@@ -397,7 +422,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="swiper-pagination"></div> -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>

@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* 네스프레소 mobile */
+
+body {
+    min-width: 670px;
+}
+section .header {
+    padding: 10px 10px;
+}
+.swiper.main {
+    height: 400px;
+}
+.swiper.main .swiper-slide {
+    height: 400px;
+}
+.swiper.main .swiper-slide p:first-of-type {
+    font-size: 24px;
+}
+.swiper.main .swiper-slide p:last-of-type {
+    font-size: 16px;
+}
+.swiper.main .swiper-slide .slideText {
+    margin: 0 0 40px 40px;
+}
+.swiper.main .swiper-slide .slideButton {
+    width: 120px;
+    height: 30px;
+    padding: 4px 20px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.swiper.main .swiper-button-next,
+.swiper.main .swiper-button-prev {
+    display: none;
+}
+.sec02 {
+    padding: 50px 20px;
+}
+.sec02 .newArrived {
+    width: 100%;
+    gap: 35px;
+}
+.sec02 .new_mobile {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+.sec02 .new_mobile img {
+    width: 100%;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.sec02 .newArrived .infinimant,
+.sec02 .newArrived .maplePecan {
+    display: none;
+}
+.sec02 .newArrived .new_mobile h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.sec02 .newArrived .new_mobile p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.sec02 .newArrived .new_mobile p span {
+    cursor: pointer;
+    font-size: 16px;
+    color: #9B9B9B;
+}
+
+/* .infinimant, .maplePecan {
+    padding: 0 35px;
+    width: 100%;
+}
+.infinimant .capsuleInfo, .maplePecan .capsuleInfo {
+    font-size: 16px;
+}
+.hover.capsuleInfo > div {
+    font-size: 16px;
+} */
+.sec03 {
+    padding: 0 20px;
+}
+.sec04 .longBanner {
+    height: 200px;
+}
+.sec04 .longBanner .bannerText {
+    height: 80px;
+}
+.sec04:hover .bannerText {
+    height: 130px;
+}
+.sec04 .longBanner h2 {
+    font-size: 32px;
+}
+.sec04 .longBanner p {
+    font-size: 18px;
+}
+.sec04 .longBanner a {
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 120px;
+    height: 30px;
+}
+.sec05 {
+    padding: 50px 20px;
+}
+.sec05 .choi {
+    gap: 30px;
+}
+.sec05 .choi .choiHeader h2 {
+    font-size: 36px;
+}
+.sec05 .choi .choiHeader p {
+    font-size: 14px;
+    text-align: center;
+}
+.sec05 .swiper.collabo {
+    height: 430px;
+}
+.sec05 .swiper-slide img {
+    width: 323px;
+    height: 232px;
+}
+.sec05 .monthTitle h3 {
+    font-size: 24px;
+}
+.sec05 .monthTitle p {
+    font-size: 14px;
+}
+/* .sec05 .swiper-slide {
+    width: 150px;
+} */
+/* .sec05 .swiper.collabo .swiper-pagination {
+    display: block;
+}
+.sec05 .swiper.collabo .swiper-pagination-bullet-active {
+    background: var(--swiper-theme-color);
+    --swiper-theme-color: #585858;
+} */
+.sec06 {
+    padding: 40px 20px;
+}
+.sec06 .additionalFrame {
+    gap: 40px;
+}
+.sec06 .additional p {
+    font-size: 12px;
+}
+footer .footerRow {
+    padding: 10px 30px;
+    height: auto;
+    column-gap: 20px;
+    row-gap: 10px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

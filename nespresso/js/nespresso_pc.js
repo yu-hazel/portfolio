@@ -28,8 +28,40 @@ document.addEventListener('DOMContentLoaded', function () {
             el: ".swiper-pagination",
             clickable: true,
         },
+        breakpoints: {
+            360: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            
+            758: {
+                slidesPerView: 2.5,
+                spaceBetween: 20,
+            },
+            1430: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+            },
+        },
 });
 });
+
+// 햄버거 버튼을 클릭했을 때 메뉴를 토글하는 함수
+function toggleMenu() {
+    var menu = document.querySelector(".menuSet");
+    menu.classList.toggle("show");
+}
+
+// 닫기 버튼을 클릭했을 때 메뉴를 숨기는 함수
+function closeMenu() {
+    var menu = document.querySelector(".menuSet");
+    menu.classList.remove("show");
+
+    // var subMenus = document.querySelectorAll('.subMenu');
+    // subMenus.forEach(function(menu) {
+    //     menu.style.display = 'none';
+    // });
+}
 
 var swiper = new Swiper(".collabo", {
     slidesPerView: 2.5,
@@ -39,18 +71,18 @@ var swiper = new Swiper(".collabo", {
         clickable: true,
     },
     breakpoints: {
-        // 640: {
-        //     slidesPerView: 2,
-        //     spaceBetween: 20,
-        // },
-        // 768: {
-        //     slidesPerView: 4,
-        //     spaceBetween: 40,
-        // },
-        // 1024: {
-        //     slidesPerView: 5,
-        //     spaceBetween: 50,
-        // },
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+        },
+        758: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+        },
+        1430: {
+            slidesPerView: 2.5,
+            spaceBetween: 50,
+        },
     },
 });
 

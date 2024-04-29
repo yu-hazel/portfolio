@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /* 네스프레소 tab */
+/* * {
+    outline: 1px solid cornflowerblue;
+} */
 
 body {
     min-width: 630px;
@@ -7,6 +10,125 @@ body {
 body, section, .header, .sec02, .sec03, .sec04, .sec05, .sec06, footer, .choi,
 .swiper-wrapper, .sec05 .swiper.collabo {
     width: 100%
+}
+section .header {
+    padding: 15px 30px;
+    position: relative;
+}
+.sec01 .header .menuSet {
+    display: none;
+}
+.sec01 .header .hamburger {
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    right: 35px;
+    cursor: pointer;
+}
+.sec01 .menuSet.show {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    /* height: auto; */
+    background-color: #211D14;
+    z-index: 30;
+}
+.sec01 .header .menuClose {
+    display: block;
+    position: absolute;
+    bottom: 100px;
+    left: 30px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+/* .menuSet .mainMenu {
+    flex-direction: column;
+} */
+.menuSet .mainMenu .subMenu {
+    display: none;
+    position: relative;
+    top: 0;
+    right: -20px;
+}
+.menuSet .mainMenu .menuItem,
+.mainMenu {
+    font-size: 20px;
+    position: relative;
+}
+.menuSet .mainMenu .subMenu li {
+    font-size: 18px;
+}
+.mainMenu:hover .subMenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    padding: 0;
+    border-radius: 10px;
+    background-color: #211D14;
+}
+.sec01 .header .subMenu:target {
+    position: absolute;
+    display: block;
+    left: 100px;
+    width: 120px;
+    background-color: #211D14;
+}
+/* .swiper.main .swiper-slide {
+    height: 600px;
+} */
+.swiper.main {
+    height: 500px;
+}
+.swiper.main .swiper-slide {
+    height: 500px;
+}
+.swiper.main .swiper-slide p:first-of-type {
+    font-size: 24px;
+}
+.swiper.main .swiper-slide p:last-of-type {
+    font-size: 16px;
+}
+.swiper.main .swiper-slide .slideText {
+    margin: 0 0 40px 40px;
+}
+.swiper.main .swiper-button-next,
+.swiper.main .swiper-button-prev {
+    display: none;
+}
+.newArrived {
+    width: 100%;
+}
+.infinimant, .maplePecan {
+    width: 100%;
+    padding: 0 20px;
+    height: 270px;
+    justify-content: center;
+    gap: 20px;
+}
+.sec02 .capsule {
+    width: 250px;
+    height: 300px;
+}
+.sec02 .capsule img {
+    width: 100%;
+}
+.infinimant .capsuleInfo,
+.maplePecan .capsuleInfo {
+    width: 450px;
+    font-size: 16px;
+}
+.hover.capsuleInfo > div {
+    font-size: 16px;
 }
 .sec03 {
     padding: 0 50px;
@@ -17,21 +139,56 @@ body, section, .header, .sec02, .sec03, .sec04, .sec05, .sec06, footer, .choi,
 .swiper.bestItem .swiper-slide img {
     width: 100%;
 }
+.sec04 .longBanner {
+    height: 200px;
+}
 .sec04 .longBanner .bannerText {
-    height: 100px;
+    height: 90px;
 }
 .sec04 .longBanner h2 {
-    font-size: 40px;
-}
-.sec04 .longBanner p {
     font-size: 32px;
 }
+.sec04 .longBanner p {
+    font-size: 24px;
+}
+.sec04 .longBanner a {
+    font-size: 18px;
+    width: auto;
+    height: auto;
+}
 .sec04:hover .bannerText {
-    height: 180px;
+    height: 140px;
+}
+.sec05 .choi .choiHeader h2 {
+    font-size: 44px;
+}
+.sec05 .swiper.collabo .swiper-pagination {
+    display: block;
+}
+.sec05 .swiper.collabo .swiper-pagination-bullet-active {
+    background: var(--swiper-theme-color);
+    --swiper-theme-color: #585858;
+}
+.sec05 .swiper-slide img {
+    width: 411px;
+    height: 296px;
 }
 .sec05 .monthTitle h3 {
     font-size: 26px;
 }
 .sec05 .monthTitle p {
     font-size: 16px;
+}
+.fa-regular,
+.fa-solid {
+    font-size: 60px;
+}
+.sec06 .additionalFrame {
+    gap: 50px;
+}
+.sec06 .additional h3 {
+    font-size: 18px;
+}
+.sec06 .additional p {
+    font-size: 14px;
 }

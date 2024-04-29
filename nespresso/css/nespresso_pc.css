@@ -170,7 +170,9 @@ html,body {
     cursor: pointer;
 }
 .menuSet .mainMenu .menuItem,
-.menuSet .mainMenu {
+.menuSet .mainMenu,
+.menuItem a {
+    text-decoration: none;
     color: #fff;
 }
 .menuSet .mainMenu {
@@ -207,8 +209,17 @@ html,body {
 .menuSet .mainMenu:hover {
     color: rgb(217, 217, 225);
 }
+.sec01 .header .hamburger {
+    display: none;
+}
+.sec01 .header .menuClose {
+    display: none;
+}
 .sec02 {
     padding: 50px 0;
+}
+.sec02 .new_mobile {
+    display: none;
 }
 .newArrived {
     display: flex;
@@ -649,6 +660,9 @@ section .sec04 {
     justify-content: center;
     align-items: center;
     /* width: 461px; */
+}
+.sec05 .swiper.collabo .swiper-pagination {
+    display: none;
 }
 .sec05 .swiper-slide img {
     width: 461px;
