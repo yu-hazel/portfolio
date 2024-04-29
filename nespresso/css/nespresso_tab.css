@@ -26,7 +26,7 @@ section .header {
     right: 35px;
     cursor: pointer;
 }
-.sec01 .menuSet.show {
+.sec01 .accordion.show {
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -39,18 +39,57 @@ section .header {
     background-color: #211D14;
     z-index: 30;
 }
+.accordion .onedepth {
+    font-size: 2rem;
+    color: #fff;
+    padding: 20px;
+    cursor: pointer;
+}
+.accordion .onedepth:hover {
+    color:  rgba(250, 250, 250, 0.6);
+}
+.accordion input[id*="menu"] {
+    display: none;
+}
+.accordion input[id*="menu"] + label {
+    display: block;
+    padding: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+.accordion input[id*="menu"] + label:hover {
+    color:  rgba(250, 250, 250, 0.6);
+}
+.accordion input[id*="menu"] + label + div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 40px;
+    color: #fff;
+    font-size: 1.3rem;
+    max-height: 0;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+.accordion input[id*="menu"] + label + div span {
+    cursor: pointer;
+}
+.accordion input[id*="menu"] + label + div span:hover {
+    color: rgba(250, 250, 250, 0.6);
+}
+.accordion input[id*="menu"]:checked + label + div {
+    max-height: 300px;
+}
 .sec01 .header .menuClose {
     display: block;
     position: absolute;
     bottom: 100px;
-    left: 30px;
+    left: 50px;
     color: #fff;
     font-size: 30px;
     cursor: pointer;
 }
-/* .menuSet .mainMenu {
-    flex-direction: column;
-} */
 .menuSet .mainMenu .subMenu {
     display: none;
     position: relative;
@@ -191,4 +230,7 @@ section .header {
 }
 .sec06 .additional p {
     font-size: 14px;
+}
+.sec06 .footerRow .pageTop p {
+    margin: 0;
 }

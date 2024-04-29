@@ -161,6 +161,9 @@ html,body {
 /* .menuSet {
     position: relative;
 } */
+.sec01 .accordion {
+    display: none;
+}
 .mainMenu {
     position: relative;
 }

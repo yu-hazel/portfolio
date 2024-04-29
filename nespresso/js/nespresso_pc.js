@@ -32,13 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
             360: {
                 slidesPerView: 2,
                 spaceBetween: 20,
-            },
-            
-            758: {
-                slidesPerView: 2.5,
+            },          
+            907: {
+                slidesPerView: 3,
                 spaceBetween: 20,
             },
-            1430: {
+            1175: {
+                slidesPerView: 3.5,
+                spaceBetween: 20,
+            },
+            1500: {
                 slidesPerView: 4,
                 spaceBetween: 50,
             },
@@ -48,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 햄버거 버튼을 클릭했을 때 메뉴를 토글하는 함수
 function toggleMenu() {
-    var menu = document.querySelector(".menuSet");
+    var menu = document.querySelector(".accordion");
     menu.classList.toggle("show");
 }
 
 // 닫기 버튼을 클릭했을 때 메뉴를 숨기는 함수
 function closeMenu() {
-    var menu = document.querySelector(".menuSet");
+    var menu = document.querySelector(".accordion");
     menu.classList.remove("show");
 
     // var subMenus = document.querySelectorAll('.subMenu');
@@ -79,7 +82,7 @@ var swiper = new Swiper(".collabo", {
             slidesPerView: 2,
             spaceBetween: 50,
         },
-        1430: {
+        1300: {
             slidesPerView: 2.5,
             spaceBetween: 50,
         },
