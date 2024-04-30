@@ -5,10 +5,15 @@ body {
     min-width: 360px;
 }
 section .header {
+    height: 50px;
     padding: 10px 10px;
+}
+section .header img {
+    height: 30px;
 }
 .sec01 .header .hamburger {
     font-size: 24px;
+    right: 20px;
 }
 .sec01 .accordion {
     width: 100%;
@@ -18,6 +23,12 @@ section .header {
 }
 .swiper.main .swiper-slide {
     height: 400px;
+}
+.swiper.main .swiper-slide.one {
+    background-position-x: 50%;
+}
+.swiper.main .swiper-slide.three {
+    background-position-x: 35%;
 }
 .swiper.main .swiper-slide p:first-of-type {
     font-size: 20px;
@@ -107,14 +118,15 @@ section .header {
     font-size: 18px;
 }
 .sec04 .longBanner {
-    height: 200px;
+    height: 130px;
 }
 .sec04 .longBanner .bannerText {
-    height: 60px;
+    height: auto;
+    gap: 8px;
 }
-.sec04:hover .bannerText {
+/* .sec04:hover .bannerText {
     height: 110px;
-}
+} */
 .sec04 .longBanner h2 {
     font-size: 24px;
 }
@@ -134,7 +146,7 @@ section .header {
     gap: 30px;
 }
 .sec05 .choi .choiHeader h2 {
-    font-size: 34px;
+    font-size: 32px;
 }
 .sec05 .choi .choiHeader p {
     font-size: 14px;
