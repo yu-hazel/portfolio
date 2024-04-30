@@ -2,10 +2,16 @@
 /* 네스프레소 mobile */
 
 body {
-    min-width: 670px;
+    min-width: 360px;
 }
 section .header {
     padding: 10px 10px;
+}
+.sec01 .header .hamburger {
+    font-size: 24px;
+}
+.sec01 .accordion {
+    width: 100%;
 }
 .swiper.main {
     height: 400px;
@@ -14,15 +20,16 @@ section .header {
     height: 400px;
 }
 .swiper.main .swiper-slide p:first-of-type {
-    font-size: 24px;
+    font-size: 20px;
 }
 .swiper.main .swiper-slide p:last-of-type {
-    font-size: 16px;
+    font-size: 14px;
 }
 .swiper.main .swiper-slide .slideText {
-    margin: 0 0 40px 40px;
+    margin: 0 0 60px 20px;
 }
 .swiper.main .swiper-slide .slideButton {
+    display: none;
     width: 120px;
     height: 30px;
     padding: 4px 20px;
@@ -40,6 +47,9 @@ section .header {
     width: 100%;
     gap: 35px;
 }
+.newHeader h2, .bestHeader h2 {
+    font-size: 36px;
+}
 .sec02 .new_mobile {
     display: flex;
     width: 100%;
@@ -56,18 +66,18 @@ section .header {
     display: none;
 }
 .sec02 .newArrived .new_mobile h4 {
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 5px;
 }
 .sec02 .newArrived .new_mobile p {
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 14px;
     margin-bottom: 20px;
 }
 .sec02 .newArrived .new_mobile p span {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
     color: #9B9B9B;
 }
 
@@ -84,20 +94,32 @@ section .header {
 .sec03 {
     padding: 0 20px;
 }
+.bestWrap {
+    gap: 15px;
+}
+.bestWrap label {
+    padding: 5px 15px;
+}
+.swiper.bestItem.coffee .swiper-slide img {
+    width: 100%;
+}
+.sec03 .swiper.bestItem .swiper-slide > p:first-of-type {
+    font-size: 18px;
+}
 .sec04 .longBanner {
     height: 200px;
 }
 .sec04 .longBanner .bannerText {
-    height: 80px;
+    height: 60px;
 }
 .sec04:hover .bannerText {
-    height: 130px;
+    height: 110px;
 }
 .sec04 .longBanner h2 {
-    font-size: 32px;
+    font-size: 24px;
 }
 .sec04 .longBanner p {
-    font-size: 18px;
+    font-size: 14px;
 }
 .sec04 .longBanner a {
     font-size: 16px;
@@ -112,7 +134,7 @@ section .header {
     gap: 30px;
 }
 .sec05 .choi .choiHeader h2 {
-    font-size: 36px;
+    font-size: 34px;
 }
 .sec05 .choi .choiHeader p {
     font-size: 14px;
@@ -145,6 +167,7 @@ section .header {
     padding: 40px 20px;
 }
 .sec06 .additionalFrame {
+    flex-direction: column;
     gap: 40px;
 }
 .sec06 .additional p {
@@ -158,4 +181,10 @@ footer .footerRow {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+}
+footer .bottomTab .footerKR {
+    width: auto;
+}
+footer .bottomTab .footerKR li {
+    text-align: center;
 }

@@ -1,7 +1,7 @@
 // 네스프레소 pc script
-// DOMContentLoaded 이벤트를 이용하여 HTML 문서가 모두 로드된 후에 실행될 코드를 작성합니다.
+// DOMContentLoaded 이벤트를 이용하여 HTML 문서가 모두 로드된 후에 실행될 코드
 document.addEventListener('DOMContentLoaded', function () {
-    // Swiper 초기화 코드를 작성합니다.
+    // Swiper 초기화 코드
     var swiper = new Swiper(".main", {
         spaceBetween: 30,
         centeredSlides: true,
@@ -30,20 +30,28 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         breakpoints: {
             360: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+            },          
+            470: {
                 slidesPerView: 2,
                 spaceBetween: 20,
             },          
-            907: {
+            710: {
+                slidesPerView: 2.5,
+                spaceBetween: 20,
+            },
+            910: {
                 slidesPerView: 3,
                 spaceBetween: 20,
             },
-            1175: {
+            1130: {
                 slidesPerView: 3.5,
                 spaceBetween: 20,
             },
-            1500: {
+            1400: {
                 slidesPerView: 4,
-                spaceBetween: 50,
+                spaceBetween: 30,
             },
         },
 });
@@ -59,11 +67,6 @@ function toggleMenu() {
 function closeMenu() {
     var menu = document.querySelector(".accordion");
     menu.classList.remove("show");
-
-    // var subMenus = document.querySelectorAll('.subMenu');
-    // subMenus.forEach(function(menu) {
-    //     menu.style.display = 'none';
-    // });
 }
 
 var swiper = new Swiper(".collabo", {
@@ -75,10 +78,10 @@ var swiper = new Swiper(".collabo", {
     },
     breakpoints: {
         320: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 50,
         },
-        758: {
+        775: {
             slidesPerView: 2,
             spaceBetween: 50,
         },
