@@ -496,9 +496,6 @@ html,body {
     opacity: 0;
     transition: 0.5s ease;
 }
-.itemInfo button {
-    margin-top: 5px;
-}
 .swiper.bestItem .swiper-slide > p:first-of-type {
     font-size: 24px;
     font-weight: 600;
@@ -535,9 +532,11 @@ html,body {
 }
 .itemInfo button {
     display: flex;
-    width: 149px;
+    width: auto;
+    white-space: nowrap;
     height: 32px;
     padding: 5px 20px;
+    margin-top: 5px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
