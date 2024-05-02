@@ -62,19 +62,19 @@ html,body {
     background-size: cover;
 }
 .swiper.main .swiper-slide.one {
-    background-image: url(/portpolio/nespresso/img/machine02.jpg);
+    background-image: url(/portfolio/nespresso/img/machine02.jpg);
     background-position-y: 70%;
 }
 .swiper.main .swiper-slide.two {
-    background-image: url(/portpolio/nespresso/img/capsule01.jpg);
+    background-image: url(/portfolio/nespresso/img/capsule01.jpg);
     background-position-y: 70%;
 }
 .swiper.main .swiper-slide.three {
-    background-image: url(/portpolio/nespresso/img/maplepecan02.jpeg);
+    background-image: url(/portfolio/nespresso/img/maplepecan02.jpeg);
     background-position-y: 85%;
 }
 .swiper.main .swiper-slide.four {
-    background-image: url(/portpolio/nespresso/img/coffeebean.jpg);
+    background-image: url(/portfolio/nespresso/img/coffeebean.jpg);
     background-position-y: 70%;
 }
 .swiper.main .swiper-slide .slideText {
@@ -348,7 +348,7 @@ html,body {
     content: "";
     width: 31px;
     height: 21px;
-    background-image: url(/portpolio/nespresso/img/size_infinimant.png);
+    background-image: url(/portfolio/nespresso/img/size_infinimant.png);
     left: -40px;
     top: 0px;
 }
@@ -357,7 +357,7 @@ html,body {
     content: "";
     width: 31px;
     height: 21px;
-    background-image: url(/portpolio/nespresso/img/size_maple.png);
+    background-image: url(/portfolio/nespresso/img/size_maple.png);
     left: -40px;
     top: 0px;
 }
@@ -366,7 +366,7 @@ html,body {
     content: "";
     width: 18px;
     height: 27px;
-    background-image: url(/portpolio/nespresso/img/aroma_infinimant.png);
+    background-image: url(/portfolio/nespresso/img/aroma_infinimant.png);
     left: -26px;
     top: 0px;
 }
@@ -375,7 +375,7 @@ html,body {
     content: "";
     width: 18px;
     height: 27px;
-    background-image: url(/portpolio/nespresso/img/aroma_maple.png);
+    background-image: url(/portfolio/nespresso/img/aroma_maple.png);
     left: -26px;
     top: 0px;
 }
@@ -569,7 +569,7 @@ section .sec04 {
     color: #fff;
     width: 100%;
     height: 300px;
-    background-image: url(/portpolio/nespresso/img/banner.png);
+    background-image: url(/portfolio/nespresso/img/banner.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
