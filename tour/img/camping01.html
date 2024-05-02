@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://camp.dytc.or.kr/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-title" content="단양 캠핑장 통합예약">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://camp.dytc.or.kr/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://camp.dytc.or.kr/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://camp.dytc.or.kr/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://camp.dytc.or.kr/images/favicon/site.webmanifest">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="단양 캠핑장 통합예약">
+    <meta property="og:description" content="사랑하는 사람들과 함께 떠나세요">
+    <meta property="og:image" content="images/img/og.jpg">
+    <title>단양 캠핑장 통합예약</title>
+    <link href="./camping01_files/xeicon.css" rel="stylesheet" type="text/css">
+    <link href="./camping01_files/swiper-bundle.css" rel="stylesheet" type="text/css">
+    <link href="./camping01_files/common.css" rel="stylesheet" type="text/css">
+    <link href="./camping01_files/current.css" rel="stylesheet" type="text/css">
+    <script src="./camping01_files/jquery.min.js"></script>
+    <script src="./camping01_files/jquery-ui.js"></script>
+    <script src="./camping01_files/swiper-bundle.js"></script>
+    <script src="./camping01_files/board.js"></script>
+	<script async="" src="./camping01_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0F5H929WY2');
+</script>
+<script>
+$(document).ready(function(){	
+	
+	// 공지사항 불러오기 notice
+	fn_main("notice");
+})
+
+function fn_main(tab) {
+	$("#boardGubun").val(tab);
+	$.post("https://mirihae.com/homepage/board/list.do",
+	 $("#form").serialize(), function(data) {
+			$("#" + tab).html(data);
+		}).done(function() {
+	})
+}
+function fn_loading(){
+	alert('준비중입니다')
+}
+
+$(document).ready(function(){
+	var popupTime = new Date();
+	var y = new Date().getFullYear();
+	var m = new Date().getMonth() + 1;
+	var d = new Date().getDate();
+/* 	var h = new Date().getHours();
+	var mm = new Date().getMinutes(); */
+	var popupTime = y + ""+ (m<10?'0'+m:m) +""+ (d<10?'0'+d:d);
+	//+(h<10?'0'+h:h)+""+(mm<10?'0'+mm:mm);
+	// console.log(popupTime);
+	
+	for(i=1; i<7; i++){
+		var cookieName = "popup" + i + "_notToday";
+		
+		if(getCookie(cookieName)){
+			$("#popup"+i).css('display', 'none');
+		} else{
+			$("#popup"+i).css('display', 'block');
+		}
+		$("#popup"+i).css('z-index', '9999'- i);
+	}
+	/* if(popupTime >= '20230601'){
+		$("#popup3").css('display', 'none');
+	} */
+
+});
+
+function close_popup(id) {
+	var targetNotTodayBox = id + "_notToday";
+	console.log(targetNotTodayBox); //확인
+	if ($("#" + targetNotTodayBox).prop("checked")) {
+		setCookie(targetNotTodayBox, 'Y', 1);
+		console.log("setted cookie");
+	} 
+	$("#" + id).fadeOut();
+}
+
+//쿠키 세팅
+function setCookie(xname, xvalue, expiredays) {
+	var todayDate = new Date();
+	todayDate.setDate(todayDate.getDate() + expiredays);
+	document.cookie = xname + "=" + escape(xvalue) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+	console.log(document.cookie);
+}
+
+// 쿠키 존재 여부 확인
+function getCookie(cookieName) {
+    var nameOfCookie = cookieName + "=";
+    var x = 0;
+    while (x <= document.cookie.length ) {
+        var y = (x+nameOfCookie.length);
+        if(document.cookie.substring(x, y) == nameOfCookie) {
+            if((endOfCookie = document.cookie.indexOf( ";", y )) == -1)
+                endOfCookie = document.cookie.length;
+            return unescape(document.cookie.substring(y, endOfCookie));
+        }
+        x = document.cookie.indexOf( " ", x ) + 1;
+        if (x == 0)  break;
+    }
+    return "";
+}
+</script>
+<style>
+	.bottom-set{
+		display: none;
+	}
+	
+	.popup p span{font-size:20px}
+#popup1, #popup2, #popup3, #popup4 {
+	position: absolute;
+	top: 7%;
+	max-width: 500px;
+    width: 78%;
+	height: auto;
+	padding: 10px;
+	border: 1px solid rgb(221, 221, 221);
+	background: rgb(255, 255, 255);
+	box-shadow: 2px 2px 6px #666;
+	display: none;
+}
+.map-area.mobile {
+	display: none;
+}
+.list.horizon li .category{margin-right:10px}
+@media ( max-width : 600px) {
+	#popup1, #popup2, #popup3, #popup4 {
+		left: 50% !important;
+		transform: translate(-50%, 0px);
+	}
+	.map-area.web {display: none;}
+	.map-area.mobile {
+		display: block;
+	}
+}
+.slidePop img{
+	width: 100%;
+	display: none;
+	
+}
+
+.slidePop img.active {
+	display: block;
+}
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+}
+
+.slide.fade {
+    animation: fade 2s ease-in-out forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.65;
+    }
+    to {
+        opacity: 1;
+    }
+}
+</style>
+  <link rel="stylesheet" href="./camping01_files/roughmapLander.css"><script src="./camping01_files/v3.js"></script><script src="./camping01_files/v3(1).js"></script></head>
+  <body class="main dimed">
+	  
+	<!--4월 캠핑장 운영안내-->
+	<div class="popup" id="popup1" style="left: 4%; display: none; z-index: 9998;">
+		<a href="https://camp.dytc.or.kr/#">
+			<img src="./camping01_files/pop_240329.png" style="width:100%;"> 
+		</a>
+		<div class="popupFooter">
+			<div class="notOpen" style="margin-top: 7px;">
+				<label style="margin-right: 6px; cursor: pointer;">
+				<input type="checkbox" name="chkClose" id="popup1_notToday" class="pbtn cbtn" style="display: inline-block; -webkit-appearance: checkbox;" title="닫기"> 오늘 하루 이 창을 열지 않음</label>
+				<a href="javascript:close_popup(&#39;popup1&#39;);" style="padding-right: 10px; cursor: pointer;">[닫기]</a>
+			</div>
+		</div>
+	</div>
+	<!--다리안 오감축제-->
+	<div class="popup" id="popup2" style="left: 31%; display: none; z-index: 9997;">
+		<a href="https://www.darian.kr/bbs/board.php?bo_table=w4_1&amp;wr_id=4" target="_blank">
+			<img src="./camping01_files/pop_240418.png" style="width:100%;"> 
+		</a>
+		<div class="popupFooter">
+			<div class="notOpen" style="margin-top: 7px;">
+				<label style="margin-right: 6px; cursor: pointer;">
+				<input type="checkbox" name="chkClose" id="popup2_notToday" class="pbtn cbtn" style="display: inline-block; -webkit-appearance: checkbox;" title="닫기"> 오늘 하루 이 창을 열지 않음</label>
+				<a href="javascript:close_popup(&#39;popup2&#39;);" style="padding-right: 10px; cursor: pointer;">[닫기]</a>
+			</div>
+		</div>
+	</div>
+    <div class="gnb" id="#gnb">
+      <ul class="menu">
+        <li onclick="location.href=&#39;index.html&#39;" class="logo"><img src="./camping01_files/logo-w.svg" alt="" class="logo-w"><img src="./camping01_files/logo.svg" alt="" class="logo-ori"></li>
+        <li class="coll"></li>
+        <li class="menus">
+          <ul class="menu-n">		   
+            <li>
+               <a href="https://camp.dytc.or.kr/board.html">공지사항</a>
+            </li>
+            <li>
+              <a href="https://mirihae.com/dytc/camping/V39628874">천동 오토캠핑장</a>
+            </li>
+            <li>
+              <a href="https://mirihae.com/dytc/camping/G24526799">다리안 캠핑장</a>
+            </li>
+            <li>
+              <a href="https://mirihae.com/dytc/camping/Q49993865">소선암 오토캠핑장</a>
+            </li>
+            <li>
+              <a href="https://mirihae.com/dytc/camping/Y88593737">대강 오토캠핑장</a>
+            </li>
+            <li>
+              <a href="https://mirihae.com/dytc/camping/reservation/list.do">예약확인</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="swiper-container visual swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
+      <div class="scroll-btn">
+        <a href="https://camp.dytc.or.kr/#">
+          <div class="mouse">
+            <span> </span>
+          </div>
+          <p>SCROLL</p>
+        </a>
+      </div>
+      <div class="pause-play-state play">
+        <a href="https://camp.dytc.or.kr/#" class="play"><i class="xi-play"></i></a>
+        <a href="https://camp.dytc.or.kr/#" class="pause"><i class="xi-pause"></i></a>
+      </div>
+      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-c6c28cb237b131088" aria-disabled="false"></div>
+      <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-c6c28cb237b131088" aria-disabled="true"></div>
+      <div class="swiper-wrapper" id="swiper-wrapper-c6c28cb237b131088" aria-live="off" style="height: 720px;">
+        <div class="swiper-slide no-dimed swiper-slide-active" data-swiper-autoplay="1110000" style="width: 1710px;" role="group" aria-label="1 / 5">
+          <div class="all-place">
+            <div class="place hover" style="background-image: url(images/img/cheondong/cheondong00006.jpeg)">
+              <div class="infos">
+                <h2>천동 오토캠핑장</h2>
+                <div class="btns">                 
+                  <a href="https://mirihae.com/dytc/camping/V39628874"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="https://www.dytc.or.kr/upload/vr/vtour_cd/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+              </div>
+            </div>
+            <div class="place hover" style="background-image: url(images/img/darian/darian00001.jpeg)">
+              <div class="infos">
+                <h2>다리안 캠핑장</h2>
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/G24526799"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="https://www.dytc.or.kr/upload/vr/vtour_dr/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+              </div>
+            </div>
+            <div class="place hover" style="background-image: url(images/img/sosunam/sosunam00001.jpeg)">
+              <div class="infos">
+                <h2>소선암 오토캠핑장</h2>
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/Q49993865"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="https://www.dytc.or.kr/upload/vr/vtour_ss/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+              </div>
+            </div>
+            <div class="place" style="background-image: url(images/img/daegang/daegang00001.jpeg)">
+              <div class="infos">
+                <h2>대강 오토캠핑장</h2>
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/Y88593737"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="http://new.dytc.or.kr/upload/vr/vtour_dg/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide-next" style="background-image: url(&quot;images/img/cheondong/cheondong00006.jpeg&quot;); width: 1710px;" role="group" aria-label="2 / 5">
+          <div class="ment">
+            <!-- <h1>천동 오토캠핑장</h1> -->
+            <h2 class="normal">청정한 계곡수가 흐르고 밤하늘 별빛이 쏟아지는<br>아름다운 <span>천동 오토캠핑장</span></h2>
+            <p>충북 단양군 단양읍 다리안로 534. 043-423-3589</p>
+            <div class="btnset">
+              <a href="https://mirihae.com/dytc/camping/V39628874" class="btn"><i class="xi-calendar"></i>캠핑장 예약하기</a>
+              <a href="http://new.dytc.or.kr/upload/vr/vtour_cd/index.html" class="btn" target="_blank"><i class="xi-view-carousel"></i>천동 오토캠핑장 VR</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00001.jpeg&quot;); width: 1710px;" role="group" aria-label="3 / 5">
+          <div class="ment">
+            <!-- <h1>다리안 캠핑장</h1> -->
+            <h2 class="normal">깨끗한 물줄기와 깊은 골짜기에서 배어나오는<br>상쾌한 공기를 느낄 수 있는 <span>다리안 캠핑장</span></h2>
+            <p>충북 단양군 단양읍 다리안로 534. 043-423-3589</p>
+            <div class="btnset">
+              <a href="https://mirihae.com/dytc/camping/G24526799" class="btn"><i class="xi-calendar"></i>캠핑장 예약하기</a>
+              <a href="http://new.dytc.or.kr/upload/vr/vtour_dr/index.html" class="btn" target="_blank"><i class="xi-view-carousel"></i>다리안 캠핑장 VR</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00001.jpeg&quot;); width: 1710px;" role="group" aria-label="4 / 5">
+          <div class="ment">
+            <!-- <h1>소선암 오토캠핑장</h1> -->
+            <h2 class="normal">시원한 계곡이 흐르며, 까만 밤하늘 별빛 쏟아지는<br>아름다운 <span>소선암 오토캠핑장</span></h2>
+            <p>충북 단양군 단성면 선암계곡로 1656. 043-423-0599</p>
+            <div class="btnset">
+              <a href="https://mirihae.com/dytc/camping/Q49993865" class="btn"><i class="xi-calendar"></i>캠핑장 예약하기</a>
+              <a href="http://new.dytc.or.kr/upload/vr/vtour_ss/index.html" class="btn" target="_blank"><i class="xi-view-carousel"></i>소선암 오토캠핑장 VR</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00001.jpeg&quot;); width: 1710px;" role="group" aria-label="5 / 5">
+          <div class="ment">
+            <!-- <h1>대강 오토캠핑장</h1> -->
+            <h2 class="normal">병풍처럼 둘러쌓인 소백산자락 아래<br>죽령계곡과 남조계곡이 만나는 <span>대강 오토캠핑장</span></h2>
+            <p>충북 단양군 대강면 사인암로 683-77. 043-421-7880</p>
+            <div class="btnset">
+              <a href="https://mirihae.com/dytc/camping/Y88593737" class="btn"><i class="xi-calendar"></i>캠핑장 예약하기</a>
+              <a href="http://new.dytc.or.kr/upload/vr/vtour_dg/index.html" class="btn" target="_blank"><i class="xi-view-carousel"></i>대강 오토캠핑장 VR</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination swiper-pagination-progressbar"><span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.2) scaleY(1); transition: all 300ms ease 0s;"></span></div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    <div class="wrap main">
+      <div class="modal-inc"></div>
+      <script>
+        $('.modal-inc').load('../global/modal.html');
+      </script>
+
+      <div class="contents">
+        <div class="section with-list">
+          <ul class="list vertical prices row4">
+            <li>
+              <h2>천동 오토캠핑장</h2>
+              <div class="thumb">
+                <div class="with-swiper zoom">
+                  <div class="swiper-container thumb-swiper swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
+                    <ul class="swiper-wrapper" id="swiper-wrapper-64fd10995cd8063b5" aria-live="off" style="height: 500px; transition: all 0ms ease 0s; transform: translate3d(-2400px, 0px, 0px);">
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/cheondong/cheondong00006.jpeg&quot;); width: 1200px;" role="group" aria-label="1 / 8"></li>
+                      <li class="swiper-slide swiper-slide-prev" style="background-image: url(&quot;images/img/cheondong/cheondong00001.jpeg&quot;); width: 1200px;" role="group" aria-label="2 / 8"></li>
+                      <li class="swiper-slide swiper-slide-active" style="background-image: url(&quot;images/img/cheondong/cheondong00002.jpeg&quot;); width: 1200px;" role="group" aria-label="3 / 8"></li>
+                      <li class="swiper-slide swiper-slide-next" style="background-image: url(&quot;images/img/cheondong/cheondong00003.jpeg&quot;); width: 1200px;" role="group" aria-label="4 / 8"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/cheondong/cheondong00004.jpeg&quot;); width: 1200px;" role="group" aria-label="5 / 8"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/cheondong/cheondong00005.jpeg&quot;); width: 1200px;" role="group" aria-label="6 / 8"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/cheondong/cheondong00007.jpeg&quot;); width: 1200px;" role="group" aria-label="7 / 8"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/cheondong/cheondong00008.jpeg&quot;); width: 1200px;" role="group" aria-label="8 / 8"></li>
+                    </ul>
+                    <div class="nav">
+                      <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-64fd10995cd8063b5" aria-disabled="false"></div>
+                      <div class="close"><i class="xi-close-thin"></i></div>
+                      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-64fd10995cd8063b5" aria-disabled="false"></div>
+                    </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+              </div>
+              <div class="infos">
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/V39628874"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="http://new.dytc.or.kr/upload/vr/vtour_cd/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+                <div class="price-multi">
+                  <div class="price">
+                    <h6>비수기</h6>
+                    <dl>
+                      <dt>평일</dt>
+                      <dd>20,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>주말, 휴일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                  </div>
+                  <div class="price">
+                    <h6>성수기(7.1 ~ 8.31)</h6>
+                    <dl>
+                      <dt>평일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>주말, 휴일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="info">
+                  <!-- <h4 class="category">천동 오토캠핑장</h4> -->
+                  <p>텐트 1동, 5인, 1차량 기준</p>
+                  <p>초과요금 1인 3,000원 / 1차량 5,000원</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <h2>다리안 캠핑장</h2>
+              <div class="thumb">
+                <div class="with-swiper">
+                  <div class="swiper-container thumb-swiper swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
+                    <ul class="swiper-wrapper" id="swiper-wrapper-698ef4340868d23a" aria-live="off" style="height: 240px; transition: all 0ms ease 0s; transform: translate3d(-855px, 0px, 0px);">
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00001.jpeg&quot;); width: 285px;" role="group" aria-label="1 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00011.jpg&quot;); width: 285px;" role="group" aria-label="2 / 16"></li>
+                      <li class="swiper-slide swiper-slide-prev" style="background-image: url(&quot;images/img/darian/darian00014.jpg&quot;); width: 285px;" role="group" aria-label="3 / 16"></li>
+                      <li class="swiper-slide swiper-slide-active" style="background-image: url(&quot;images/img/darian/darian00016.jpg&quot;); width: 285px;" role="group" aria-label="4 / 16"></li>
+                      <li class="swiper-slide swiper-slide-next" style="background-image: url(&quot;images/img/darian/darian00015.jpeg&quot;); width: 285px;" role="group" aria-label="5 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00002.jpeg&quot;); width: 285px;" role="group" aria-label="6 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00012.jpg&quot;); width: 285px;" role="group" aria-label="7 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00013.jpg&quot;); width: 285px;" role="group" aria-label="8 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00008.jpeg&quot;); width: 285px;" role="group" aria-label="9 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00003.jpeg&quot;); width: 285px;" role="group" aria-label="10 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00005.jpeg&quot;); width: 285px;" role="group" aria-label="11 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00006.jpeg&quot;); width: 285px;" role="group" aria-label="12 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00007.jpeg&quot;); width: 285px;" role="group" aria-label="13 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00008.jpeg&quot;); width: 285px;" role="group" aria-label="14 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00009.jpeg&quot;); width: 285px;" role="group" aria-label="15 / 16"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/darian/darian00010.jpeg&quot;); width: 285px;" role="group" aria-label="16 / 16"></li>
+                    </ul>
+                    <div class="nav">
+                      <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-698ef4340868d23a" aria-disabled="false"></div>
+                      <div class="close"><i class="xi-close-thin"></i></div>
+                      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-698ef4340868d23a" aria-disabled="false"></div>
+                    </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+              </div>
+
+              <div class="infos">
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/G24526799"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="http://new.dytc.or.kr/upload/vr/vtour_dr/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+                <div class="price-multi row">
+                  <div class="price">
+                    <h6>원두막</h6>
+                    <dl>
+                      <dd>35,000원</dd>
+                    </dl>
+                  </div>
+                  <div class="price">
+                    <h6>돔하우스</h6>
+                    <dl>
+                      <dd>60,000원</dd>
+                    </dl>
+                  </div>
+                  <div class="price">
+                    <h6>야영데크</h6>
+                    <dl>
+                      <dt>4x6m</dt>
+                      <dd>35,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>5x7m</dt>
+                      <dd>40,000원</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="info">
+                  <p>텐트 1동, 5인, 1차량 기준</p>
+                  <p>초과요금 1인 3,000원 / 1차량 3,000원</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <h2>소선암 오토캠핑장</h2>
+              <div class="thumb">
+                <div class="with-swiper">
+                  <div class="swiper-container thumb-swiper swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
+                    <ul class="swiper-wrapper" id="swiper-wrapper-10c63b4412a71045fe" aria-live="off" style="height: 240px; transition: all 0ms ease 0s; transform: translate3d(-855px, 0px, 0px);">
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00001.jpeg&quot;); width: 285px;" role="group" aria-label="1 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00002.jpeg&quot;); width: 285px;" role="group" aria-label="2 / 9"></li>
+                      <li class="swiper-slide swiper-slide-prev" style="background-image: url(&quot;images/img/sosunam/sosunam00008.jpeg&quot;); width: 285px;" role="group" aria-label="3 / 9"></li>
+                      <li class="swiper-slide swiper-slide-active" style="background-image: url(&quot;images/img/sosunam/sosunam00003.jpeg&quot;); width: 285px;" role="group" aria-label="4 / 9"></li>
+                      <li class="swiper-slide swiper-slide-next" style="background-image: url(&quot;images/img/sosunam/sosunam00005.jpeg&quot;); width: 285px;" role="group" aria-label="5 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00006.jpeg&quot;); width: 285px;" role="group" aria-label="6 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00007.jpeg&quot;); width: 285px;" role="group" aria-label="7 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00009.jpeg&quot;); width: 285px;" role="group" aria-label="8 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/sosunam/sosunam00010.jpeg&quot;); width: 285px;" role="group" aria-label="9 / 9"></li>
+                    </ul>
+                    <div class="nav">
+                      <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-10c63b4412a71045fe" aria-disabled="false"></div>
+                      <div class="close"><i class="xi-close-thin"></i></div>
+                      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-10c63b4412a71045fe" aria-disabled="false"></div>
+                    </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+              </div>
+              <div class="infos">
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/Q49993865"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="http://new.dytc.or.kr/upload/vr/vtour_ss/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+                <div class="price-multi">
+                  <div class="price">
+                    <h6>비수기</h6>
+                    <dl>
+                      <dt>평일</dt>
+                      <dd>20,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>주말, 휴일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                  </div>
+                  <div class="price">
+                    <h6>성수기(7.1 ~ 8.31)</h6>
+                    <dl>
+                      <dt>평일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>주말, 휴일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="info">
+                  <!-- <h4 class="category">천동 오토캠핑장</h4> -->
+
+                  <p>텐트 1동, 5인, 1차량 기준</p>
+                  <p>초과요금 1인 3,000원 / 1차량 5,000원</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <h2>대강 오토캠핑장</h2>
+              <div class="thumb">
+                <div class="with-swiper">
+                  <div class="swiper-container thumb-swiper swiper-container-initialized swiper-container-horizontal swiper-container-autoheight">
+                    <ul class="swiper-wrapper" id="swiper-wrapper-ebda344686141c410" aria-live="off" style="height: 240px; transition: all 0ms ease 0s; transform: translate3d(-855px, 0px, 0px);">
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00001.jpeg&quot;); width: 285px;" role="group" aria-label="1 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00002.jpeg&quot;); width: 285px;" role="group" aria-label="2 / 9"></li>
+                      <li class="swiper-slide swiper-slide-prev" style="background-image: url(&quot;images/img/daegang/daegang00003.jpeg&quot;); width: 285px;" role="group" aria-label="3 / 9"></li>
+                      <li class="swiper-slide swiper-slide-active" style="background-image: url(&quot;images/img/daegang/daegang00009.jpeg&quot;); width: 285px;" role="group" aria-label="4 / 9"></li>
+                      <li class="swiper-slide swiper-slide-next" style="background-image: url(&quot;images/img/daegang/daegang00010.jpeg&quot;); width: 285px;" role="group" aria-label="5 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00005.jpeg&quot;); width: 285px;" role="group" aria-label="6 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00006.jpeg&quot;); width: 285px;" role="group" aria-label="7 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00008.jpeg&quot;); width: 285px;" role="group" aria-label="8 / 9"></li>
+                      <li class="swiper-slide" style="background-image: url(&quot;images/img/daegang/daegang00007.jpeg&quot;); width: 285px;" role="group" aria-label="9 / 9"></li>
+                    </ul>
+                    <div class="nav">
+                      <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-ebda344686141c410" aria-disabled="false"></div>
+                      <div class="close"><i class="xi-close-thin"></i></div>
+                      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-ebda344686141c410" aria-disabled="false"></div>
+                    </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+              </div>
+              <div class="infos">
+                <div class="btns">
+                  <a href="https://mirihae.com/dytc/camping/Y88593737"><i class="xi-calendar"></i>캠핑장 예약</a>
+                  <a href="http://new.dytc.or.kr/upload/vr/vtour_dg/index.html" target="_blank"><i class="xi-view-carousel"></i>VR 감상하기</a>
+                </div>
+                <div class="price-multi">
+                  <div class="price">
+                    <h6>비수기</h6>
+                    <dl>
+                      <dt>평일</dt>
+                      <dd>20,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>주말, 휴일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                  </div>
+                  <div class="price">
+                    <h6>성수기(7.1 ~ 8.31)</h6>
+                    <dl>
+                      <dt>평일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                    <dl>
+                      <dt>주말, 휴일</dt>
+                      <dd>30,000원</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="info">
+                  <!-- <h4 class="category">천동 오토캠핑장</h4> -->
+                  <p>텐트 1동, 5인, 1차량 기준</p>
+                  <p>초과요금 1인 3,000원 / 1차량 5,000원</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="ext">
+            <p>사용시간 : 사용일 12시부터 익일 11시까지</p>
+            <p>할인 대상(예약자) : 단양군민, 자매 결연도시주민 50%(신분증 제시)</p>
+            <p>할인 제외 기간 : 성수기(7~8월)와 금요일, 토요일 및 법정공휴일 전날 이용 시</p>
+          </div>
+          <div class="promotion banner" style="background-image: url(images/img/vr.jpg)">
+            <a href="https://www.dytc.or.kr/upload/vr/vtour_ac/index.html" target="_blank">
+              <div class="ment">
+                <h3 class="pb0"><i class="xi-view-carousel"></i>VR 감상하기</h3>
+                <h2>VR로 미리보는 단양 힐링 캠핑장</h2>
+              </div>
+              <div class="extra">
+                <p>단양 힐링 캠핑장의 전경을 VR로 감상해보세요</p>
+              </div>
+            </a>
+          </div>
+          <div class="guidance">
+            <div class="head">
+              <h2>이용요금 안내</h2>
+            </div>
+            <ul class="demical">
+              <li><p>성수기 : 매년 7월1일부터 8월31일까지 (그 외 비수기)</p></li>
+              <li><p>평일 : 일요일~목요일 (단, 공휴일 전날은 제외)</p></li>
+              <li><p>주말 : 금요일, 토요일 및 공휴일 전날 (공휴일은 「관공서의 공휴일에 관한 규정」에 따름)</p></li>
+            </ul>
+          </div>
+          <div class="guidance">
+            <div class="head">
+              <h2>추가요금 안내</h2>
+            </div>
+            <ul class="demical">
+              <li>
+                <p>기준인원 초과 시 추가요금 발생</p>
+                <p>성인/청소년: 3,000원</p>
+                <p>※ 만 6세 미만의 영유아는 추가요금 면제(단, 최대 추가인원 수에는 포함)</p>
+              </li>
+              <li>
+                <p>이용시간 종료 지체시 추가요금 발생</p>
+                <p>3시간 이하 지체 : 시설별 사용료의 30% 부과</p>
+                <p>3시간 초과 지체 : 시설별 사용료의 100% 부과</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section insert-full-banner dim" style="background-image: url(images/img/visual-certification@2x.jpg)">
+          <div class="head">
+            <h2>
+              온라인으로 <span>감면대상 인증</span>하고 <br>
+              이용요금 바로 할인받기
+            </h2>
+            <h4>단양군민 인증하면 우선예약까지!</h4>
+          </div>
+        </div>
+        <div class="section">
+          <div class="head">
+            <h2 class="with-btn">감면대상 할인안내 </h2>
+          </div>
+          <div class="table">
+            <table class="span">
+		<thead>
+		  <tr>
+			<th>요금제</th>
+			<th>대상</th>
+			<th>증명서</th>
+		  </tr>
+		</thead>
+		<tbody>
+		 <tr>
+                  <th rowspan="4">50% 할인</th>
+                  <td class="bk">단양군민</td>
+                  <td>신분증, 주민등록 초본/등본</td>
+                </tr>
+                <tr>
+                  <td class="bk">자매 결연도시주민</td>
+                  <td>신분증, 주민등록 초본/등본</td>
+                </tr>
+                <tr>
+                  <td class="bk">사이버군민<br></td>
+                  <td>사이버 증명서류</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e1e6e9">
+                  <td class="bk">디지털관광 주민증</td>
+                  <td>디지털관광 주민증 증명서류</td>
+                </tr>
+                </tbody>
+		<tbody>
+                <tr>
+                  <th rowspan="2">30% 할인</th>
+                  <td class="bk">국가유공자</td>
+                  <td>국가유공자 확인서</td>
+                </tr>
+                <tr>
+                  <td class="bk">장애인<br><p style="color:grey !important; font-size: 13px !important;">(장애인복지법 32조에따라등록된장애의 정도가심한장애인만)</p></td>
+                  <td>장애인 증명서</td>
+                </tr>
+              </tbody>
+		
+
+	  </table>
+
+          </div>
+          <div class="extra">
+            <p>할인대상자는 신분증 및 할인사유를 증명할 수 있는 서류를 제시하여야 하며, 할인항목이 중복되는 경우에는 그 중에서 유리한 하나만을 적용</p>
+            <p>이용자는 동시에 여러 시설을 사용할 경우 할인은 1개 시설에만 적용</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="head"><h2>취소 및 환불 규정</h2></div>
+          <ul class="overview small">
+            <li>
+              <h6>이용일 만 10일 전</h6>
+              <p>100%</p>
+            </li>
+            <li>
+              <h6>이용일 만 7~9일 전</h6>
+              <p>90%</p>
+            </li>
+            <li>
+              <h6>이용일 만 5~6일 전</h6>
+              <p>70%</p>
+            </li>
+            <li>
+              <h6>이용일 만 3~4일 전</h6>
+              <p>50%</p>
+            </li>
+            <li>
+              <h6>이용일 만 1~2일 전 또는 당일</h6>
+              <p>20%</p>
+            </li>
+          </ul>
+          <div class="noti">
+            <p>사용불가 사유 :천재지변, 관리자의 귀책사유, 그 밖의 불가항력적인 사유로 시설 사용이 불가능하게 된 경우</p>
+            <p>예약 후 당일 자정까지 미입금시 예약 취소 (예약마감일의 경우, 예약마감시간까지 미입금시 예약취소)</p>
+            <p>이용일 당일까지 취소 가능</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="head">
+            <h2>이용자 준수사항</h2>
+          </div>
+          <ul class="notification">
+            <li>
+              <div class="icon"><i class="xi-calendar"></i></div>
+              <div class="noti-con">
+                <h4>사전 인터넷 예약</h4>
+                <p>본 캠핑장은 사전 인터넷 예약으로 운영되고 있습니다. 사전예약없이 당일 캠핑 여부는 전화로 문의하시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-log-in"></i></div>
+              <div class="noti-con">
+                <h4>입영•퇴영</h4>
+                <p>입영 : 12:00 ~ 20:00, 퇴영 : 11:00까지. 사용시간을 반드시 지켜주시기 바랍니다.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="icon"><i class="xi-border-clear"></i></div>
+              <div class="noti-con">
+                <h4>텐트 설치</h4>
+                <p>사이트 당 한개의 텐트만 설치할 수 있으니 유의하여 주시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-moon"></i></div>
+              <div class="noti-con">
+                <h4>점등•소등</h4>
+                <p>가로등 점등시간은 18:30이며 소등시간은 24:00입니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-volume-off"></i></div>
+              <div class="noti-con">
+                <h4>정숙</h4>
+                <p>22:00부터 다음날 07:00까지는 정숙시간이오니 유의하시기 바랍니다.</p>
+                <p>무분별한 오락 및 음주가무, 운동등 소란행위, 폭죽놀이, 캠프파이어등 다른 이용객에게 불쾌감을 주는 행동은 삼가하시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-restaurant"></i></div>
+              <div class="noti-con">
+                <h4>데크,텐트 내 취사 금지</h4>
+                <p>데크 위 및 텐트 내에서 취사행위 및 화기사용을 금지합니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><span class="material-symbols-sharp"> pets </span></div>
+              <div class="noti-con">
+                <h4>반려동물 입장 금지</h4>
+                <p>반려동물 동반은 전면 금지합니다.(⌜장애인복지법⌟ 40조 3항에 따른 장애인보조견을 동반한 경우는 가능합니다.)</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-windy xi-rotate-270"></i></div>
+              <div class="noti-con">
+                <h4>화재 주의</h4>
+                <p>취사 또는 화롯대 사용시 화재에 특히 주의하시기 바랍니다.</p>
+                <p>산불조심 및 자연보호활동에 적극 동참해 주시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-warning"></i></div>
+              <div class="noti-con">
+                <h4>긴급사태</h4>
+                <p>위급을 요하는 경우와 호우•강풍 등으로 피난이 필요한 경우 관리자의 지시에 따라 주시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-plug"></i></div>
+              <div class="noti-con">
+                <h4>전기, 공공시설</h4>
+                <p>각 사이트 보안 등 스위치는 전기 사용함 차단기입니다. 야간에는 켜주시고 아침에는 꺼주시기 바랍니다.</p>
+                <p>전기용품 사용은 불량으로 인해 누전차단기가 작동할 수 있으므로 사전 점검을 부탁드립니다.</p>
+                <p>(원두막 이용객 분들은 전기사용 시설이 되어있지 않음을 양지하여 주시기 바랍니다.)</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-trash-o"></i></div>
+              <div class="noti-con">
+                <h4>쓰레기, 분리수거</h4>
+                <p>일반쓰레기는 종량제봉투에 넣어주시고 재활용품은 분리수거함에 넣어주시기 바랍니다.</p>
+                <p>음식 물쓰레기는 음수대 플락스틱 바구니에 물기제거 후 음식물 수거함에 넣어 버려주시면 됩니다.</p>
+                <p>타다 남은 재는 연소 확인 후 종량제 봉투 또는 집하장 재 수거함에 넣어주시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-tint-o"></i></div>
+              <div class="noti-con">
+                <h4>샤워장</h4>
+                <p>샤워장 이용은 화장실과 붙어 있으며 온수가 가능하오나 온수 급수량 문제로 인하여 온수 공급이 제한 될 수 있으니 양해하여 주시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-pool"></i></div>
+              <div class="noti-con">
+                <h4>안전수칙</h4>
+                <p>물놀이는 반드시 준비운동을 하여주시고 어린아이는 보호자가 동반하여 이용하시기 바랍니다.</p>
+                <p>계곡 쪽에는 추락의 위험이 있어 유의하시고 음주 후 물놀이 및 고성방가 등 기타 다른 이용객에게 방해를 유발하는 행위는 금지합니다.</p>
+                <p>산책 시 에는 뱀, 벌 등 야생동물에 주의하시기 바랍니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-fragile"></i></div>
+              <div class="noti-con">
+                <h4>공공시설 파손 시</h4>
+                <p>물공용시설 파손 시에는 책임배상을 하셔야 합니다.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-won"></i></div>
+              <div class="noti-con">
+                <h4>양도, 양수, 교환, 매매 행위 금지</h4>
+                <p>예약자와 이용자는 동일인이어야 합니다.</p>
+                <p>건전한 예약문화 정착을 위해 타인에게 양도·양수, 교환, 매매할 수 없습니다.(적발 시 퇴영조치)</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon"><i class="xi-log-out"></i></div>
+              <div class="noti-con">
+                <h4>강제 퇴영</h4>
+                <p>상기 주의사항이 지켜지지 않을 경우 관리자는 당일 사용분 환불 없이 강제 퇴영조치 할 수 있습니다.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="map" class="page">
+          <div class="map-area">
+            <!-- * 카카오맵 - 지도퍼가기 -->
+    <!-- 1. 지도 노드 -->
+    <div id="daumRoughmapContainer1702456034541" class="root_daum_roughmap root_daum_roughmap_landing os_mac" style="width: 100%"><div class="wrap_map" style="height: 500px;"><div class="map" style="overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/2x/bg_tile.png&quot;);"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://t1.daumcdn.net/mapjsapi/images/2x/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://t1.daumcdn.net/mapjsapi/images/2x/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute;"><div style="position: absolute; z-index: 0;"></div><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="./camping01_files/679.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -44px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/680.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 212px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/681.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 468px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/682.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 724px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/683.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 980px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/684.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1236px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/685.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1492px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/686.png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1748px; top: 461px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/679(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -44px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/680(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 212px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/681(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 468px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/682(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 724px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/683(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 980px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/684(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1236px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/685(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1492px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/686(1).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1748px; top: 205px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/679(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -44px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/680(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 212px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/681(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 468px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/682(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 724px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/683(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 980px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/684(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1236px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/685(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1492px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./camping01_files/686(2).png" alt="" role="presentation" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1748px; top: -51px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1; width: 1710px; height: 500px;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; left: -3420px; top: -1000px; width: 8550px; height: 2500px;" viewBox="0 0 8550 2500"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; margin: -48px 0px 0px -18px; z-index: 2; left: 852px; top: 250px;"><img draggable="false" src="./camping01_files/marker_map01.png" alt="" role="presentation" title="" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 45px, 50px, 0px); top: 0px; left: 0px; width: 45px; height: 50px;"></div><div style="position: absolute; z-index: 3; white-space: nowrap; margin: -28px 0px 0px -44px; left: 852px; top: 250px;"><div class="roughmap_maker_label" style="top: -57px; left: -2.25px;"><a href="https://map.kakao.com/?urlX=798600.0&amp;urlY=974899.0&amp;itemId=7833523&amp;q=%EB%8F%84%EB%8B%B4%EC%82%BC%EB%B4%89%EA%B4%80%EA%B4%91%EC%A7%80&amp;srcid=7833523&amp;map_type=TYPE_MAP&amp;from=roughmap" target="_blank"><span class="roughmap_lebel_text">도담삼봉관광지</span></a></div></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; bottom: 0px; color: rgb(0, 0, 0); right: 0px;"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: right;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">100m</div></div><div style="margin: 0px 4px; float: right;"><a target="_blank" href="http://map.kakao.com/" title="Kakao 지도로 보시려면 클릭하세요." style="float: left; width: 32px; height: 10px;"><img src="./camping01_files/m_bi_b.png" alt="Kakao 지도로 이동" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px / 11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div></div><span class="map_border border1"></span><span class="map_border border2"></span><span class="map_border border3"></span><span class="map_border border4"></span><div class="wrap_btn_zoom"><button class="btn_zoom_in hide_text"><span class="img_zoom">확대</span></button><button class="btn_zoom_out hide_text"><span class="img_zoom">축소</span></button><button class="btn_zoom_reset hide_text"><span class="img_zoom">초기화</span></button></div></div><div class="wrap_controllers hide"><a class="tit_controllers" href="https://map.kakao.com/" target="_blank"><img src="./camping01_files/logo_kakaomap.png" width="72" height="16" alt="카카오맵" style="display:block;width:72px;height:16px"></a><div class="wrap_btn_roadview"><a class="txt" target="_blank" href="https://map.kakao.com/?from=roughmap&amp;srcid=7833523&amp;confirmid=7833523&amp;q=%EB%8F%84%EB%8B%B4%EC%82%BC%EB%B4%89%EA%B4%80%EA%B4%91%EC%A7%80&amp;rv=on">로드뷰</a><span class="txt_bar"></span><a class="txt" target="_blank" href="https://map.kakao.com/?from=roughmap&amp;eName=%EB%8F%84%EB%8B%B4%EC%82%BC%EB%B4%89%EA%B4%80%EA%B4%91%EC%A7%80&amp;eX=798600.0&amp;eY=974899.0">길찾기</a><span class="txt_bar"></span><a class="txt" target="_blank" href="https://map.kakao.com/?map_type=TYPE_MAP&amp;from=roughmap&amp;srcid=7833523&amp;itemId=7833523&amp;q=%EB%8F%84%EB%8B%B4%EC%82%BC%EB%B4%89%EA%B4%80%EA%B4%91%EC%A7%80&amp;urlX=798600.0&amp;urlY=974899.0">지도 크게 보기</a></div></div></div>
+
+    <!--
+        2. 설치 스크립트
+        * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+    -->
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="./camping01_files/roughmapLoader.js"></script><script charset="UTF-8" src="./camping01_files/roughmapLander.js"></script>
+
+            <!-- 3. 실행 스크립트 -->
+             <script charset="UTF-8">
+      new daum.roughmap.Lander({
+        timestamp: '1702456034541',
+        key: '2h7wi',
+        // mapWidth: '640',
+        mapHeight: '500',
+      }).render();
+
+      // 새로운 핀 추가
+      var mapContainer = document.getElementById('daumRoughmapContainer1702456034541');
+      var mapOption = {
+        center: new daum.maps.LatLng(36.973084, 128.417032), // 새로운 좌표로 설정
+        level: 3 // 줌 레벨 조정
+      };
+
+      var map = new daum.maps.Map(mapContainer, mapOption);
+
+      // 핀 생성
+      var markerPosition = new daum.maps.LatLng(36.973084, 128.417032);
+      var marker = new daum.maps.Marker({
+        position: markerPosition
+      });
+
+      // 지도에 핀 표시
+      marker.setMap(map);
+    </script>
+          </div>
+          <div class="section">
+            <div class="head">
+              <h3>다리안관광지 043-423-1243</h3>
+              <h3>천동관광지 043-423-3589</h3>
+              <h3>소선암오토캠핑장 043-423-0599</h3>
+              <h3>대강오토캠핑장 043-421-7880</h3>
+              <p>캠핑장 이용문의는 각 캠핑장 문의 번호로 문의하시기 바랍니다.</p>
+            </div>
+              
+             
+            <div class="list horizon single" id="notice">
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	<ul class="list horizon single">
+		
+		<li class="new">
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000001008" title="대강오토캠핑장 휴장안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category" style="color:#036eb8">공지사항</span>
+		  		<span class="title">대강오토캠핑장 휴장안내</span>
+		  		<span class="date">
+		  			2024-04-17 
+				</span>
+		  	</a>
+		</li>
+		
+		<li class="new">
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000986" title="대강오토캠핑장 공사안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category" style="color:#036eb8">공지사항</span>
+		  		<span class="title">대강오토캠핑장 공사안내</span>
+		  		<span class="date">
+		  			2024-03-25 
+				</span>
+		  	</a>
+		</li>
+		
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000987" title="대강오토캠핑장 전기사용 필독 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">대강오토캠핑장 전기사용 필독</span>
+		  		<span class="date">
+		  			2024-03-25 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000924" title="캠핑장 동절기 제한운영 안내 (다리안관광지 캠핑장) 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">캠핑장 동절기 제한운영 안내 (다리안관광지 캠핑장)</span>
+		  		<span class="date">
+		  			2023-09-28 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000923" title="11월 캠핑장 예약 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">11월 캠핑장 예약 안내</span>
+		  		<span class="date">
+		  			2023-09-28 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000922" title="10월 캠핑장 예약 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">10월 캠핑장 예약 안내</span>
+		  		<span class="date">
+		  			2023-08-24 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000921" title="	9월 캠핑장 예약 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">	9월 캠핑장 예약 안내</span>
+		  		<span class="date">
+		  			2023-08-24 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000889" title="10월 캠핑장 예약 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">10월 캠핑장 예약 안내</span>
+		  		<span class="date">
+		  			2023-08-24 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000888" title="9월 캠핑장 예약 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">9월 캠핑장 예약 안내</span>
+		  		<span class="date">
+		  			2023-08-24 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000920" title="태풍 카눈 북상 관련 캠핑장 운영 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">태풍 카눈 북상 관련 캠핑장 운영 안내</span>
+		  		<span class="date">
+		  			2023-08-08 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000919" title="캠핑장 여름 성수기 예약 안내 (7-8월) 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">캠핑장 여름 성수기 예약 안내 (7-8월)</span>
+		  		<span class="date">
+		  			2023-05-24 
+				</span>
+		  	</a>
+		</li>
+		
+		<li>
+			<a href="https://camp.dytc.or.kr/view.html?board=notice&amp;nttId=NTT_0000000000000918" title="6월 캠핑장 예약 안내 상세보기 페이지로 이동" style="width:100%;display: flex;flex-direction: row;">
+		  		<span class="category">공지사항</span>
+		  		<span class="title">6월 캠핑장 예약 안내</span>
+		  		<span class="date">
+		  			2023-04-24 
+				</span>
+		  	</a>
+		</li>
+		
+	</ul>
+	
+	
+		<div class="bottom-set">
+		
+			
+
+<div class="paging">
+
+
+
+
+
+	<a href="javascript:fn_set_pageList(1)" class="active">1</a>
+
+	<a href="javascript:fn_set_pageList(2)">2</a>
+
+	<a href="javascript:fn_set_pageList(3)">3</a>
+
+	<a href="javascript:fn_set_pageList(4)">4</a>
+
+	<a href="javascript:fn_set_pageList(5)">5</a>
+
+
+
+
+
+</div>
+	
+			<input type="hidden" id="pageIndex" name="pageIndex" value="1">				
+		
+		</div>
+	
+
+
+
+</div>
+            <div class="btn-area" style="padding: 15px 0px;">
+				  <a href="javascript:fn_list()" class="btn">공지사항 더보기</a>
+			  </div>
+          	</div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="in">
+          <div class="info">
+            <div class="legal">
+              <a href="https://www.dytc.or.kr/main/78">개인정보처리방침</a>
+              <a href="https://www.dytc.or.kr/main/79">영상정보처리기기 설치 및 운영 방침</a>
+            </div>
+            <div class="copyright">
+              <p>
+                <strong> COPYRIGHT © 2024 단양관광공사 ALL RIGHTS RESERVED.</strong>
+                Powered by
+                <a href="https://camp.dytc.or.kr/#">Sourcefarm.</a>
+              </p>
+              <p>(27008) 충청북도 단양군 매포읍 삼봉로 644-13, 3층 단양관광공사. . 전화번호 : 043-421-7881~5. 팩스번호 : 043-421-7886</p>
+            </div>
+          </div>
+          <div class="logo">
+            <img src="./camping01_files/logo2.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <form name="form" id="form" action="https://camp.dytc.or.kr/" method="post">
+		<input type="hidden" name="groupCode" id="groupCode" value="dytc">
+		<input type="hidden" name="boardGubun" id="boardGubun" value="notice">
+		<input type="hidden" name="selectMonth" id="selectMonth" value="">
+
+	</form>
+    <script src="./camping01_files/main.js"></script>
+    <script src="./camping01_files/common.js"></script>
+    <script>
+      //구역 이름 구하기
+      $('.map .pin').each(function (index, item) {
+        var sect_name = $(this).attr('id');
+        var sect_n = sect_name.substring(4, 6);
+        var sect_el = parseInt(sect_name.substring(7));
+        //var sect_size = $( this ).attr( "class" );
+        //console.log(sect_size);
+        $(this).addClass('sect' + sect_n);
+        $(this).append('<div class="marker"><input type="text"' + 'readonly ' + 'value="' + sect_el + '"></div><div class="deco"></div>');
+      });
+      $('.map .pin').click(function (e) {
+        if ($(this).hasClass('disabled')) {
+          //
+        } else {
+          $(this).toggleClass('active');
+        }
+      });
+      $('.map .pin').mouseenter(function () {
+        if ($(this).hasClass('disabled')) {
+          //
+        } else {
+          $(this).addClass('over');
+        }
+      });
+      $('.map .pin').mouseleave(function () {
+        $(this).removeClass('over');
+      });
+      //시설 슬라이더
+      var thumbSwiper = new Swiper('.thumb-swiper', {
+        autoHeight: true,
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: true,
+          loop: true,
+        },
+
+        observer: true,
+        observeParents: true,
+        navigation: {
+          nextEl: '.thumb-swiper .swiper-button-next',
+          prevEl: '.thumb-swiper .swiper-button-prev',
+        },
+        autoHeight: true,
+      });
+      $('.thumb-swiper .swiper-slide').click(function (e) {
+        e.preventDefault();
+        $('body').addClass('dimed');
+        $(this).parent().parent().parent().addClass('zoom');
+      });
+      $('.with-swiper .close').click(function (e) {
+        $('body').removeClass('dimed');
+        $('.with-swiper').removeClass('zoom');
+      });
+    </script>
+  
+
+</body></html>
