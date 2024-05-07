@@ -38,6 +38,9 @@ section .header {
     align-items: center;
     background-color: #211D14;
 }
+section.sec01 h2 {
+    display: none;
+}
 /* swiper */
 html,body {
     position: relative;
