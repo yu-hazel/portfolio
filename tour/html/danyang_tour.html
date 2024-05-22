@@ -13,7 +13,7 @@
 <body>
     <section class="sec01">
         <h2>단양군 문화관광</h2>
-        <header>
+        <header id="header">
             <div>
                 <div class="headerGroup01">
                     <a href="#">단양군청</a>
@@ -114,33 +114,90 @@
                 <i class="searchIcon"></i>
             </nav>
         </header>
+        <div class="swiper main">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide one">
+                    <div class="sliderContent">
+                        <p><i class="fa-solid fa-location-dot"></i>지금 여기는</p>
+                        <p>하늘 위를 걷는 짜릿함</p>
+                        <p>만천하 스카이워크</p>
+                    </div>
+                </div>
+                <div class="swiper-slide two">
+                    <div class="sliderContent">
+                        <p><i class="fa-solid fa-location-dot"></i>지금 여기는</p>
+                        <p>단양군을 가로지르는</p>
+                        <p>시루섬</p>
+                    </div>
+                </div>
+                <div class="swiper-slide three">
+                    <div class="sliderContent">
+                        <p><i class="fa-solid fa-location-dot"></i>지금 여기는</p>
+                        <p>느림보 강물길의 시작</p>
+                        <p>단양강 잔도</p>
+                    </div>
+                </div>
+                <div class="swiper-slide four">
+                    <div class="sliderContent">
+                        <p><i class="fa-solid fa-location-dot"></i>지금 여기는</p>
+                        <p>강 가운데의 세 봉우리</p>
+                        <p>도담삼봉</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
     </section>
     <section class="sec02">
-        <div class="title">
-            <span>지금! 떠나고 싶어지는</span>
-            <h2>단양 테마여행</h2>
+        <div>
+            <div class="title">
+                <span>지금! 떠나고 싶어지는</span>
+                <h2>단양 테마여행</h2>
+            </div>
+            <div class="themeSelect">
+                <div>
+                    <input type="radio" name="theme" id="theme01" checked>
+                    <label for="theme01">단양팔경</label>
+                </div>
+                <div>
+                    <input type="radio" name="theme" id="theme02">
+                    <label for="theme02">느림보길</label>
+                </div>
+                <div>
+                    <input type="radio" name="theme" id="theme03">
+                    <label for="theme03">계곡동굴</label>
+                </div>
+                <div>
+                    <input type="radio" name="theme" id="theme04">
+                    <label for="theme04">문화재</label>
+                </div>
+            </div>
         </div>
-        <div class="themeSelect">
-            <div>
-                <input type="radio" name="theme" id="theme01" checked>
-                <label for="theme01">단양팔경</label>
-                <div>내용</div>
+        <div class="themeContent">
+            <div class="swiper theme one">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
             </div>
-            <div>
-                <input type="radio" name="theme" id="theme02">
-                <label for="theme02">느림보길</label>
-                <div>내용</div>
-            </div>
-            <div>
-                <input type="radio" name="theme" id="theme03">
-                <label for="theme03">계곡동굴</label>
-                <div>내용</div>
-            </div>
-            <div>
-                <input type="radio" name="theme" id="theme04">
-                <label for="theme04">문화재</label>
-                <div>내용</div>
-            </div>
+            <!-- <div class="swiper theme two">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div> -->
         </div>
     </section>
     <section class="sec03">
@@ -214,7 +271,7 @@
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
         </div>
     </section>
     <section class="sec04">
@@ -226,10 +283,15 @@
             <div>
                 <input type="radio" name="sns" id="facebook" checked>
                 <label for="facebook">
-                    <img src="/portfolio/tour/img/facebook.png" alt="facebook logo">
+                    <img src="/portfolio/tour/img/facebook.png" alt="facebook logo" id="targetImg">
                     페이스북
                 </label>
-                <div>내용</div>
+                <div class="snsContent facebook">
+                    <div>card1</div>
+                    <div>card2</div>
+                    <div>card3</div>
+                    <div>card4</div>
+                </div>
             </div>
             <div>
                 <input type="radio" name="sns" id="instagram">
@@ -237,7 +299,12 @@
                     <img src="/portfolio/tour/img/instagram.png" alt="instagram logo">
                     인스타그램
                 </label>
-                <div>내용</div>
+                <div class="snsContent instagram">
+                    <div>card1</div>
+                    <div>card2</div>
+                    <div>card3</div>
+                    <div>card4</div>
+                </div>
             </div>
             <div>
                 <input type="radio" name="sns" id="blog">
@@ -245,7 +312,12 @@
                     <img src="/portfolio/tour/img/blog.png" alt="blog logo">
                     블로그
                 </label>
-                <div>내용</div>
+                <div class="snsContent blog">
+                    <div>card1</div>
+                    <div>card2</div>
+                    <div>card3</div>
+                    <div>card4</div>
+                </div>
             </div>
         </div>
     </section>

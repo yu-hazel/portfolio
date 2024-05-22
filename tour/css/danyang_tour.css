@@ -16,9 +16,6 @@
 :root {
     font-family: 'SCoreDream';
 }
-body {
-    background-color: #ccc;
-}
 a {
     text-decoration: none;
 }
@@ -36,6 +33,9 @@ li {
     font-size: 44px;
     font-weight: 800;
 }
+.sec01 {
+    position: relative;
+}
 .sec01 > h2 {
     display: none;
 }
@@ -46,6 +46,9 @@ li {
     width: 100%;
     padding: 10px 38px;
     gap: 10px;
+    position: absolute;
+    z-index: 1000;
+    transition: 0.3s;
 }
 .sec01 header > div{
     display: flex;
@@ -92,6 +95,7 @@ li {
     font-weight: 600;
     position: relative;
     margin-left: 30px;
+    color: #fff;
 }
 .sec01 .logo::before {
     content: "";
@@ -117,12 +121,13 @@ li {
     align-items: center;
     gap: 40px;
     height: 100%;
+    position: relative;
 }
 .sec01 .gnb > li {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
     height: 100%;
 }
 .sec01 .gnb > li > a {
@@ -132,44 +137,34 @@ li {
     color: #fff;
 }
 .sec01 .gnb > li > a:hover {
-    background: linear-gradient(90deg, #00A760 0%, #1969BC 100%);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    background: linear-gradient(90deg, #00A760 0%, #1969BC 100%) !important;
+    color: transparent !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
 }
-.sec01 .gnb .gnbDropdown {
-    display: none;
+.gnb .gnbDropdown {
+    /* display: none; */
+    position: fixed;
+    top: -300%;
+    /* left: 0;
+    width: 100%; */
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    z-index: -50;
 }
-.sec01 .gnb > li:hover > .gnbDropdown {
+.gnb > li:hover > .gnbDropdown {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    position: absolute;
     gap: 45px;
-    width: 950px;
-    height: 170px;
-    padding: 30px 0;
+    width: 100vw;
+    height: 180px;
+    padding: 30px 0 0 150px;
     background-color: #fff;
-    top: 60px;
-    left: -80px;
-}
-.sec01 .gnb > li:nth-child(2) > .gnbDropdown {
-    left: -220px;
-}
-.sec01 .gnb > li:nth-child(3) > .gnbDropdown {
-    left: -320px;
-}
-.sec01 .gnb > li:nth-child(4) > .gnbDropdown {
-    left: -450px;
-}
-.sec01 .gnb > li:nth-child(5) > .gnbDropdown {
-    left: -550px;
-}
-.sec01 .gnb > li:nth-child(6) > .gnbDropdown {
-    left: -650px;
-}
-.sec01 .gnb > li:nth-child(7) > .gnbDropdown {
-    left: -750px;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .sec01 .gnb .gnbDropdown > li {
     display: flex;
@@ -202,19 +197,96 @@ li {
     transition: 0.3s;
 }
 .sec01 .searchIcon:hover {
-    background: url(/portfolio/tour/img/search_hover.png);
+    background: url(/portfolio/tour/img/search_hover.png) !important;
 }
-.sec02 {
+/* swiper main */
+.swiper.main {
+    width: 100%;
+    height: 686px;
+}
+.main .swiper-slide {
+    display: flex;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.main .swiper-slide .sliderContent {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    margin: 0 50px 80px 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 20px;
+}
+.main .swiper-slide .sliderContent p:first-of-type {
+    display: flex;
+    gap: 3px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+    position: relative;
+}
+.main .swiper-slide .sliderContent p:first-of-type::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 150px;
+    height: 1px;
+    background-color: currentColor;
+}
+.main .swiper-slide .sliderContent p:nth-of-type(2) {
+    font-size: 54px;
+    font-weight: 700;
+}
+.main .swiper-slide .sliderContent p:last-of-type {
+    font-size: 40px;
+    font-weight: 400;
+    text-align: right;
+}
+.main .swiper-slide.one {
+    background: url(/portfolio/tour/img/mancheonha01.jpeg) no-repeat;
+    background-size: cover;
+}
+.main .swiper-slide.two {
+    background: url(/portfolio/tour/img/siruseom02.png) no-repeat;
+    background-size: cover;
+}
+.main .swiper-slide.three {
+    background: url(/portfolio/tour/img/danyang.jpeg) no-repeat;
+    background-size: cover;
+}
+.main .swiper-slide.four {
+    background: url(/portfolio/tour/img/dodam02.jpeg) no-repeat;
+    background-size: cover;
+}
+/* swiper main end */
+.sec02 {
+    display: flex;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 570px;
     gap: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.sec02 .title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.sec02 > div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 .sec02 .themeSelect {
     display: flex;
+    /* flex-direction: column; */
     gap: 10px;
 }
 .sec02 .themeSelect input[type="radio"] {
@@ -242,6 +314,26 @@ li {
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+/* swiper theme */
+.swiper.theme {
+    width: 631px;
+    height: 400px;
+}
+.theme .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.theme .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* swiper theme end */
 .sec03 {
     display: flex;
     flex-direction: column;
@@ -251,10 +343,17 @@ li {
     height: 717px;
     gap: 30px;
 }
+.sec03 .title {
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 /* swiper capmping */
 .swiper.camping {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 450px;
 }
 .camping .swiper-slide {
     display: flex;
@@ -329,11 +428,40 @@ li {
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.camping .swiper-button-next,
+.camping .swiper-button-prev {
+    background-color: #fff;
+    opacity: 0.8;
+    color: #000 !important;
+    border-radius: 25px;
+    width: 30px;
+    height: 30px;
+}
+.camping .swiper-button-next:after,
+.camping .swiper-button-prev:after {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+}
+/* swiper camping end */
+.sec04 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 721px;
+    gap: 10px;
+    padding-top: 70px;
+}
 .sec04 .snsSelect {
     display: flex;
     gap: 32px;
+    position: relative;
 }
 .snsSelect input[type="radio"] {
+    display: none;
+}
+.snsSelect .snsContent {
     display: none;
 }
 .snsSelect label {
@@ -341,20 +469,78 @@ li {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 8px;
+    padding: 10px 5px;
     width: 95px;
     height: 114px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     font-size: 16px;
     color: #000;
 }
+.snsSelect label[for="facebook"]:hover {
+    border: 2px solid #1877F2;
+}
+.snsSelect label[for="instagram"]:hover {
+    border: 2px solid #E9496A;
+}
+.snsSelect label[for="blog"]:hover {
+    border: 2px solid #42D31A;
+}
+.snsSelect input[type="radio"]:checked + label[for="facebook"] {
+    background-color: #1877F2;
+    color: #fff;
+}
+.snsSelect input[type="radio"]:checked + label + .snsContent {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.snsContent div{
+    width: 314px;
+    height: 340px;
+}
+.snsContent.instagram div:first-of-type {
+    background: url(/portfolio/tour/img/insta01.png) no-repeat;
+    background-size: cover;
+}
+.snsContent.instagram div:nth-of-type(2) {
+    background: url(/portfolio/tour/img/insta02.png) no-repeat;
+    background-size: cover;
+}
+.snsContent.instagram div:nth-of-type(3) {
+    background: url(/portfolio/tour/img/insta03.png) no-repeat;
+    background-size: cover;
+}
+.snsContent.instagram div:nth-of-type(4) {
+    background: url(/portfolio/tour/img/insta04.png) no-repeat;
+    background-size: cover;
+}
+.snsContent.blog div:first-of-type {
+    background: url(/portfolio/tour/img/blog01.png) no-repeat;
+    background-size: cover;
+}
+.snsContent.blog div:nth-of-type(2) {
+    background: url(/portfolio/tour/img/blog02.jpeg) no-repeat;
+    background-size: cover;
+}
+.snsContent.blog div:nth-of-type(3) {
+    background: url(/portfolio/tour/img/blog03.jpeg) no-repeat;
+    background-size: cover;
+}
+.snsContent.blog div:nth-of-type(4) {
+    background: url(/portfolio/tour/img/blog04.png) no-repeat;
+    background-size: cover;
+}
+
 footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    gap: 10px;
+    gap: 15px;
 }
 .serviceBox {
     display: flex;
@@ -371,4 +557,5 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 7px;
 }
