@@ -11,7 +11,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    outline: 1px solid cornflowerblue;
+    /* outline: 1px solid cornflowerblue; */
 }
 :root {
     font-family: 'SCoreDream';
@@ -89,6 +89,9 @@ li {
 }
 .sec01 .langSelect .langMenu li {
     text-align: center;
+}
+.sec01 .langSelect .langMenu li:hover {
+    background-color: #ccc;
 }
 .sec01 .logo {
     font-size: 24px;
@@ -189,6 +192,9 @@ li {
     width: 120px;
     font-size: 18px;
 }
+.gnbDropdown > li > ul a {
+    color: #000;
+}
 .sec01 .searchIcon {
     width: 32px;
     height: 32px;
@@ -266,12 +272,11 @@ li {
 /* swiper main end */
 .sec02 {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 570px;
-    gap: 20px;
+    gap: 50px;
     border-bottom: 1px solid #ccc;
 }
 .sec02 .title {
@@ -289,10 +294,10 @@ li {
     /* flex-direction: column; */
     gap: 10px;
 }
-.sec02 .themeSelect input[type="radio"] {
+/* .sec02 .themeSelect input[type="radio"] {
     display: none;
-}
-.sec02 .themeSelect label {
+} */
+.sec02 .themeSelect span {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -307,9 +312,10 @@ li {
     font-size: 22px;
     font-weight: 500;
     cursor: pointer;
+    transition: 0.25s;
 }
-.sec02 .themeSelect label:hover,
-.sec02 .themeSelect input[type="radio"]:checked + label {
+.sec02 .themeSelect span:hover,
+.sec02 .themeSelect span.on {
     background : linear-gradient(319deg, #1969BC 14.75%, #00A760 85.61%);
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -317,21 +323,36 @@ li {
 /* swiper theme */
 .swiper.theme {
     width: 631px;
-    height: 400px;
+    height: 420px;
 }
 .theme .swiper-slide {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
     font-size: 18px;
     background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.theme .swiper-slide:nth-of-type(2),
+.theme .swiper-slide:last-of-type {
+    margin-top: 20px;
 }
 .theme .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 258px;
+    height: 300px;
     object-fit: cover;
+    transition: 0.3s;
+}
+.theme .swiper-slide img:hover {
+    opacity: 0.8;
+}
+.themeContent .swiper.theme {
+    display: none;
+}
+.themeContent .swiper.theme.on {
+    display: block;
 }
 /* swiper theme end */
 .sec03 {
@@ -353,7 +374,7 @@ li {
 /* swiper capmping */
 .swiper.camping {
     width: 80%;
-    height: 450px;
+    height: 460px;
 }
 .camping .swiper-slide {
     display: flex;
@@ -374,6 +395,7 @@ li {
     justify-content: center;
     align-items: flex-start;
     gap: 14px;
+    width: 496px;
 }
 .camping .campInfo .hashtag {
     display: flex;
@@ -430,12 +452,20 @@ li {
 }
 .camping .swiper-button-next,
 .camping .swiper-button-prev {
-    background-color: #fff;
+    background-color: #eeeeee;
     opacity: 0.8;
     color: #000 !important;
     border-radius: 25px;
     width: 30px;
     height: 30px;
+    position: absolute;
+    top: 450px;
+}
+.camping .swiper-button-next {
+    left: 870px;
+}
+.camping .swiper-button-prev {
+    left: 830px;
 }
 .camping .swiper-button-next:after,
 .camping .swiper-button-prev:after {
