@@ -74,14 +74,14 @@ li {
 .sec01 .langSelect .langMenu {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     position: absolute;
     width: 99px;
-    height: 122px;
+    height: 135px;
     padding: 10px;
     top: 19px;
     background-color: #fff;
-    color: #000;
+    color: #939393;
     font-size: 15px;
     font-weight: 500;
     border-radius: 0px 0px 8px 8px;
@@ -91,7 +91,7 @@ li {
     text-align: center;
 }
 .sec01 .langSelect .langMenu li:hover {
-    background-color: #ccc;
+    color: #000;
 }
 .sec01 .logo {
     font-size: 24px;
@@ -291,12 +291,8 @@ li {
 }
 .sec02 .themeSelect {
     display: flex;
-    /* flex-direction: column; */
     gap: 10px;
 }
-/* .sec02 .themeSelect input[type="radio"] {
-    display: none;
-} */
 .sec02 .themeSelect span {
     display: flex;
     flex-direction: column;
@@ -354,6 +350,15 @@ li {
 .themeContent .swiper.theme.on {
     display: block;
 }
+.themeText p:first-of-type {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+.themeText p:last-of-type {
+    font-size: 22px;
+    font-weight: 500;
+}
 /* swiper theme end */
 .sec03 {
     display: flex;
@@ -363,6 +368,7 @@ li {
     width: 100%;
     height: 717px;
     gap: 30px;
+    border-bottom: 1px solid #ccc;
 }
 .sec03 .title {
     display: inherit;
@@ -480,86 +486,177 @@ li {
     align-items: center;
     width: 100%;
     height: 721px;
-    gap: 10px;
+    gap: 20px;
     padding-top: 70px;
+    border-bottom: 1px solid #ccc;
 }
 .sec04 .snsSelect {
     display: flex;
     gap: 32px;
     position: relative;
 }
-.snsSelect input[type="radio"] {
-    display: none;
-}
 .snsSelect .snsContent {
     display: none;
 }
-.snsSelect label {
+.snsSelect .sns {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 5px;
     width: 95px;
     height: 114px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.3);
     font-size: 16px;
     color: #000;
+    transition: 0.3s;
 }
-.snsSelect label[for="facebook"]:hover {
-    border: 2px solid #1877F2;
+.snsSelect .sns span {
+    width: 55px;
+    height: 55px;
+    text-indent: -9999px;
 }
-.snsSelect label[for="instagram"]:hover {
-    border: 2px solid #E9496A;
+.snsSelect .sns.instagram span {
+    background: url(/portfolio/tour/img/instagram.png) no-repeat;
 }
-.snsSelect label[for="blog"]:hover {
-    border: 2px solid #42D31A;
-}
-.snsSelect input[type="radio"]:checked + label[for="facebook"] {
-    background-color: #1877F2;
+.snsSelect .sns.instagram.on {
+    background : linear-gradient(27deg, #FFCE53 0%, #D44081 54.6%, #7F51C7 109.2%);
     color: #fff;
 }
-.snsSelect input[type="radio"]:checked + label + .snsContent {
+.snsSelect .sns.facebook span {
+    width: 58px;
+    height: 60px;
+    background: url(/portfolio/tour/img/facebook.png) no-repeat;
+}
+.snsSelect .sns.facebook.on {
+    background : #1877F2;
+    color: #fff;
+}
+.snsSelect .sns.facebook.on span {
+    background: url(/portfolio/tour/img/facebook_active.png) no-repeat;
+}
+.snsSelect .sns.blog span {
+    width: 65px;
+    background: url(/portfolio/tour/img/blog.png) no-repeat;
+}
+.snsSelect .sns.blog.on {
+    background : #42D31A;
+    color: #fff;
+}
+.snsSelect .sns.blog.on span {
+    background: url(/portfolio/tour/img/blog_active.png) no-repeat;
+}
+.snsSelect .sns.instagram:hover {
+    border: 2px solid #E9496A;
+}
+.snsSelect .sns.facebook:hover {
+    border: 2px solid #1877F2;
+}
+.snsSelect .sns.blog:hover {
+    border: 2px solid #42D31A;
+}
+.snsContents .con {
+    display: none;
+}
+.snsContents .con.on {
     display: flex;
     gap: 10px;
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
 }
-.snsContent div{
+.snsContents .con > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 314px;
     height: 340px;
+    border-radius: 10%;
+    /* text-indent: -9999px; */
 }
-.snsContent.instagram div:first-of-type {
+.snsContents .snsText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 272px;
+    height: 177px;
+    padding: 0 10px;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.70);
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0%;
+    transition: 0.3s;
+}
+.snsText button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.70);
+    font-family: 'SCoreDream';
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+    cursor: pointer;
+}
+.snsContents .con > div:hover .snsText {
+    opacity: 100%;
+}
+.snsText > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.snsContents .instagram > div:first-of-type {
     background: url(/portfolio/tour/img/insta01.png) no-repeat;
     background-size: cover;
 }
-.snsContent.instagram div:nth-of-type(2) {
+.snsContents .instagram div:nth-of-type(2) {
     background: url(/portfolio/tour/img/insta02.png) no-repeat;
     background-size: cover;
 }
-.snsContent.instagram div:nth-of-type(3) {
+.snsContents .instagram div:nth-of-type(3) {
     background: url(/portfolio/tour/img/insta03.png) no-repeat;
     background-size: cover;
 }
-.snsContent.instagram div:nth-of-type(4) {
+.snsContents .instagram div:nth-of-type(4) {
     background: url(/portfolio/tour/img/insta04.png) no-repeat;
     background-size: cover;
 }
-.snsContent.blog div:first-of-type {
+.snsContents .facebook div:first-of-type {
+    background: url(/portfolio/tour/img/face01.png) no-repeat;
+    background-size: cover;
+}
+.snsContents .facebook div:nth-of-type(2) {
+    background: url(/portfolio/tour/img/face02.png) no-repeat;
+    background-size: cover;
+}
+.snsContents .facebook div:nth-of-type(3) {
+    background: url(/portfolio/tour/img/face03.png) no-repeat;
+    background-size: cover;
+}
+.snsContents .facebook div:nth-of-type(4) {
+    background: url(/portfolio/tour/img/face04.png) no-repeat;
+    background-size: cover;
+}
+.snsContents .blog div:first-of-type {
     background: url(/portfolio/tour/img/blog01.png) no-repeat;
     background-size: cover;
 }
-.snsContent.blog div:nth-of-type(2) {
+.snsContents .blog div:nth-of-type(2) {
     background: url(/portfolio/tour/img/blog02.jpeg) no-repeat;
     background-size: cover;
 }
-.snsContent.blog div:nth-of-type(3) {
+.snsContents .blog div:nth-of-type(3) {
     background: url(/portfolio/tour/img/blog03.jpeg) no-repeat;
     background-size: cover;
 }
-.snsContent.blog div:nth-of-type(4) {
+.snsContents .blog div:nth-of-type(4) {
     background: url(/portfolio/tour/img/blog04.png) no-repeat;
     background-size: cover;
 }
@@ -571,6 +668,9 @@ footer {
     align-items: center;
     padding: 20px 0;
     gap: 15px;
+}
+footer a {
+    color: #000;
 }
 .serviceBox {
     display: flex;

@@ -44,7 +44,7 @@ var swiper = new Swiper(".main", {
     spaceBetween: 0,
     centeredSlides: true,
     autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
     },
     pagination: {
@@ -71,7 +71,7 @@ var swiper = new Swiper(".camping", {
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
-        delay: 2500,
+        delay: 3500,
         disableOnInteraction: false,
     },
     pagination: {
@@ -121,9 +121,17 @@ Object.keys(campingBtUrls).forEach(id => {
 });
 
 
-// SNS
-document.getElementById('facebook').addEventListener('change', function() {
-    if(this.checked) {
-        document.getElementById('targetImg').src = '/portfolio/tour/img/facebook_active.png';
-    }
-});
+// SNS 탭구조
+let snsBt = document.querySelectorAll(".snsSelect div");
+let snsContent = document.querySelectorAll(".snsContents .con");
+
+snsBt.forEach((eachBt, index) => {
+    eachBt.addEventListener('click', function() {
+        for (const bt of snsBt) bt.classList.remove("on");
+        for (const content of snsContent) content.classList.remove("on");
+
+        snsContent[index].classList.add("on");
+        this.classList.add("on");
+    })
+})
+snsBt[0].click();
