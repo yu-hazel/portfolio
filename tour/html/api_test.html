@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api 테스트</title>
+</head>
+
+<body>
+    <script>
+        async function fetchData() {
+            const url = '../js/korea_tour_danyang.json';
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.log('Error fetching data:', error);
+            }
+        }
+
+        (async () => {
+            const result = await fetchData();
+            console.log(result.danyang);
+            // result01.textContent = result.danyang[2].addr1;
+
+            // image.src = result.danyang[2].firstimage;
+        })();
+    </script>
+</body>
+
+</html>

@@ -37,7 +37,6 @@ document.getElementById('lang').addEventListener('click', function() {
     }
 })
 
-
 // swiper js 모음
 var swiper = new Swiper(".main", {
     loop: true,
@@ -82,6 +81,21 @@ var swiper = new Swiper(".camping", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+});
+
+// 퀵메뉴 sec02~sec04 고정
+window.addEventListener('scroll', function() {
+    let quickMenu = document.getElementById('quickMenu');
+    let secondSection = document.querySelector('.sec02');
+    let fourthSection = document.querySelector('.sec04');
+    let secondRect = secondSection.getBoundingClientRect();
+    let fourthRect = fourthSection.getBoundingClientRect();
+
+    if (secondRect.top <= 0 && fourthRect.bottom > 10) {
+        quickMenu.classList.add('fixed');
+    } else {
+        quickMenu.classList.remove('fixed');
+    }
 });
 
 
@@ -136,49 +150,12 @@ snsBt.forEach((eachBt, index) => {
 })
 snsBt[0].click();
 
-// 충북관광 API
+// footer 드롭다운
+let serviceBt = document.querySelectorAll(".serviceBox div");
+let serviceDrop = document.querySelectorAll(".serviceDropdown");
 
-const proxyURL = 'https://api.allorigins.win/get?url=';
-        const apiURL = encodeURIComponent('https://tour.chungbuk.go.kr/openapi/tourInfo/attr.do?searchCnd=tourNm&searchKrwd=%EB%8B%A8%EC%96%91&PageUnit=15');
-
-        async function fetchData() {
-            try {
-                const response = await fetch(proxyURL + apiURL);
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-
-                const data = await response.json();
-
-                const actualData = JSON.parse(data.contents);
-                // console.log(actualData);
-
-                const tourNames = actualData.result.map(item => item.tourNm);
-                // ✅ map 메서드를 이용해서 배열에서 각 요소의 특정 값을 모두 가져오게 할 수 있다.
-                // map 메서드의 item은 actualData.result 배열의 각 요소를 뜻한다.
-                // 배열의 각 요소를 순회하며, 그 요소를 함수의 인자로 전달한다.
-
-                console.log(tourNames);
-                // content.textContent = tourNames;
-                // content.innerContent = actualData.
-                // document.getElementById('content').innerText = JSON.stringify(actualData, null, 2);
-                // console.log(actualData.result[0].thumbImg);
-
-                // const imageUrl = actualData.result[7].thumbImg;
-                // document.getElementById('image').src = imageUrl;
-
-                // const imageUrl2 = actualData.result[3].thumbImg;
-                // document.getElementById('image2').src = imageUrl2;
-
-                // document.getElementById('content').style.backgroundImage = `url(${imageUrl})`;
-                // document.getElementById('content').style.backgroundSize = 'cover';
-
-                // const location01 = actualData.result[5].intrcn
-                // document.getElementById('location').innerText = location01;
-            } catch (error) {
-                console.error('Fetch operation failed: ', error);
-            }
-        }
-
-        fetchData();
+serviceBt.forEach((eachBt, index) => {
+    eachBt.addEventListener('click', function() {
+        serviceDrop[index].classList.toggle("on");
+    })
+})

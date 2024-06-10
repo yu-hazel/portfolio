@@ -180,6 +180,12 @@ li {
     color: #000;
     font-size: 20px;
     font-weight: 400;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.sec01 .gnb .gnbDropdown > li:hover {
+    background-color:#00a75f;
+    color: #fff;
 }
 .gnbDropdown > li > ul {
     position: absolute;
@@ -194,6 +200,10 @@ li {
 }
 .gnbDropdown > li > ul a {
     color: #000;
+    transition: 0.3s;
+}
+.gnbDropdown > li > ul a:hover {
+    color: #747474;
 }
 .sec01 .searchIcon {
     width: 32px;
@@ -269,6 +279,7 @@ li {
     background: url(/portfolio/tour/img/dodam02.jpeg) no-repeat;
     background-size: cover;
 }
+
 /* swiper main end */
 .sec02 {
     display: flex;
@@ -278,6 +289,73 @@ li {
     height: 570px;
     gap: 50px;
     border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.sec02::before {
+    content: "";
+    width: 60%;
+    height: 60%;
+    background: cornflowerblue;
+    opacity: 20%;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+}
+.quickMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    gap: 15px;
+    position: absolute;
+    z-index: 30;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #03A26A;
+    top: 20px;
+    right: 20px;
+    margin-left: 10px;
+}
+.quickMenu div {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #02A564 0%, #1770B3 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #11809C;
+}
+.quickMenu p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.quickMenu p i {
+    font-size: 30px;
+}
+.quickMenu.fixed {
+    position: fixed;
+    top: 20px;
+}
+.quickMenu p:first-of-type:hover {
+    color: tomato;
+}
+.quickMenu p:nth-of-type(2):hover {
+    color: rgb(2, 179, 23);
+}
+.quickMenu p:nth-of-type(3):hover {
+    color: rgb(54, 176, 242);
+}
+.quickMenu p:last-of-type:hover {
+    color: #ffc800;
 }
 .sec02 .title {
     display: flex;
@@ -328,7 +406,7 @@ li {
     align-items: flex-start;
     gap: 10px;
     font-size: 18px;
-    background: #fff;
+    background: transparent;
 }
 .theme .swiper-slide:nth-of-type(2),
 .theme .swiper-slide:last-of-type {
@@ -369,6 +447,17 @@ li {
     height: 717px;
     gap: 30px;
     border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.sec03::before {
+    content: "";
+    width: 60%;
+    height: 60%;
+    background: rgb(184, 215, 184);
+    opacity: 30%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 .sec03 .title {
     display: inherit;
@@ -380,6 +469,7 @@ li {
 /* swiper capmping */
 .swiper.camping {
     width: 80%;
+    max-width: 1356px;
     height: 460px;
 }
 .camping .swiper-slide {
@@ -391,7 +481,7 @@ li {
 }
 .camping .swiper-slide img {
     display: block;
-    width: 751px;
+    width: 55%;
     height: 450px;
     object-fit: cover;
 }
@@ -400,8 +490,9 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    text-align: left;
     gap: 14px;
-    width: 496px;
+    width: 45%;
 }
 .camping .campInfo .hashtag {
     display: flex;
@@ -443,7 +534,7 @@ li {
     align-items: center;
     padding: 10px;
     border-radius: 10px;
-    background: #d3d3d3;
+    background: #fff;
     font-family: 'SCoreDream';
     color: #5d5d5d;
     font-size: 18px;
@@ -458,7 +549,7 @@ li {
 }
 .camping .swiper-button-next,
 .camping .swiper-button-prev {
-    background-color: #eeeeee;
+    background-color: #ffffff;
     opacity: 0.8;
     color: #000 !important;
     border-radius: 25px;
@@ -468,10 +559,10 @@ li {
     top: 450px;
 }
 .camping .swiper-button-next {
-    left: 870px;
+    left: 840px;
 }
 .camping .swiper-button-prev {
-    left: 830px;
+    left: 795px;
 }
 .camping .swiper-button-next:after,
 .camping .swiper-button-prev:after {
@@ -482,13 +573,32 @@ li {
 .sec04 {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 721px;
     gap: 20px;
     padding-top: 70px;
     border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.sec04::before {
+    content: "";
+    width: 100%;
+    height: 40%;
+    background: rgb(255, 212, 211);
+    opacity: 40%;
+    bottom: 0;
+    /* left: 50%; */
+    position: absolute;
+    z-index: -10;
+}
+.sec04 .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 .sec04 .snsSelect {
     display: flex;
@@ -522,6 +632,7 @@ li {
 .snsSelect .sns.instagram.on {
     background : linear-gradient(27deg, #FFCE53 0%, #D44081 54.6%, #7F51C7 109.2%);
     color: #fff;
+    border: none;
 }
 .snsSelect .sns.facebook span {
     width: 58px;
@@ -531,6 +642,7 @@ li {
 .snsSelect .sns.facebook.on {
     background : #1877F2;
     color: #fff;
+    border: none;
 }
 .snsSelect .sns.facebook.on span {
     background: url(/portfolio/tour/img/facebook_active.png) no-repeat;
@@ -542,6 +654,7 @@ li {
 .snsSelect .sns.blog.on {
     background : #42D31A;
     color: #fff;
+    border: none;
 }
 .snsSelect .sns.blog.on span {
     background: url(/portfolio/tour/img/blog_active.png) no-repeat;
@@ -571,47 +684,7 @@ li {
     border-radius: 10%;
     /* text-indent: -9999px; */
 }
-.snsContents .snsText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 272px;
-    height: 177px;
-    padding: 0 10px;
-    gap: 9px;
-    background: rgba(255, 255, 255, 0.70);
-    color: #000;
-    font-size: 15px;
-    font-weight: 400;
-    opacity: 0%;
-    transition: 0.3s;
-}
-.snsText button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background: rgba(255, 255, 255, 0.70);
-    font-family: 'SCoreDream';
-    color: #000;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.7px;
-    cursor: pointer;
-}
-.snsContents .con > div:hover .snsText {
-    opacity: 100%;
-}
-.snsText > p {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
 .snsContents .instagram > div:first-of-type {
     background: url(/portfolio/tour/img/insta01.png) no-repeat;
     background-size: cover;
@@ -660,32 +733,141 @@ li {
     background: url(/portfolio/tour/img/blog04.png) no-repeat;
     background-size: cover;
 }
-
+.snsContents .snsText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 272px;
+    height: 177px;
+    padding: 0 10px;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.70) !important;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0%;
+    transition: 0.3s;
+}
+.snsText button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.70);
+    font-family: 'SCoreDream';
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+    cursor: pointer;
+}
+.snsContents .con > div:hover .snsText {
+    opacity: 100%;
+}
+.snsText button:hover {
+    opacity: 80%;
+}
+.snsText > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
-    gap: 15px;
+    padding: 40px 0;
+    gap: 20px;
+    background: #fff;
 }
 footer a {
     color: #000;
 }
 .serviceBox {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 10px 8px;
+    border-top: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    position: relative;
+    background: #fff;
 }
-.serviceBox .serviceDropdown {
-    display: none;
+.serviceBox div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #414141;
+    cursor: pointer;
+    background: #fff;
+}
+.fa-caret-up {
+    color: #5c5c5c;
+}
+.serviceDropdown {
+    height: 0;
+    opacity: 0;
+    /* transition: 0.25s; */
+}
+.serviceDropdown.on {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 128px;
+    height: auto;
+    /* padding: 10px 0; */
+    opacity: 1;
+    position: absolute;
+    bottom: 40px;
+    background: #fff;
+    color: #3e3e3e;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.serviceDropdown.on li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.serviceDropdown.on li:first-of-type {
+    border-radius: 10px 10px 0 0;
+    height: 35px;
+    padding: 5px 0;
+}
+.serviceDropdown.on li:hover {
+    background: rgba(67, 180, 105, 0.8);
 }
 .linkList {
     display: flex;
     gap: 10px;
+}
+.linkList a {
+    color: #686868;
+}
+.linkList .priv {
+    color: #00A760;
 }
 .textArea {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 7px;
+    font-size: 14px;
+    color: #858585;
 }
