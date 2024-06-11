@@ -1,11 +1,8 @@
 // 단양관광 공홈 리디자인 한국관광공사 api js
 
-
-
 async function fetchData() {
     const url = '../js/korea_tour_danyang.json';
-    // html 파일 기준이라서!
-
+    // html 파일 기준이으로 경로 작성
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -15,28 +12,28 @@ async function fetchData() {
     }
 }
 
-(async () => {
+// sec02 캐러셀 채우기
+function apiTheme(element, data) {
+    element.innerHTML = `
+    <img src=${data.firstimage} alt>
+    <div class="themeText">
+        <p>${data.context}</p>
+        <p>${data.title}</p>
+    </div>
+`
+}
+
+async function setData() {
     const result = await fetchData();
     console.log(result.danyang);
 
-
-    // sec02 캐러셀 채우기
-    function apiTheme(element, data) {
-        element.innerHTML = `
-        <img src=${data.firstimage} alt>
-        <div class="themeText">
-            <p>${data.context}</p>
-            <p>${data.title}</p>
-        </div>
-    `
-    }
-    // ✅ 각 탭을 누를 때마다 호출하기로 리팩토링! a도 넣어서 서브페이지로 이동하는 것도 해야 함
+    // ✅ 각 탭을 누를 때마다 호출하기로 리팩토링! <a>도 넣어서 서브페이지로 이동하는 것도 해야 함
 
     // 단양체험
-    apiTheme(themeVillage01, result.danyang[1]);
-    apiTheme(themeVillage02, result.danyang[6]);
-    apiTheme(themeVillage03, result.danyang[7]);
-    apiTheme(themeVillage04, result.danyang[10]);
+    apiTheme(themeAct01, result.danyang[1]);
+    apiTheme(themeAct02, result.danyang[6]);
+    apiTheme(themeAct03, result.danyang[7]);
+    apiTheme(themeAct04, result.danyang[10]);
     
     // 단양힐링
     apiTheme(themeHealing01, result.danyang[20]);
@@ -49,6 +46,12 @@ async function fetchData() {
     apiTheme(themeHeritage02, result.danyang[4]);
     apiTheme(themeHeritage03, result.danyang[13]);
     apiTheme(themeHeritage04, result.danyang[18]);
+};
+setData();
 
 
-})();
+
+
+
+
+

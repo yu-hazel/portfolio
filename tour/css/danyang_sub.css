@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* 단양관광 서브페이지 css */
+
+@import url('https://webfontworld.github.io/SCoreDream/SCoreDream.css');
+/* S-Core Dream */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+/* 눈누 Pretendard */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid cornflowerblue; */
+}
+:root {
+    font-family: 'SCoreDream';
+}
+body {
+    margin: 0 auto;
+    width: 100vw;
+    overflow-x: hidden;
+}
+.bread {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-weight: 300;
+}
+.topSec {
+    display: flex;
+    /* width: 90%; */
+    gap: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    margin-bottom: 20px;
+}
+.tourWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.topSec .tourName {
+    font-size: 54px;
+}
+.topSec .tourLocat {
+    display: flex;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.tourDetail {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+.topSec img {
+    width: 705px;
+    height: 510px;
+    object-fit: contain;
+}
+.bottomSec {
+    margin: 50px 0;
+    overflow: hidden;
+}
+.tourCards .swiper-slide {
+    /* width: 150px; */
+    height: 320px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tourCards img {
+    border-radius: 10px;
+    width: 302px;
+    height: 320px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.tourCards img:hover {
+    opacity: 0.6;
+}

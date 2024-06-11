@@ -375,7 +375,7 @@ li {
     display: flex;
     gap: 10px;
 }
-.sec02 .themeSelect span {
+.sec02 .themeSelect a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -392,17 +392,12 @@ li {
     cursor: pointer;
     transition: 0.25s;
 }
-.sec02 .themeSelect span:hover,
-.sec02 .themeSelect span.on {
+.sec02 .themeSelect a:hover,
+.sec02 .themeSelect a.on {
     background : linear-gradient(319deg, #1969BC 14.75%, #00A760 85.61%);
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-/* .sec02 .themeSelect span:active,
-.sec02 .themeSelect span.on {
-    outline: 3px solid #EF3120;
-    transition: none;
-} */
 /* swiper theme */
 .swiper.theme {
     width: 631px;

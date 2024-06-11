@@ -98,7 +98,7 @@ window.addEventListener('scroll', function() {
 
 
 // sec02 테마여행 탭구조
-let themeBt = document.querySelectorAll(".themeSelect span");
+let themeBt = document.querySelectorAll(".themeSelect a");
 let themeContent = document.querySelectorAll(".themeContent .swiper.theme");
 
 themeBt.forEach((eachBt, index) => {
