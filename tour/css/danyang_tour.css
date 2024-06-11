@@ -290,17 +290,21 @@ li {
     gap: 50px;
     border-bottom: 1px solid #ccc;
     position: relative;
+    overflow: hidden;
 }
 .sec02::before {
     content: "";
     width: 60%;
     height: 60%;
-    background: cornflowerblue;
-    opacity: 20%;
+    background: url(/portfolio/tour/img/hiking.svg) no-repeat;
+    background-size: contain;
+    opacity: 45%;
     position: absolute;
+    transform: scale(1.5);
     z-index: -10;
-    top: 0;
-    left: 0;
+    bottom: 50px;
+    left: 200px;
+    overflow: hidden;
 }
 .quickMenu {
     display: flex;
@@ -394,6 +398,11 @@ li {
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+/* .sec02 .themeSelect span:active,
+.sec02 .themeSelect span.on {
+    outline: 3px solid #EF3120;
+    transition: none;
+} */
 /* swiper theme */
 .swiper.theme {
     width: 631px;
@@ -448,16 +457,19 @@ li {
     gap: 30px;
     border-bottom: 1px solid #ccc;
     position: relative;
+    overflow: hidden;
 }
 .sec03::before {
     content: "";
     width: 60%;
     height: 60%;
-    background: rgb(184, 215, 184);
-    opacity: 30%;
+    /* background: rgb(184, 215, 184); */
+    background: url(/portfolio/tour/img/outdoor.svg) no-repeat;
+    background-size: contain;
+    opacity: 50%;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: -400px;
+    bottom: 30px;
 }
 .sec03 .title {
     display: inherit;
@@ -584,12 +596,14 @@ li {
 }
 .sec04::before {
     content: "";
-    width: 100%;
+    width: 60%;
     height: 40%;
-    background: rgb(255, 212, 211);
-    opacity: 40%;
-    bottom: 0;
-    /* left: 50%; */
+    background: url(/portfolio/tour/img/social.svg) no-repeat;
+    background-size: contain;
+    transform: scale(1.15);
+    opacity: 55%;
+    top: 40px;
+    left: 250px;
     position: absolute;
     z-index: -10;
 }
@@ -743,6 +757,7 @@ li {
     padding: 0 10px;
     gap: 9px;
     background: rgba(255, 255, 255, 0.70) !important;
+    border-radius: 10px;
     color: #000;
     font-size: 15px;
     font-weight: 400;

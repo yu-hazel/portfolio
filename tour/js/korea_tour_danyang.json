@@ -20,7 +20,8 @@
     "modifiedtime": "20240312153041",
     "sigungucode": "2",
     "tel": "",
-    "title": "구인사"
+    "title": "구인사",
+    "context": "이색 건물 양식과 템플스테이까지!"
 },
 {
     "addr1": "충청북도 단양군 적성면 금수산로 784-10",
@@ -109,7 +110,8 @@
     "modifiedtime": "20240516093532",
     "sigungucode": "2",
     "tel": "",
-    "title": "금굴 구석기유적지"
+    "title": "금굴 구석기유적지",
+    "context": "한반도에서 가장 오래된"
 },
 {
 "addr1": "충청북도 단양군 단양읍 소백산등산길 12",
@@ -311,7 +313,8 @@
     "modifiedtime": "20230911155402",
     "sigungucode": "2",
     "tel": "",
-    "title": "온달동굴"
+    "title": "온달동굴",
+    "context": "4억 5천만년의 세월이 묻어 있는"
 },
 {
     "addr1": "충청북도 단양군 영춘면 하리",
@@ -413,8 +416,8 @@
     "contentid": "125863",
     "contenttypeid": "12",
     "createdtime": "20020502090000",
-    "firstimage": "http://tong.visitkorea.or.kr/cms/resource/97/2366297_image2_1.jpg",
-    "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/97/2366297_image3_1.jpg",
+    "firstimage": "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=63499816-1659-4d54-875e-9aedc33eabfa",
+    "firstimage2": "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=63499816-1659-4d54-875e-9aedc33eabfa",
     "cpyrhtDivCd": "Type3",
     "mapx": "128.4187274773",
     "mapy": "36.9729437219",
@@ -422,7 +425,8 @@
     "modifiedtime": "20240315145913",
     "sigungucode": "2",
     "tel": "",
-    "title": "천동동굴"
+    "title": "천동동굴",
+    "context": "쏟아질 듯 아기자기안 종유석들"
 },
 {
     "addr1": "충청북도 단양군 향산1길 24 향산리삼층석탑",
@@ -466,7 +470,8 @@
     "modifiedtime": "20240523093157",
     "sigungucode": "2",
     "tel": "",
-    "title": "단양강 잔도"
+    "title": "단양강 잔도",
+    "context": "남한강 암벽을 따라 트래킹"
 },
 {
     "addr1": "충청북도 단양군 단성면 충혼로 26",
@@ -488,7 +493,8 @@
     "modifiedtime": "20240201160203",
     "sigungucode": "2",
     "tel": "",
-    "title": "단양향교"
+    "title": "단양향교",
+    "context": ""
 },
 {
     "addr1": "충청북도 단양군 대강면 황정산로 423",
@@ -532,7 +538,8 @@
     "modifiedtime": "20231207150437",
     "sigungucode": "2",
     "tel": "",
-    "title": "북단양리조트"
+    "title": "북단양리조트",
+    "context": ""
 },
 {
     "addr1": "충청북도 단양군 단양읍 삼봉로 187-17",
@@ -554,7 +561,8 @@
     "modifiedtime": "20240514104931",
     "sigungucode": "2",
     "tel": "",
-    "title": "소노문 단양 오션플레이"
+    "title": "소노문 단양 오션플레이",
+    "context": "아이들과 물놀이하기 딱!"
 },
 {
     "addr1": "충청북도 단양군 대강면 황정리",
@@ -589,8 +597,8 @@
     "contentid": "3080013",
     "contenttypeid": "12",
     "createdtime": "20230908150207",
-    "firstimage": "http://tong.visitkorea.or.kr/cms/resource/01/3080001_image2_1.JPG",
-    "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/01/3080001_image3_1.JPG",
+    "firstimage": "http://tong.visitkorea.or.kr/cms/resource/05/3080005_image2_1.JPG",
+    "firstimage2": "http://tong.visitkorea.or.kr/cms/resource/05/3080005_image2_1.JPG",
     "cpyrhtDivCd": "Type3",
     "mapx": "128.3340113120",
     "mapy": "36.9298359712",
@@ -598,7 +606,8 @@
     "modifiedtime": "20240110142901",
     "sigungucode": "2",
     "tel": "",
-    "title": "에덴파크 단양"
+    "title": "에덴파크 단양",
+    "context": "알록달록 앵무새를 만나보고 싶다면"
 },
 {
     "addr1": "충청북도 단양군 대강면 사인암2길 42",
@@ -642,7 +651,8 @@
     "modifiedtime": "20240528132810",
     "sigungucode": "2",
     "tel": "010-4963-5574",
-    "title": "팝스월드 단양"
+    "title": "팝스월드 단양",
+    "context": "단양 신상 웃음 충전소 핫플!"
 }
 ]}
 

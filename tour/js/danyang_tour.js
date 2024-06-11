@@ -4,7 +4,7 @@
 document.getElementById("header").addEventListener("mouseover", function() {
     this.style.backgroundColor = "#fff"; // 호버 시 배경색 변경
 
-    var links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon'); // .headerGroup01 클래스 하위의 모든 a 태그 선택
+    let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon'); // .headerGroup01 클래스 하위의 모든 a 태그 선택
     links.forEach(function(link) {
         link.style.color = "#000"; // 링크 텍스트 색상 변경
     });
@@ -14,13 +14,11 @@ document.getElementById("header").addEventListener("mouseover", function() {
 });
 
 document.getElementById("header").addEventListener("mouseout", function() {
-    this.style.backgroundColor = "rgba(0, 0, 0, 0)"; // 마우스가 벗어날 때 다시 원래의 배경색으로 변경
-
-    var links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon'); // .headerGroup01 클래스 하위의 모든 a 태그 선택
+    this.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
     links.forEach(function(link) {
-        link.style.color = "#fff"; // 링크 텍스트 색상 변경
+        link.style.color = "#fff";
     });
-
     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search.png")';
 });
 
@@ -57,7 +55,7 @@ var swiper = new Swiper(".main", {
 });
 
 var swiper = new Swiper(".theme", {
-    slidesPerView: 2,
+    slidesPerView: 2.1,
     spaceBetween: 10,
     pagination: {
         el: ".swiper-pagination",

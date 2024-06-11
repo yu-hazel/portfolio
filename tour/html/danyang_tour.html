@@ -7,7 +7,9 @@
     <title>단양군 문화관광</title>
     <script src="https://kit.fontawesome.com/650017f151.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/portfolio/tour/css/danyang_tour.css">
+    <link rel="stylesheet" media="all and (max-width:1240px)" href="/portfolio/tour/css/danyang_tour_tab.css">
 </head>
 
 <body>
@@ -154,19 +156,19 @@
             <p><i class="fa-regular fa-face-smile"></i>관광해설사</p>
             <p><i class="fa-solid fa-comments"></i>카카오채널</p>
         </div>
-        <div>
+        <div data-aos="fade-right">
             <div class="title">
                 <span>지금! 떠나고 싶어지는</span>
                 <h2>단양 테마여행</h2>
             </div>
             <div class="themeSelect">
                 <span>단양팔경</span>
-                <span>단양레저</span>
+                <span>단양힐링</span>
                 <span>단양체험</span>
                 <span>문화재</span>
             </div>
         </div>
-        <div class="themeContent">
+        <div class="themeContent" data-aos="fade-left">
             <div class="swiper theme one">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" id="themeCard">
@@ -201,28 +203,28 @@
             </div>
             <div class="swiper theme two">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHealing01">
                         <img src="/portfolio/tour/img/yuramseon.png" alt="유람선">
                         <div class="themeText">
                             <p>세월이 흘러도 변함없는 뱃놀이</p>
                             <p>유람선</p>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHealing02">
                         <img src="/portfolio/tour/img/rafting.png" alt="래프팅">
                         <div class="themeText">
                             <p>푸른 남한강 물빛의 유혹</p>
                             <p>래프팅</p>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHealing03">
                         <img src="/portfolio/tour/img/waterpark.png" alt="천동물놀이장">
                         <div class="themeText">
                             <p>아이들과 함께 신나는 물놀이</p>
                             <p>천동물놀이장</p>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHealing04">
                         <img src="/portfolio/tour/img/fishing.png" alt="루어낚시">
                         <div class="themeText">
                             <p>역동적인 손맛을 참을 수 없다면</p>
@@ -265,28 +267,28 @@
             </div>
             <div class="swiper theme four">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHeritage01">
                         <img src="/portfolio/tour/img/ondalcave.jpeg" alt="온달동굴">
                         <div class="themeText">
                             <p>4억 5천만년의 세월이 묻어 있는</p>
                             <p>온달동굴</p>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHeritage02">
                         <img src="/portfolio/tour/img/cheondongcave.jpeg" alt="천동동굴">
                         <div class="themeText">
                             <p>쏟아질 듯 아기자기한 종유석들</p>
                             <p>천동동굴</p>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHeritage03">
                         <img src="/portfolio/tour/img/danyang_geumgul.jpeg" alt="금굴유적">
                         <div class="themeText">
                             <p>충북 기념물 제 102호</p>
                             <p>금굴유적</p>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="themeHeritage04">
                         <img src="/portfolio/tour/img/guinsa.jpeg" alt="구인사">
                         <div class="themeText">
                             <p>독특한 사찰 양식을 엿볼 수 있는</p>
@@ -298,12 +300,12 @@
         </div>
     </section>
     <section class="sec03">
-        <div class="title">
+        <div class="title" data-aos="fade-down">
             <span>힐링이 필요한 당신에게</span>
             <h2>단양 힐링 캠프</h2>
         </div>
         <!-- swiper camping -->
-        <div class="swiper camping">
+        <div class="swiper camping" data-aos="fade-up">
             <div class="swiper-wrapper">
                 <div class="swiper-slide one">
                     <img src="/portfolio/tour/img/cheondong_camping01.jpeg" alt="천동캠핑장">
@@ -374,7 +376,7 @@
             <!-- <div class="swiper-pagination"></div> -->
         </div>
     </section>
-    <section class="sec04">
+    <section class="sec04" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
         <div class="title">
             <span>단양관광 공식 SNS</span>
             <h2>더 즐거워지는 단양 여행</h2>
@@ -550,6 +552,10 @@
             <div>Copyright &copy; 2020 DANYANG-GUN. All rights reserved.</div>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/portfolio/tour/js/danyang_tour.js"></script>
     <script src="/portfolio/tour/js/danyang_tour_koApi.js"></script>

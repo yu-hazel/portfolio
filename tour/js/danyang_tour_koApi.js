@@ -18,32 +18,37 @@ async function fetchData() {
 (async () => {
     const result = await fetchData();
     console.log(result.danyang);
-    themeVillage01.innerHTML = `
-        <img src=${result.danyang[1].firstimage} alt>
+
+
+    // sec02 캐러셀 채우기
+    function apiTheme(element, data) {
+        element.innerHTML = `
+        <img src=${data.firstimage} alt>
         <div class="themeText">
-            <p>${result.danyang[1].context}</p>
-            <p>${result.danyang[1].title}</p>
+            <p>${data.context}</p>
+            <p>${data.title}</p>
         </div>
     `
-    themeVillage02.innerHTML = `
-    <img src=${result.danyang[6].firstimage} alt>
-    <div class="themeText">
-        <p>${result.danyang[6].context}</p>
-        <p>${result.danyang[6].title}</p>
-    </div>
-`
-    themeVillage03.innerHTML = `
-    <img src=${result.danyang[7].firstimage} alt>
-    <div class="themeText">
-        <p>${result.danyang[7].context}</p>
-        <p>${result.danyang[7].title}</p>
-    </div>
-`
-    themeVillage04.innerHTML = `
-    <img src=${result.danyang[10].firstimage} alt>
-    <div class="themeText">
-        <p>${result.danyang[10].context}</p>
-        <p>${result.danyang[10].title}</p>
-    </div>
-`
+    }
+    // ✅ 각 탭을 누를 때마다 호출하기로 리팩토링! a도 넣어서 서브페이지로 이동하는 것도 해야 함
+
+    // 단양체험
+    apiTheme(themeVillage01, result.danyang[1]);
+    apiTheme(themeVillage02, result.danyang[6]);
+    apiTheme(themeVillage03, result.danyang[7]);
+    apiTheme(themeVillage04, result.danyang[10]);
+    
+    // 단양힐링
+    apiTheme(themeHealing01, result.danyang[20]);
+    apiTheme(themeHealing02, result.danyang[24]);
+    apiTheme(themeHealing03, result.danyang[26]);
+    apiTheme(themeHealing04, result.danyang[28]);
+    
+    // 문화재
+    apiTheme(themeHeritage01, result.danyang[0]);
+    apiTheme(themeHeritage02, result.danyang[4]);
+    apiTheme(themeHeritage03, result.danyang[13]);
+    apiTheme(themeHeritage04, result.danyang[18]);
+
+
 })();
