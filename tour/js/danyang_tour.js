@@ -112,6 +112,51 @@ themeBt.forEach((eachBt, index) => {
 });
 themeBt[0].click();
 
+// sec02 테마여행 각 카드 클릭시 sub.html로 이동
+document.addEventListener("DOMContentLoaded", function() {
+    const slidesOne = document.querySelectorAll('.swiper.theme.one img');
+    const slidesTwo = document.querySelectorAll('.swiper.theme.two');
+    const slidesThree = document.querySelectorAll('.swiper.theme.three');
+    const slidesFour = document.querySelectorAll('.swiper.theme.four');
+    
+    slidesOne.forEach(slide => {
+        slide.addEventListener('click', function() {
+            window.location.href = 'danyang_sub.html?fetch=8';
+        });
+    });
+    
+    slidesTwo.forEach((slide) => {
+        slide.addEventListener('click', function() {
+                window.location.href = 'danyang_sub.html?fetch=h';
+            // 다른 이미지에 대한 처리 추가
+        });
+    });
+    slidesThree.forEach((slide) => {
+        slide.addEventListener('click', function() {
+                window.location.href = 'danyang_sub.html?fetch=a';
+            // 다른 이미지에 대한 처리 추가
+        });
+    });
+    slidesFour.forEach((slide) => {
+        slide.addEventListener('click', function() {
+                window.location.href = 'danyang_sub.html?fetch=he';
+            // 다른 이미지에 대한 처리 추가
+        });
+    });
+
+
+    
+slidesTwo.forEach((slide, index) => {
+    console.log("이미지", index, "에 클릭 이벤트 추가됨");
+    slide.addEventListener('click', function() {
+        console.log("이미지", index, "클릭됨");
+        window.location.href = 'danyang_sub.html?fetch=h';
+    });
+});
+});
+
+
+
 
 // sec03 캠핑장 예약 버튼 클릭시 링크 이동
 const cheondongUrl = 'https://mirihae.com/dytc/camping/V39628874';

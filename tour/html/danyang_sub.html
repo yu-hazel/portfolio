@@ -12,8 +12,11 @@
 </head>
 
 <body>
-    <div class="bread">
-        <p>홈 > 볼거리 > 단양팔경</p>
+    <div id="bread">
+        <p><i class="fa-solid fa-house" id="home"></i>
+            <span>> 볼거리</span>
+            <span id="bread3depth">> 단양팔경</span>
+        </p>
     </div>
     <section class="topSec">
         <div class="tourWrapper">
@@ -21,10 +24,12 @@
             <div class="tourLocat" id="tourLocat"><i class="fa-solid fa-location-dot"></i>
                 <p>충청북도 단양군 매포읍 삼봉로 644</p>
             </div>
+            <p>소개</p>
             <p class="tourDetail" id="tourDetail">도담삼봉은 조선 개국에 공을 세운 정도전이 유년시절을 보낸 곳으로 자신의 호를 삼봉이라 할 만큼 도담삼봉의 아름다움에 빠졌다고
                 전해진다. 퇴계이황,
                 겸재 정선, 단원 김홍도 등이 사랑한 도담삼봉의 풍경을 눈앞에서 볼 수 있다. 유원지 내에 위치한 삼봉스토리관은 단양의 명소를 자료 보관소로 전시하고 있다. 황포돛배를 승선하면 석문을
                 경유하여 건너편 도담 정원으로 넘어갈 수 있다. 도담정원은 황화 코스모스 식재지로 유명하다. 도담삼봉의 풍경과 함께 자연의 아름다움을 한껏 느낄 수 있다.</p>
+            <span id="learnMore">더 보기<i class="fa-solid fa-chevron-down"></i></span>
         </div>
         <img src="https://www.danyang.go.kr/File/Download/c79cae95a884c0d35dd4c439d116c7b4" alt id="tourImg">
     </section>
@@ -40,134 +45,12 @@
                 <div class="swiper-slide"><img src="#" alt></div>
                 <div class="swiper-slide"><img src="#" alt></div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".tourCards", {
-            slidesPerView: 5,
-            spaceBetween: 50,
-            freeMode: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-
-        // 한국관광공사 api 활용
-
-        const slides = document.querySelectorAll('.swiper-slide > img');
-        const tourLo = document.querySelector('.tourLocat p')
-
-        async function fetchData8() {
-            const url = '../js/korea_tour_danyang.json';
-            // html 파일 기준으로 경로 작성
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                console.log(data.danyang);
-
-                for (let i = 0; i < slides.length; i++) {
-                    slides[i].src = `${data.danyang[30 + i].firstimage}`;
-                    slides[i].addEventListener('click', () => {
-                        tourName.textContent = `${data.danyang[30 + i].title}`;
-                        tourLo.textContent = `${data.danyang[30 + i].addr1}`;
-                        tourDetail.textContent = `${data.danyang[30 + i].detail}`;
-                        tourImg.src = `${data.danyang[30 + i].firstimage}`;
-                    })
-                }
-            } catch (error) {
-                console.log('한국관광공사 api 패치 에러 : ', error);
-            }
-        }
-        fetchData8();
-
-        // async function fetchDataH() {
-        //     const url = '../js/danyang_healing.json';
-        //     // html 파일 기준으로 경로 작성
-        //     try {
-        //         const response = await fetch(url);
-        //         const data = await response.json();
-        //         console.log(data.danyang);
-
-        //         for (let i = 0; i < slides.length; i++) {
-        //             slides[i].src = `${data.danyang[i].firstimage}`;
-        //             slides[i].addEventListener('click', () => {
-        //                 tourName.textContent = `${data.danyang[i].title}`;
-        //                 tourLo.textContent = `${data.danyang[i].addr1}`;
-        //                 tourDetail.textContent = `${data.danyang[i].detail}`;
-        //                 tourImg.src = `${data.danyang[i].firstimage}`;
-        //             })
-        //         }
-        //         tourName.textContent = `${data.danyang[0].title}`
-        //         tourLo.textContent = `${data.danyang[0].addr1}`
-        //         tourDetail.textContent = `${data.danyang[0].detail}`
-        //         tourImg.src = `${data.danyang[0].firstimage}`
-
-        //     } catch (error) {
-        //         console.log('한국관광공사 api 패치 에러 : ', error);
-        //     }
-        // }
-        // fetchDataH();
-
-        // async function fetchDataA() {
-        //     const url = '../js/danyang_activity.json';
-        //     // html 파일 기준으로 경로 작성
-        //     try {
-        //         const response = await fetch(url);
-        //         const data = await response.json();
-        //         console.log(data.danyang);
-
-        //         for (let i = 0; i < slides.length; i++) {
-        //             slides[i].src = `${data.danyang[i].firstimage}`;
-        //             slides[i].addEventListener('click', () => {
-        //                 tourName.textContent = `${data.danyang[i].title}`;
-        //                 tourLo.textContent = `${data.danyang[i].addr1}`;
-        //                 tourDetail.textContent = `${data.danyang[i].detail}`;
-        //                 tourImg.src = `${data.danyang[i].firstimage}`;
-        //             })
-        //         }
-        //         tourName.textContent = `${data.danyang[0].title}`
-        //         tourLo.textContent = `${data.danyang[0].addr1}`
-        //         tourDetail.textContent = `${data.danyang[0].detail}`
-        //         tourImg.src = `${data.danyang[0].firstimage}`
-
-        //     } catch (error) {
-        //         console.log('한국관광공사 api 패치 에러 : ', error);
-        //     }
-        // }
-        // fetchDataA();
-
-        // async function fetchDataHe() {
-        //     const url = '../js/danyang_heritage.json';
-        //     // html 파일 기준으로 경로 작성
-        //     try {
-        //         const response = await fetch(url);
-        //         const data = await response.json();
-        //         console.log(data.danyang);
-
-        //         for (let i = 0; i < slides.length; i++) {
-        //             slides[i].src = `${data.danyang[i].firstimage}`;
-        //             slides[i].addEventListener('click', () => {
-        //                 tourName.textContent = `${data.danyang[i].title}`;
-        //                 tourLo.textContent = `${data.danyang[i].addr1}`;
-        //                 tourDetail.textContent = `${data.danyang[i].detail}`;
-        //                 tourImg.src = `${data.danyang[i].firstimage}`;
-        //             })
-        //         }
-        //         tourName.textContent = `${data.danyang[0].title}`
-        //         tourLo.textContent = `${data.danyang[0].addr1}`
-        //         tourDetail.textContent = `${data.danyang[0].detail}`
-        //         tourImg.src = `${data.danyang[0].firstimage}`
-
-        //     } catch (error) {
-        //         console.log('한국관광공사 api 패치 에러 : ', error);
-        //     }
-        // }
-        // fetchDataHe();
-
-    </script>
+    <script src="/portfolio/tour/js/danyang_sub.js"></script>
 </body>
 
 </html>

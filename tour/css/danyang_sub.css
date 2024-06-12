@@ -15,19 +15,25 @@
 }
 :root {
     font-family: 'SCoreDream';
+    --swiper-navigation-size: 35px;
 }
 body {
     margin: 0 auto;
     width: 100vw;
     overflow-x: hidden;
 }
-.bread {
+#bread p{
     display: flex;
     width: 100%;
     justify-content: flex-end;
     padding: 20px 50px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
+    gap: 7px;
+}
+#bread span,
+#bread i {
+    cursor: pointer;
 }
 .topSec {
     display: flex;
@@ -45,6 +51,10 @@ body {
 }
 .topSec .tourName {
     font-size: 54px;
+    background: linear-gradient(to bottom, rgba(2,165,100,1) 0%, rgba(23,112,179,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .topSec .tourLocat {
     display: flex;
@@ -52,10 +62,47 @@ body {
     font-size: 18px;
     font-weight: 300;
 }
+.tourLocat + p {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #5a5a5a;
+    position: relative;
+}
+.tourLocat + p:before {
+    position: absolute;
+    content: "";
+    width: 55px;
+    height: 2px;
+    background: #878787;
+    bottom: -3px;
+    left: -4px;
+}
 .tourDetail {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1.5em;
+    line-height: 1.8em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#learnMore {
+    display: flex;
+    gap: 5px;
+    color: #808080;
+    cursor: pointer;
+}
+.expanded {
+    -webkit-line-clamp: unset;
+    max-height: none;
+}
+#learnMore .fa-chevron-down {
+    transition: transform 0.3s;
+}
+.tourDetail.expanded + #learnMore .fa-chevron-down {
+    transform: rotateX(180deg);
 }
 .topSec img {
     width: 705px;
@@ -76,10 +123,15 @@ body {
     justify-content: center;
     align-items: center;
 }
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    width: 50px;
+}
 .tourCards img {
     border-radius: 10px;
-    width: 302px;
-    height: 320px;
+    width: 280px;
+    height: 300px;
     object-fit: cover;
     transition: 0.3s;
 }
