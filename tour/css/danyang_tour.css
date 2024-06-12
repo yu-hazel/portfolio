@@ -187,6 +187,16 @@ li {
     background-color:#00a75f;
     color: #fff;
 }
+.gnbDropdown > li > a {
+    color: #000;
+}
+.sec01 .gnb .gnbDropdown > li:hover a {
+    color: #fff;
+}
+.sec01 .gnbDropdown .slow li {
+    color: #000;
+    transition: 0.3s;
+}
 .gnbDropdown > li > ul {
     position: absolute;
     display: flex;
@@ -198,11 +208,7 @@ li {
     width: 120px;
     font-size: 18px;
 }
-.gnbDropdown > li > ul a {
-    color: #000;
-    transition: 0.3s;
-}
-.gnbDropdown > li > ul a:hover {
+.sec01 .gnbDropdown .slow li:hover {
     color: #747474;
 }
 .sec01 .searchIcon {

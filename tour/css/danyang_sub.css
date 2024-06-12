@@ -17,16 +17,239 @@
     font-family: 'SCoreDream';
     --swiper-navigation-size: 35px;
 }
+a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+}
 body {
     margin: 0 auto;
     width: 100vw;
     overflow-x: hidden;
+    position: relative;
+    /* padding: 20px 100px; */
+}
+.title {
+    color: #2e2e2e;
+}
+.title span {
+    font-size: 22px;
+    font-weight: 500;
+}
+.title h2 {
+    font-size: 44px;
+    font-weight: 800;
+}
+.sec01 {
+    position: relative;
+    background: url(/portfolio/tour/img/header_back.png) no-repeat;
+    background-size: cover;
+    height: 440px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 5px 5px rgba(0,0,0,0.22);
+}
+.sec01 #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 38px;
+    gap: 10px;
+    position: absolute;
+    z-index: 1000;
+    transition: 0.3s;
+}
+.sec01 #header > div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.sec01 .headerGroup01,
+.sec01 .headerGroup02 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+}
+.sec01 .headerGroup01 a,
+.sec01 .headerGroup02 a,
+.sec01 .langSelect {
+    color: #fff;
+}
+.sec01 .langSelect {
+    position: relative;
+    cursor: pointer;
+}
+.sec01 .langSelect .langMenu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    width: 99px;
+    height: 135px;
+    padding: 10px;
+    top: 19px;
+    background-color: #fff;
+    color: #939393;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 0px 0px 8px 8px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.sec01 .langSelect .langMenu li {
+    text-align: center;
+}
+.sec01 .langSelect .langMenu li:hover {
+    color: #000;
+}
+.sec01 .logo {
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    margin-left: 30px;
+    color: #fff;
+}
+.sec01 .logo::before {
+    content: "";
+    position: absolute;
+    background: url(/portfolio/tour/img/logo_crop.png) no-repeat;
+    background-size: cover;
+    width: 94px;
+    height: 84px;
+    top: -30px;
+    left: -85px;
+    z-index: 30;
+}
+.logo a {
+    color: inherit;
+}
+.sec01 nav {
+    display: flex;
+    width: 100%;
+    height: 84px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+.sec01 .gnb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+    position: relative;
+}
+.sec01 .gnb > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    height: 100%;
+}
+.sec01 .gnb > li > a {
+    /* height: 100%; */
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+}
+.sec01 .gnb > li > a:hover {
+    background: linear-gradient(90deg, #00A760 0%, #1969BC 100%) !important;
+    color: transparent !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+}
+.gnb .gnbDropdown {
+    /* display: none; */
+    position: fixed;
+    top: -200%;
+    /* left: 0;
+    width: 100%; */
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    z-index: 10;
+}
+.gnb > li:hover > .gnbDropdown {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 45px;
+    width: 100vw;
+    height: 180px;
+    padding: 30px 0 0 150px;
+    background-color: #fff;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.sec01 .gnb .gnbDropdown > li {
+    display: flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #e6e6e6;
+    position: relative;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.sec01 .gnb .gnbDropdown > li:hover {
+    background-color:#00a75f;
+    color: #fff;
+}
+.gnbDropdown > li > a {
+    color: #000;
+}
+.sec01 .gnb .gnbDropdown > li:hover a {
+    color: #fff;
+}
+.sec01 .gnbDropdown .slow li {
+    color: #000;
+    transition: 0.3s;
+}
+.sec01 .gnbDropdown .slow li:hover {
+    color: #747474;
+}
+.gnbDropdown > li > ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    top: 50px;
+    width: 120px;
+    font-size: 18px;
+}
+.sec01 .searchIcon {
+    width: 32px;
+    height: 32px;
+    background: url(/portfolio/tour/img/search.png) no-repeat;
+    background-size: cover;
+    transition: 0.3s;
+}
+.sec01 .searchIcon:hover {
+    background: url(/portfolio/tour/img/search_hover.png) !important;
+}
+#subTitle {
+    font-size: 68px;
+    color: #fff;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.wrapper {
+    padding: 30px 80px;
 }
 #bread p{
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    padding: 20px 50px;
+    padding: 20px;
     font-size: 16px;
     font-weight: 300;
     gap: 7px;
@@ -34,6 +257,11 @@ body {
 #bread span,
 #bread i {
     cursor: pointer;
+    transition: 0.3s;
+}
+#home:hover,
+#bread span:hover {
+    opacity: 0.6;
 }
 .topSec {
     display: flex;
@@ -41,7 +269,7 @@ body {
     gap: 80px;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 0;
     margin-bottom: 20px;
 }
 .tourWrapper {
@@ -108,10 +336,36 @@ body {
     width: 705px;
     height: 510px;
     object-fit: contain;
+    transition: 0.3s;
 }
 .bottomSec {
-    margin: 50px 0;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 90vw;
+    /* overflow: hidden; */
+}
+#bottomTitle {
+    font-size: 24px;
+    position: relative;
+    background: #fff;
+    padding: 0 20px;
+}
+#bottomTitle::before {
+    position: absolute;
+    content: "";
+    width: 100vw;
+    height: 2px;
+    background: #dcdcdc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -10;
+}
+.swiper-horizontal {
+    width: 100%;
 }
 .tourCards .swiper-slide {
     /* width: 150px; */
@@ -134,7 +388,104 @@ body {
     height: 300px;
     object-fit: cover;
     transition: 0.3s;
+    cursor: pointer;
 }
 .tourCards img:hover {
     opacity: 0.6;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    gap: 20px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+footer a {
+    color: #000;
+}
+.serviceBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 10px 8px;
+    border-top: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    position: relative;
+    background: #fff;
+}
+.serviceBox div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #414141;
+    cursor: pointer;
+    background: #fff;
+}
+.fa-caret-up {
+    color: #5c5c5c;
+}
+.serviceDropdown {
+    height: 0;
+    opacity: 0;
+    /* transition: 0.25s; */
+}
+.serviceDropdown.on {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 128px;
+    height: auto;
+    /* padding: 10px 0; */
+    opacity: 1;
+    position: absolute;
+    bottom: 40px;
+    background: #fff;
+    color: #3e3e3e;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+.serviceDropdown.on li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.serviceDropdown.on li:first-of-type {
+    border-radius: 10px 10px 0 0;
+    height: 35px;
+    padding: 5px 0;
+}
+.serviceDropdown.on li:hover {
+    background: rgba(67, 180, 105, 0.8);
+}
+.linkList {
+    display: flex;
+    gap: 10px;
+}
+.linkList a {
+    color: #686868;
+}
+.linkList .priv {
+    color: #00A760;
+}
+.textArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    color: #858585;
 }

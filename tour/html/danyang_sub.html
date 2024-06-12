@@ -7,48 +7,223 @@
     <title>단양팔경 | 볼거리 | 단양군 문화관광</title>
     <script src="https://kit.fontawesome.com/650017f151.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <!-- <link rel="stylesheet" href="/portfolio/tour/css/danyang_tour.css"> -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/portfolio/tour/css/danyang_sub.css">
 </head>
 
 <body>
-    <div id="bread">
-        <p><i class="fa-solid fa-house" id="home"></i>
-            <span>> 볼거리</span>
-            <span id="bread3depth">> 단양팔경</span>
-        </p>
-    </div>
-    <section class="topSec">
-        <div class="tourWrapper">
-            <h2 class="tourName" id="tourName">도담삼봉</h2>
-            <div class="tourLocat" id="tourLocat"><i class="fa-solid fa-location-dot"></i>
-                <p>충청북도 단양군 매포읍 삼봉로 644</p>
+    <div class="sec01">
+        <div id="header">
+            <div>
+                <div class="headerGroup01">
+                    <a href="https://www.danyang.go.kr/dy21/1">단양군청</a>
+                    <a href="https://www.danyang.go.kr/town/249">통합읍면</a>
+                    <a href="https://council.danyang.go.kr/">단양군의회</a>
+                    <a href="https://www.danyang.go.kr/refarm/1380">단양귀농귀촌</a>
+                </div>
+                <div class="headerGroup02">
+                    <a href="#">로그인</a>
+                    <a href="#">사이트맵</a>
+                    <ul class="langSelect" id="lang">
+                        <li>
+                            <div>LANGUAGE<i class="fa-solid fa-angle-down"></i></div>
+                            <ul class="langMenu">
+                                <li>한국어</li>
+                                <li>ENGLISH</li>
+                                <li>中國語</li>
+                                <li>日本語</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p>소개</p>
-            <p class="tourDetail" id="tourDetail">도담삼봉은 조선 개국에 공을 세운 정도전이 유년시절을 보낸 곳으로 자신의 호를 삼봉이라 할 만큼 도담삼봉의 아름다움에 빠졌다고
-                전해진다. 퇴계이황,
-                겸재 정선, 단원 김홍도 등이 사랑한 도담삼봉의 풍경을 눈앞에서 볼 수 있다. 유원지 내에 위치한 삼봉스토리관은 단양의 명소를 자료 보관소로 전시하고 있다. 황포돛배를 승선하면 석문을
-                경유하여 건너편 도담 정원으로 넘어갈 수 있다. 도담정원은 황화 코스모스 식재지로 유명하다. 도담삼봉의 풍경과 함께 자연의 아름다움을 한껏 느낄 수 있다.</p>
-            <span id="learnMore">더 보기<i class="fa-solid fa-chevron-down"></i></span>
+            <nav>
+                <div class="logo"><a href="danyang_tour.html">단양군 문화관광</a></div>
+                <ul class="gnb">
+                    <li>
+                        <a href="#">여행꾸러미</a>
+                        <ul class="gnbDropdown">
+                            <li class="slow">
+                                느림보길
+                                <ul>
+                                    <li>느림보강물길</li>
+                                    <li>느림보유랑길</li>
+                                    <li>소백산자락길</li>
+                                </ul>
+                            </li>
+                            <li>테마여행</li>
+                            <li>관광기상기후정보</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">볼거리</a>
+                        <ul class="gnbDropdown">
+                            <li><a href="danyang_sub.html?fetch=81">단양팔경</a></li>
+                            <li>단양제2팔경</li>
+                            <li>계곡/동굴/명산</li>
+                            <li><a href="danyang_sub.html?fetch=he1">문화재</a></li>
+                            <li><a href="danyang_sub.html?fetch=h3">관광지</a></li>
+                            <li>전시장/세트장</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">즐길거리</a>
+                        <ul class="gnbDropdown">
+                            <li>축제</li>
+                            <li>레저</li>
+                            <li>캠핑/휴양림</li>
+                            <li><a href="danyang_sub.html?fetch=a1">체험마을</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">먹거리</a>
+                        <ul class="gnbDropdown">
+                            <li>단양채</li>
+                            <li>모범음식점</li>
+                            <li>일반음식점</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">살거리</a>
+                        <ul class="gnbDropdown">
+                            <li>단고을이란?</li>
+                            <li>단양아로니아</li>
+                            <li>단고을특산품</li>
+                            <li>공예품</li>
+                            <li>시장</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">잠자리</a>
+                        <ul class="gnbDropdown">
+                            <li>호텔/콘도/모텔</li>
+                            <li>펜션/게스트하우스</li>
+                            <li>향토민박/한옥스테이</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">여행도우미</a>
+                        <ul class="gnbDropdown">
+                            <li>교통정보</li>
+                            <li>단양관광지도</li>
+                            <li>문화관광해설사</li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="searchIcon"></i>
+            </nav>
         </div>
-        <img src="https://www.danyang.go.kr/File/Download/c79cae95a884c0d35dd4c439d116c7b4" alt id="tourImg">
-    </section>
-    <div class="bottomSec">
-        <div class="swiper tourCards">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
-                <div class="swiper-slide"><img src="#" alt></div>
+        <h2 id="subTitle">단양팔경</h2>
+    </div>
+    <div class="wrapper">
+        <div id="bread">
+            <p><i class="fa-solid fa-house" id="home"></i>
+                <span>> 볼거리</span>
+                <span id="bread3depth">> 단양팔경</span>
+            </p>
+        </div>
+        <section class="topSec" data-aos="fade-down">
+            <div class="tourWrapper">
+                <h2 class="tourName" id="tourName">도담삼봉</h2>
+                <div class="tourLocat" id="tourLocat"><i class="fa-solid fa-location-dot"></i>
+                    <p>충청북도 단양군 매포읍 삼봉로 644</p>
+                </div>
+                <p>소개</p>
+                <p class="tourDetail" id="tourDetail">도담삼봉은 조선 개국에 공을 세운 정도전이 유년시절을 보낸 곳으로 자신의 호를 삼봉이라 할 만큼 도담삼봉의 아름다움에
+                    빠졌다고
+                    전해진다. 퇴계이황,
+                    겸재 정선, 단원 김홍도 등이 사랑한 도담삼봉의 풍경을 눈앞에서 볼 수 있다. 유원지 내에 위치한 삼봉스토리관은 단양의 명소를 자료 보관소로 전시하고 있다. 황포돛배를 승선하면
+                    석문을
+                    경유하여 건너편 도담 정원으로 넘어갈 수 있다. 도담정원은 황화 코스모스 식재지로 유명하다. 도담삼봉의 풍경과 함께 자연의 아름다움을 한껏 느낄 수 있다.</p>
+                <span id="learnMore">더 보기<i class="fa-solid fa-chevron-down"></i></span>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <img src="https://www.danyang.go.kr/File/Download/c79cae95a884c0d35dd4c439d116c7b4" alt id="tourImg">
+        </section>
+        <div class="bottomSec" data-aos="fade-up">
+            <p id="bottomTitle">단양팔경 더 살펴보기</p>
+            <div class="swiper tourCards">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                    <div class="swiper-slide"><img src="#" alt></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </div>
+    <footer>
+        <ul class="serviceBox">
+            <li>
+                <div>시/군 홈페이지<i class="fa-solid fa-caret-up"></i></div>
+                <ul class="serviceDropdown">
+                    <li>충청북도</li>
+                    <li>청주시</li>
+                    <li>충주시</li>
+                    <li>제천시</li>
+                    <li>보은군</li>
+                    <li>옥천군</li>
+                    <li>영동군</li>
+                    <li>진천군</li>
+                    <li>괴산군</li>
+                    <li>음성군</li>
+                    <li>증평군</li>
+                </ul>
+            </li>
+            <li>
+                <div>단양군 홈페이지<i class="fa-solid fa-caret-up"></i></div>
+                <ul class="serviceDropdown">
+                    <li>통합읍면</li>
+                    <li>보건의료원</li>
+                    <li>다누리센터</li>
+                    <li>농업기술센터</li>
+                    <li>단양문화예술회관</li>
+                </ul>
+            </li>
+            <li>
+                <div>공공/교육기관<i class="fa-solid fa-caret-up"></i></div>
+                <ul class="serviceDropdown">
+                    <li>단양경찰서</li>
+                    <li>단양소방서</li>
+                    <li>단양우체국</li>
+                    <li>단양교육청</li>
+                    <li>단양고등학교</li>
+                    <li>가곡초등학교</li>
+                </ul>
+            </li>
+            <li>
+                <div>관광/기타<i class="fa-solid fa-caret-up"></i></div>
+                <ul class="serviceDropdown">
+                    <li>단양국가지질공원</li>
+                    <li>소선암자연휴양림</li>
+                    <li>소백산산촌마을</li>
+                    <li>단양군산림조합</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="linkList">
+            <a href="#">이용안내</a>
+            <a href="#">군청오시는길</a>
+            <a href="#">행정전화번호</a>
+            <a href="#">홈페이지개선사항</a>
+            <a href="#" class="priv">개인정보처리방침</a>
+            <a href="#">저작권보호정책</a>
+            <a href="#">뷰어다운로드</a>
+        </div>
+        <div class="textArea">
+            <div>주소 : (27010) 충청북도 단양군 단양읍 중앙1로 10 | 전화번호 : 043-420-3114 | 팩스번호 : 043-420-3388</div>
+            <div>Copyright &copy; 2020 DANYANG-GUN. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/portfolio/tour/js/danyang_sub.js"></script>
 </body>

@@ -114,48 +114,31 @@ themeBt[0].click();
 
 // sec02 테마여행 각 카드 클릭시 sub.html로 이동
 document.addEventListener("DOMContentLoaded", function() {
-    const slidesOne = document.querySelectorAll('.swiper.theme.one img');
-    const slidesTwo = document.querySelectorAll('.swiper.theme.two');
-    const slidesThree = document.querySelectorAll('.swiper.theme.three');
-    const slidesFour = document.querySelectorAll('.swiper.theme.four');
-    
-    slidesOne.forEach(slide => {
-        slide.addEventListener('click', function() {
-            window.location.href = 'danyang_sub.html?fetch=8';
-        });
-    });
-    
-    slidesTwo.forEach((slide) => {
-        slide.addEventListener('click', function() {
-                window.location.href = 'danyang_sub.html?fetch=h';
-            // 다른 이미지에 대한 처리 추가
-        });
-    });
-    slidesThree.forEach((slide) => {
-        slide.addEventListener('click', function() {
-                window.location.href = 'danyang_sub.html?fetch=a';
-            // 다른 이미지에 대한 처리 추가
-        });
-    });
-    slidesFour.forEach((slide) => {
-        slide.addEventListener('click', function() {
-                window.location.href = 'danyang_sub.html?fetch=he';
-            // 다른 이미지에 대한 처리 추가
-        });
-    });
+    const themeCards = [
+        { element: themeCard01, url: 'danyang_sub.html?fetch=81' },
+        { element: themeCard02, url: 'danyang_sub.html?fetch=82' },
+        { element: themeCard03, url: 'danyang_sub.html?fetch=83' },
+        { element: themeCard04, url: 'danyang_sub.html?fetch=84' },
+        { element: themeHealing01, url: 'danyang_sub.html?fetch=h1' },
+        { element: themeHealing02, url: 'danyang_sub.html?fetch=h2' },
+        { element: themeHealing03, url: 'danyang_sub.html?fetch=h3' },
+        { element: themeHealing04, url: 'danyang_sub.html?fetch=h4' },
+        { element: themeAct01, url: 'danyang_sub.html?fetch=a1' },
+        { element: themeAct02, url: 'danyang_sub.html?fetch=a2' },
+        { element: themeAct03, url: 'danyang_sub.html?fetch=a3' },
+        { element: themeAct04, url: 'danyang_sub.html?fetch=a4' },
+        { element: themeHeritage01, url: 'danyang_sub.html?fetch=he1' },
+        { element: themeHeritage02, url: 'danyang_sub.html?fetch=he2' },
+        { element: themeHeritage03, url: 'danyang_sub.html?fetch=he3' },
+        { element: themeHeritage04, url: 'danyang_sub.html?fetch=he4' },
+    ];
 
-
-    
-slidesTwo.forEach((slide, index) => {
-    console.log("이미지", index, "에 클릭 이벤트 추가됨");
-    slide.addEventListener('click', function() {
-        console.log("이미지", index, "클릭됨");
-        window.location.href = 'danyang_sub.html?fetch=h';
+    themeCards.forEach(card => {
+        card.element.addEventListener('click', function() {
+            window.location.href = card.url;
+        });
     });
 });
-});
-
-
 
 
 // sec03 캠핑장 예약 버튼 클릭시 링크 이동
@@ -192,6 +175,7 @@ snsBt.forEach((eachBt, index) => {
     })
 })
 snsBt[0].click();
+
 
 // footer 드롭다운
 let serviceBt = document.querySelectorAll(".serviceBox div");
