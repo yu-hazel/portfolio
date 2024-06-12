@@ -97,6 +97,10 @@ async function fetchDataH(index=0) {
         tourLo.textContent = `${data.danyang[index].addr1}`
         tourDetail.textContent = `${data.danyang[index].detail}`
         tourImg.src = `${data.danyang[index].firstimage}`
+        subTitle.textContent = "단양힐링";
+        bread2depth.textContent = "> 볼거리";
+        bread3depth.textContent = "> 관광지"
+        bottomTitle.textContent = "단양에서 힐링하는 또다른 방법은?";
 
     } catch (error) {
         console.log('한국관광공사 api 패치 에러 : ', error);
@@ -125,7 +129,10 @@ async function fetchDataA(index=0) {
         tourLo.textContent = `${data.danyang[index].addr1}`
         tourDetail.textContent = `${data.danyang[index].detail}`
         tourImg.src = `${data.danyang[index].firstimage}`
-
+        subTitle.textContent = "단양체험";
+        bread2depth.textContent = "> 즐길거리";
+        bread3depth.textContent = "> 체험마을"
+        bottomTitle.textContent = "단양 체험 장소 더 알아보기";
     } catch (error) {
         console.log('단양체험 api 에러 : ', error);
     }
@@ -153,7 +160,10 @@ async function fetchDataHe(index=0) {
         tourLo.textContent = `${data.danyang[index].addr1}`
         tourDetail.textContent = `${data.danyang[index].detail}`
         tourImg.src = `${data.danyang[index].firstimage}`
-
+        subTitle.textContent = "문화재";
+        bread2depth.textContent = "> 볼거리";
+        bread3depth.textContent = "> 문화재"
+        bottomTitle.textContent = "단양 문화재 더 알아보기";
     } catch (error) {
         console.log('문화재 api 에러 : ', error);
     }
@@ -164,7 +174,6 @@ async function fetchDataHe(index=0) {
 document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const fetchType = urlParams.get('fetch');
-    const bread = document.getElementById('bread3depth');
 
     const fetchActions = {
         '81': () => fetchData8(0),
@@ -173,78 +182,42 @@ document.addEventListener("DOMContentLoaded", function () {
         '84': () => fetchData8(2),
         'h1': () => {
             fetchDataH(4);
-            bread.textContent = "> 단양힐링";
-            title.textContent = "단양힐링";
-            bottomTitle.textContent = "단양에서 힐링하는 또다른 방법은?";
         },
         'h2': () => {
             fetchDataH(2);
-            bread.textContent = "> 단양힐링";
-            title.textContent = "단양힐링";
-            bottomTitle.textContent = "단양에서 힐링하는 또다른 방법은?";
         },
         'h3': () => {
             fetchDataH(0);
-            bread.textContent = "> 단양힐링";
-            title.textContent = "단양힐링";
-            bottomTitle.textContent = "단양에서 힐링하는 또다른 방법은?";
         },
         'h4': () => {
             fetchDataH(1);
-            bread.textContent = "> 단양힐링";
-            title.textContent = "단양힐링";
-            bottomTitle.textContent = "단양에서 힐링하는 또다른 방법은?";
         },
         'a1': () => {
             fetchDataA(0);
-            bread.textContent = "> 단양체험";
-            title.textContent = "단양체험";
-            bottomTitle.textContent = "단양 체험 장소 더 알아보기";
         },
         'a2': () => {
             fetchDataA(3);
-            bread.textContent = "> 단양체험";
-            title.textContent = "단양체험";
-            bottomTitle.textContent = "단양 체험 장소 더 알아보기";
         },
         'a3': () => {
             fetchDataA(4);
-            bread.textContent = "> 단양체험";
-            title.textContent = "단양체험";
-            bottomTitle.textContent = "단양 체험 장소 더 알아보기";
         },
         'a4': () => {
             fetchDataA(5);
-            bread.textContent = "> 단양체험";
-            title.textContent = "단양체험";
-            bottomTitle.textContent = "단양 체험 장소 더 알아보기";
         },
         'he1': () => {
             fetchDataHe(0);
-            bread.textContent = "> 문화재";
-            title.textContent = "문화재";
-            bottomTitle.textContent = "단양 문화재 더 알아보기";
         },
         'he2': () => {
             fetchDataHe(2);
-            bread.textContent = "> 문화재";
-            title.textContent = "문화재";
-            bottomTitle.textContent = "단양 문화재 더 알아보기";
         },
         'he3': () => {
             fetchDataHe(4);
-            bread.textContent = "> 문화재";
-            title.textContent = "문화재";
-            bottomTitle.textContent = "단양 문화재 더 알아보기";
         },
-        'default': () => {
+        'he4': () => {
             fetchDataHe(1);
-            bread.textContent = "> 문화재";
-            title.textContent = "문화재";
-            bottomTitle.textContent = "단양 문화재 더 알아보기";
         }
     };
-    (fetchActions[fetchType] || fetchActions['default'])();
+    (fetchActions[fetchType] || fetchActions['81'])();
 });
 
 // 브래드스크럼에서 홈 누르면 tour.html로 이동
