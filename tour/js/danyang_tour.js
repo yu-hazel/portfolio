@@ -2,13 +2,11 @@
 
 // 메인 gnb 배경 색 변경
 document.getElementById("header").addEventListener("mouseover", function() {
-    this.style.backgroundColor = "#fff"; // 호버 시 배경색 변경
-
-    let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon'); // .headerGroup01 클래스 하위의 모든 a 태그 선택
+    this.style.backgroundColor = "#fff";
+    let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
     links.forEach(function(link) {
-        link.style.color = "#000"; // 링크 텍스트 색상 변경
+        link.style.color = "#000";
     });
-
     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search_black.png")';
     
 });
@@ -21,7 +19,6 @@ document.getElementById("header").addEventListener("mouseout", function() {
     });
     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search.png")';
 });
-
 
 // language 드롭다운
 document.getElementById('lang').addEventListener('click', function() {
@@ -96,7 +93,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
 // sec02 테마여행 탭구조
 let themeBt = document.querySelectorAll(".themeSelect a");
 let themeContent = document.querySelectorAll(".themeContent .swiper.theme");
@@ -140,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 // sec03 캠핑장 예약 버튼 클릭시 링크 이동
 const cheondongUrl = 'https://mirihae.com/dytc/camping/V39628874';
 const daegangUrl = 'https://mirihae.com/dytc/camping/Y88593737';
@@ -160,7 +155,6 @@ Object.keys(campingBtUrls).forEach(id => {
     });
 });
 
-
 // SNS 탭구조
 let snsBt = document.querySelectorAll(".snsSelect div");
 let snsContent = document.querySelectorAll(".snsContents .con");
@@ -175,7 +169,6 @@ snsBt.forEach((eachBt, index) => {
     })
 })
 snsBt[0].click();
-
 
 // footer 드롭다운
 let serviceBt = document.querySelectorAll(".serviceBox div");

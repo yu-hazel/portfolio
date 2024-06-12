@@ -1,14 +1,11 @@
 // 메인 gnb
 document.getElementById("header").addEventListener("mouseover", function() {
-    this.style.backgroundColor = "#fff"; // 호버 시 배경색 변경
-
-    let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon'); // .headerGroup01 클래스 하위의 모든 a 태그 선택
+    this.style.backgroundColor = "#fff";
+    let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
     links.forEach(function(link) {
-        link.style.color = "#000"; // 링크 텍스트 색상 변경
+        link.style.color = "#000";
     });
-
     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search_black.png")';
-    
 });
 
 document.getElementById("header").addEventListener("mouseout", function() {
@@ -31,7 +28,6 @@ document.getElementById('lang').addEventListener('click', function() {
         }
     }
 })
-
 
 // 하단 캐러셀
 var swiper = new Swiper(".tourCards", {
@@ -170,7 +166,7 @@ async function fetchDataHe(index=0) {
 }
 // fetchDataHe();
 
-// tour.html sec02에서 각 카드 눌렀을 때 해당하는 sub.html로 이동 + 브래드스크럼 조절
+// tour.html sec02에서 각 카드 눌렀을 때 해당하는 함수 호출 + 브래드스크럼 조절
 document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const fetchType = urlParams.get('fetch');
@@ -180,42 +176,18 @@ document.addEventListener("DOMContentLoaded", function () {
         '82': () => fetchData8(1),
         '83': () => fetchData8(3),
         '84': () => fetchData8(2),
-        'h1': () => {
-            fetchDataH(4);
-        },
-        'h2': () => {
-            fetchDataH(2);
-        },
-        'h3': () => {
-            fetchDataH(0);
-        },
-        'h4': () => {
-            fetchDataH(1);
-        },
-        'a1': () => {
-            fetchDataA(0);
-        },
-        'a2': () => {
-            fetchDataA(3);
-        },
-        'a3': () => {
-            fetchDataA(4);
-        },
-        'a4': () => {
-            fetchDataA(5);
-        },
-        'he1': () => {
-            fetchDataHe(0);
-        },
-        'he2': () => {
-            fetchDataHe(2);
-        },
-        'he3': () => {
-            fetchDataHe(4);
-        },
-        'he4': () => {
-            fetchDataHe(1);
-        }
+        'h1': () => {fetchDataH(4);},
+        'h2': () => {fetchDataH(2);},
+        'h3': () => {fetchDataH(0);},
+        'h4': () => {fetchDataH(1);},
+        'a1': () => {fetchDataA(0);},
+        'a2': () => {fetchDataA(3);},
+        'a3': () => {fetchDataA(4);},
+        'a4': () => {fetchDataA(5);},
+        'he1': () => {fetchDataHe(0);},
+        'he2': () => {fetchDataHe(2);},
+        'he3': () => {fetchDataHe(4);},
+        'he4': () => {fetchDataHe(1);}
     };
     (fetchActions[fetchType] || fetchActions['81'])();
 });
