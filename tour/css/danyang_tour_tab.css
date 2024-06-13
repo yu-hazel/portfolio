@@ -1,2 +1,261 @@
 @charset "UTF-8";
 /* 단양관광 tab css */
+
+/* @media (max-width: 1240px) {
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+} */
+body {
+    min-width: 769px;
+}
+.title h2 {
+    font-size: 32px;
+}
+.title span {
+    font-size: 16px;
+}
+.sec01 header {
+    padding: 10px 25px;
+}
+.sec01 .logo {
+    font-size: 24px;
+    margin-left: 30px;
+}
+.sec01 .logo::before {
+    width: 65px;
+    height: 60px;
+    top: -20px;
+    left: -65px;
+}
+.sec01 nav {
+    padding: 0 15px;
+    height: 65px;
+}
+.sec01 .gnb {
+    display: none;
+}
+.sec01 .gnb.on > li > a {
+    color: #fff !important;
+}
+.sec01 .gnb.on {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    /* border-bottom-right-radius: 200%; */
+    background-color: #196CB9;
+}
+.sec01 .gnb.on .fa-xmark {
+    display: block;
+    color: #fff;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 28px;
+}
+.sec01 .gnb.on > li {
+    height: auto;
+    flex-direction: column;
+    flex: 0 1 auto;
+    transition: 0.3s;
+}
+.sec01 .gnb > li > a:hover {
+    color: #fff !important;
+}
+.gnb.on > li:hover > #close:hover ~ .gnbDropdown {
+    display: none;
+}
+/* .gnb.on > li:hover > .gnbDropdown { */
+.gnb.on > li:hover > .gnbDropdown {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: 0;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: fit-content;
+    gap: 20px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 20px;
+    top: 20px;
+}
+.sec01 .gnb .gnbDropdown > li {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    gap: 20px;
+    background-color: transparent;
+    font-weight: 500;
+    color: #fff;
+}
+.sec01 .gnb .gnbDropdown > li a {
+    color: #fff;
+}
+.gnbDropdown > li.slow > ul {
+    position: relative;
+    top: 0;
+}
+.sec01 .gnbDropdown .slow li {
+    color: #e2e2e2;
+    font-weight: 300;
+}
+/* .sec01 .searchIcon {
+    display: none;
+} */
+.swiper.main {
+    height: 397px;
+}
+.main .swiper-slide .sliderContent {
+    margin: 0 20px 20px 0;
+}
+.main .swiper-slide .sliderContent p:first-of-type {
+    font-size: 12px;
+}
+.main .swiper-slide .sliderContent p:nth-of-type(2) {
+    font-size: 30px;
+}
+.main .swiper-slide .sliderContent p:last-of-type {
+    font-size: 24px;
+}
+.sec01 .searchIcon {
+    width: 40px;
+    height: 40px;
+    background: url(/portfolio/tour/img/search_hamburger.png) no-repeat;
+    background-size: cover;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.sec01 .searchIcon:hover {
+    width: 40px;
+    height: 40px;
+    background: url(/portfolio/tour/img/search_hamburger.png) no-repeat !important;
+    background-size: cover !important;
+}
+.sec02 {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    gap: 0;
+    padding: 50px 0;
+}
+.sec02 > div {
+    gap: 15px;
+}
+.sec02::before {
+    width: 40%;
+    height: 40%;
+    left: 30px;
+}
+.sec02 .themeSelect {
+    justify-content: center;
+}
+.sec02 div.quickMenu {
+    display: none;
+}
+.sec02 .title {
+    justify-content: center;
+    align-items: center;
+}
+.themeContent {
+    width: 100vw;
+}
+.themeText p:first-of-type {
+    font-size: 16px;
+}
+.themeContent .swiper.theme.on {
+    width: 80%;
+}
+.theme .swiper-slide {
+    margin-right: 0 !important;
+}
+.theme .swiper-slide img {
+    width: 213px;
+    height: 247px;
+}
+.theme .swiper-slide:nth-of-type(2),
+.theme .swiper-slide:last-of-type {
+    margin-right: 0;
+}
+.sec03 {
+    width: 100vw;
+    height: 800px;
+    gap: 20px;
+    padding: 50px 0;
+}
+.sec03::before {
+    right: 0;
+}
+.swiper.camping {
+    height: 100%;
+}
+.camping .swiper-slide {
+    flex-direction: column;
+    /* width: 80% !important; */
+    gap: 25px;
+}
+.camping .swiper-button-prev,
+.camping .swiper-button-next {
+    display: none;
+}
+.camping[data-aos^=fade][data-aos^=fade].aos-animate {
+    height: 650px;
+}
+.camping .swiper-slide img {
+    width: 80%;
+    height: 376px;
+}
+.camping .campInfo .hashtag span {
+    font-size: 14px;
+}
+.camping .campInfo {
+    width: 80%;
+}
+.camping .campTitle p {
+    font-size: 18px;
+}
+.camping .campInfo .campTitle h4 {
+    font-size: 28px;
+}
+.camping .campInfo .campLoc {
+    font-size: 16px;
+}
+.sec04 {
+    height: auto;
+    padding: 50px 0;
+    gap: 30px;
+}
+.sec04::before {
+    display: none;
+}
+/* .sec04[data-aos^=fade][data-aos^=fade].aos-animate {
+    height: auto;
+    padding: 50px 0;
+    gap: 30px;
+    gap: 30px;
+} */
+.snsContents .con > div {
+    width: 314px;
+    height: 314px;
+}
+.snsContents .con.on {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+footer {
+    width: 100vw;
+}
+.linkList a,
+.textArea {
+    font-size: 13px;
+}

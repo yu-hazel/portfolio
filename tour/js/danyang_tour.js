@@ -1,24 +1,86 @@
 // 단양관광 js
 
 // 메인 gnb 배경 색 변경
-document.getElementById("header").addEventListener("mouseover", function() {
+// document.getElementById("header").addEventListener("mouseover", function() {
+//     this.style.backgroundColor = "#fff";
+//     let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
+//     links.forEach(function(link) {
+//         link.style.color = "#000";
+//     });
+//     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search_black.png")';    
+// });
+
+// document.getElementById("header").addEventListener("mouseout", function() {
+//     this.style.backgroundColor = "rgba(0, 0, 0, 0)";
+//     let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
+//     links.forEach(function(link) {
+//         link.style.color = "#fff";
+//     });
+//     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search.png")';
+// });
+
+// AOS 제어
+function initializeAOS() {
+    if (window.innerWidth < 1240) {
+        AOS.init({
+            disable: true
+        });
+    } else {
+        AOS.init({
+            disable: false
+        });
+    }
+}
+// 초기 로드 시 실행
+initializeAOS();
+// 화면 크기가 변경될 때마다 실행
+window.addEventListener('resize', function() {
+    // AOS를 재초기화하기 전에 AOS 인스턴스 제거
+    AOS.refreshHard();
+    initializeAOS();
+});
+
+
+// 메인 gnb 배경 색 변경, (width 1240px~)
+function updateHeaderStyles() {
+    if (window.innerWidth >= 1240) {
+        document.getElementById("header").addEventListener("mouseover", mouseOverHandler);
+        document.getElementById("header").addEventListener("mouseout", mouseOutHandler);
+    } else {
+        document.getElementById("header").removeEventListener("mouseover", mouseOverHandler);
+        document.getElementById("header").removeEventListener("mouseout", mouseOutHandler);
+    }
+}
+function mouseOverHandler() {
     this.style.backgroundColor = "#fff";
     let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
     links.forEach(function(link) {
         link.style.color = "#000";
     });
     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search_black.png")';
-    
-});
-
-document.getElementById("header").addEventListener("mouseout", function() {
+}
+function mouseOutHandler() {
     this.style.backgroundColor = "rgba(0, 0, 0, 0)";
     let links = this.querySelectorAll('.headerGroup01 a, .headerGroup02 a, .langSelect, .logo, .gnb > li > a, .searchIcon');
     links.forEach(function(link) {
         link.style.color = "#fff";
     });
     document.querySelector('.searchIcon').style.backgroundImage = 'url("/portfolio/tour/img/search.png")';
-});
+}
+// 초기 로드 시 실행
+updateHeaderStyles();
+// 윈도우 리사이즈 시 실행
+window.addEventListener('resize', updateHeaderStyles);
+
+
+// tab) searchIcon 클릭시 메뉴 노출, close 클릭시 메뉴 사라짐
+document.getElementById('searchIcon').addEventListener('click', function(){
+    document.getElementById('gnb').classList.add('on');
+})
+document.getElementById('close').addEventListener('click', ()=>{
+    document.getElementById('gnb').classList.remove('on');
+})
+
 
 // language 드롭다운
 document.getElementById('lang').addEventListener('click', function() {
@@ -31,6 +93,7 @@ document.getElementById('lang').addEventListener('click', function() {
         }
     }
 })
+
 
 // swiper js 모음
 var swiper = new Swiper(".main", {
@@ -57,6 +120,20 @@ var swiper = new Swiper(".theme", {
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
+    },
+    breakpoints: {
+        770: {
+            slidesPerView: 2.3,
+            // spaceBetween: 30,
+        },
+        920: {
+            slidesPerView: 3,
+            // spaceBetween: 30,
+        },
+        1240: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+        }
     },
 });
 

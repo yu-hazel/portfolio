@@ -221,6 +221,9 @@ li {
 .sec01 .searchIcon:hover {
     background: url(/portfolio/tour/img/search_hover.png) !important;
 }
+.sec01 .gnb .fa-xmark {
+    display: none;
+}
 /* swiper main */
 .swiper.main {
     width: 100%;

@@ -41,8 +41,9 @@
             </div>
             <nav>
                 <div class="logo">단양군 문화관광</div>
-                <ul class="gnb">
+                <ul class="gnb" id="gnb">
                     <li>
+                        <i class="fa-solid fa-xmark" id="close"></i>
                         <a href="#">여행꾸러미</a>
                         <ul class="gnbDropdown">
                             <li class="slow">
@@ -112,7 +113,7 @@
                         </ul>
                     </li>
                 </ul>
-                <i class="searchIcon"></i>
+                <i class="searchIcon" id="searchIcon"></i>
             </nav>
         </header>
         <div class="swiper main">
@@ -555,6 +556,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+        initializeAOS();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/portfolio/tour/js/danyang_tour.js"></script>
