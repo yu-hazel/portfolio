@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/portfolio/tour/css/danyang_sub.css">
+    <link rel="stylesheet" media="all and (max-width:1240px)" href="/portfolio/tour/css/danyang_sub_tab.css">
+    <link rel="stylesheet" media="all and (max-width:770px)" href="/portfolio/tour/css/danyang_sub_mo.css">
 </head>
 
 <body>
@@ -39,8 +41,9 @@
             </div>
             <nav>
                 <div class="logo"><a href="danyang_tour.html">단양군 문화관광</a></div>
-                <ul class="gnb">
+                <ul class="gnb" id="gnb">
                     <li>
+                        <i class="fa-solid fa-xmark" id="close"></i>
                         <a href="#">여행꾸러미</a>
                         <ul class="gnbDropdown">
                             <li class="slow">
@@ -110,7 +113,7 @@
                         </ul>
                     </li>
                 </ul>
-                <i class="searchIcon"></i>
+                <i class="searchIcon" id="searchIcon"></i>
             </nav>
         </div>
         <h2 id="subTitle">단양팔경</h2>

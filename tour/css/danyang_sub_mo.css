@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/* 단양관광 sub mobile css */
+
+.sec01 {
+    height: 30vh;
+    width: 100vw;
+}
+.sec01 #header {
+    width: 100vw;
+    padding: 10px 20px;
+}
+.sec01 .headerGroup01, .sec01 .headerGroup02 {
+    display: none;
+}
+.sec01 nav {
+    height: 20px;
+    padding: 0;
+}
+.sec01 .logo {
+    font-size: 16px;
+    margin-left: 20px;
+}
+.sec01 .logo::before {
+    width: 30px;
+    height: 35px;
+    top: -10px;
+    left: -35px;
+}
+.sec01 .searchIcon {
+    width: 30px;
+    height: 30px;
+}
+#close {
+    display: none;
+}
+#subTitle {
+    font-size: 32px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0;
+}
+#bread p {
+    width: 100vw;
+    padding: 10px 10px 20px 0;
+}
+#bread span,
+#bread i {
+    font-size: 12px;
+}
+.topSec {
+    padding: 0 20px;
+    width: 100vw;
+    gap: 20px;
+}
+.topSec .tourName {
+    font-size: 24px;
+}
+.topSec .tourLocat {
+    font-size: 12px;
+}
+.tourLocat + p {
+    font-size: 16px;
+}
+.tourLocat + p:before {
+    width: 43px;
+    height: 1px;
+}
+.tourWrapper {
+    width: 100vw;
+    padding: 0 10px;
+    gap: 15px;
+}
+.tourDetail {
+    font-size: 12px;
+}
+.topSec img {
+    width: 100%;
+    height: 80%;
+}
+#learnMore {
+    font-size: 12px;
+}
+.bottomSec {
+    width: 100vw;
+}
+#bottomTitle {
+    font-size: 20px;
+}
+.swiper-horizontal {
+    width: 100vw;
+    /* height: 120px; */
+}
+.tourCards img {
+    width: 195px;
+    height: 100px;
+}
+.tourCards .swiper-slide {
+    height: auto;
+}
+.swiper-button-next, .swiper-button-prev {
+    width: 10px;
+    display: none;
+}
+footer {
+    width: 100vw;
+}
+.serviceBox {
+    gap: 5px;
+}
+.serviceBox div {
+    font-size: 10px;
+    gap: 3px;
+    width: 80px;
+}
+.serviceBox li {
+    font-size: 12px;
+}
+.linkList {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.linkList a {
+    font-size: 10px;
+}
+.textArea {
+    padding: 0 5px;
+    gap: 5px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.textArea div:first-of-type {
+    text-align: center;
+}

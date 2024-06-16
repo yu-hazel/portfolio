@@ -80,6 +80,9 @@ body {
     position: relative;
     cursor: pointer;
 }
+#close {
+    display: none;
+}
 .sec01 .langSelect .langMenu {
     display: none;
     flex-direction: column;
