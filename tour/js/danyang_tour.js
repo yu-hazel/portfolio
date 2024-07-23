@@ -122,6 +122,12 @@ var swiper = new Swiper(".theme", {
         clickable: true,
     },
     breakpoints: {
+        320: {
+            slidesPerView: 1.2,
+        },
+        458: {
+            slidesPerView: 1.5,
+        },
         770: {
             slidesPerView: 2.3,
             // spaceBetween: 30,

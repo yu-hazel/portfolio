@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* 단양관광 mobile css */
+
+body {
+    min-width: 320px;
+}
+.sec01 .headerGroup01,
+.sec01 .headerGroup02 {
+    display: none;
+}
+.sec01,
+.swiper.main {
+    width: 100vw;
+}
+.sec01 .logo {
+    font-size: 20px;
+}
+.main .swiper-slide .sliderContent p:nth-of-type(2) {
+    font-size: 24px;
+}
+.main .swiper-slide .sliderContent p:last-of-type {
+    font-size: 16px;
+}
+.sec02 .themeSelect {
+    flex-wrap: wrap;
+}
+.sec02 .themeSelect a {
+    width: 80px;
+    height: 80px;
+    font-size: 16px;
+}
+.camping .swiper-slide img {
+    width: 100%;
+    height: 150px;
+}
+.sec03 {
+    height: 100%;
+}
+.swiper.camping {
+    height: 55%;
+}
+.camping .campInfo {
+    width: 100%;
+}
+.camping .campTitle p {
+    font-size: 14px;
+}
+.snsContents .con > div {
+    width: 150px;
+    height: 150px;
+}
+/* .snsSelect .sns {
+    width: 60px;
+    height: 73px;
+} */
+.sec04 .snsSelect {
+    gap: 10px;
+}
+.serviceBox {
+    display: none;
+    gap: 0px;
+}
+.serviceBox div {
+    font-size: 12px;
+}
+.linkList,
+.textArea,
+.textArea div {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
